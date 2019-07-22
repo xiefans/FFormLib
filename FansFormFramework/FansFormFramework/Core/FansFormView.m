@@ -9,6 +9,7 @@
 #import "FansFormView.h"
 #import "FansFormTool.h"
 #import "FansFormManager.h"
+#import "FansFormItemConstant.h"
 @interface FansFormView ()
 
 @property (nonatomic, strong) id<FansFormManagerInterface> manager;
@@ -20,7 +21,9 @@
 
 @implementation FansFormView
 
+@synthesize getSizeBlock = _getSizeBlock;
 @synthesize refreshBlock = _refreshBlock;
+@synthesize must = _must;
 
 #pragma mark - Overrides
 - (void)layoutSubviews {
@@ -32,19 +35,26 @@
     [_layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         __strong typeof(weakSelf)self = weakSelf;
         
-        UIView<FansFormItemViewInterface> *itemView = obj.contentView;
+        UIView *itemView = obj.contentView;
         
         if (!itemView.superview) {
             [self.scrollView addSubview:itemView];
         }
+        
+        CGFloat height = FansFormItemNormalHeight - self.insets.top - self.insets.bottom;
+        CGFloat width = self.scrollView.fans_width - self.insets.left - self.insets.right;
+        if (obj.getSizeBlock) {
+            obj.getSizeBlock(obj, &width, &height);
+        }
+        
         
         switch (self.direction) {
             case FansFormContainerArrangeVerticalDirection:
                 itemView.frame = CGRectMake(
                                             self.insets.left,
                                             lastView ? lastView.fans_bottom : self.insets.top,
-                                            self.scrollView.fans_width - self.insets.left - self.insets.right,
-                                            itemView.getLayoutSize.height
+                                            width,
+                                            obj.isShow ? height : 0.f
                                             );
                 break;
             
@@ -52,8 +62,8 @@
                 itemView.frame = CGRectMake(
                                             lastView ? lastView.fans_right : self.insets.left,
                                             self.insets.top,
-                                            itemView.getLayoutSize.width,
-                                            self.scrollView.fans_height - self.insets.top - self.insets.bottom
+                                            obj.isShow ? width : 0.f,
+                                            height
                                             );
                 break;
         }
@@ -132,120 +142,24 @@
     [self fans_sizeToFit];
 }
 
+- (NSArray<FansFormItemInterface> *)subItems {
+    return (NSArray<FansFormItemInterface> *)self.layoutItems;
+}
+
 #pragma mark <FansFormManagerInterface>
 - (id<FansFormItemInterface>)itemForKey:(NSString *)key {
     return [_manager itemForKey:key];
 }
 
-- (void)setShowContent:(NSString *)content forItemKey:(NSString *)itemKey {
-    [_manager setShowContent:content forItemKey:itemKey];
+- (NSString *)toJSONString {
+    return [_manager toJSONString];
 }
 
-- (NSString *)showContentForItemkey:(NSString *)itemKey {
-    return [_manager showContentForItemkey:itemKey];
+- (NSDictionary *)toDictionary {
+    return [_manager toDictionary];
 }
 
-- (void)setRequestContent:(NSString *)requestContent forItemkey:(NSString *)itemKey {
-    [_manager setRequestContent:requestContent forItemkey:itemKey];
-}
-
-- (NSString *)requestContentForItemkey:(NSString *)itemKey {
-    return [_manager requestContentForItemkey:itemKey];
-}
-
-- (void)addParam:(id)param key:(NSString *)key forItemKey:(NSString *)itemKey {
-    [_manager addParam:param key:key forItemKey:itemKey];
-}
-
-- (NSDictionary *)paramsForItemKey:(NSString *)itemKey {
-    return [_manager paramsForItemKey:itemKey];
-}
-
-- (void)noEditForItemKey:(NSString *)itemKey {
-    [_manager noEditForItemKey:itemKey];
-    
-    [self fans_sizeToFit];
-}
-
-- (void)editForItemKey:(NSString *)itemKey {
-    [_manager editForItemKey:itemKey];
-    
-    [self fans_sizeToFit];
-}
-
-- (void)showForKey:(NSString *)itemKey {
-    [_manager showForKey:itemKey];
-    
-    [self fans_sizeToFit];
-}
-
-- (void)hideForKey:(NSString *)itemKey {
-    [_manager hideForKey:itemKey];
-    
-    [self fans_sizeToFit];
-}
-
-#pragma mark <FansFormManagerInterface>
-- (NSString *)key {
-    return nil;
-}
-
-- (void)setRequestContent:(NSString *)requestContent {
-    
-}
-
-- (NSString *)requestContent {
-    return nil;
-}
-
-- (void)setShowContent:(NSString *)content {
-    
-}
-
-- (NSString *)showContent {
-    return nil;
-}
-
-- (void)addParam:(id)param key:(NSString *)key {
-    
-}
-
-- (NSDictionary *)params {
-    return nil;
-}
-
-- (UIView<FansFormItemViewInterface> *)contentView {
-    return self;
-}
-
-- (void)noEdit {
-    
-}
-
-- (void)edit {
-    
-}
-
-- (BOOL)isEdit {
-    return YES;
-}
-
-- (void)show {
-    
-}
-
-- (void)hide {
-    
-}
-
-- (BOOL)isShow {
-    return YES;
-}
-
-#pragma mark <FansFormItemViewInterface>
-- (CGSize)getLayoutSize {
-    return self.fans_size;
-}
+#pragma mark <FansFormItemInterface>
 
 
 #pragma mark - Lazy Load
@@ -259,5 +173,81 @@
     }
     return _scrollView;
 }
+
+
+- (void)addParam:(id)param key:(NSString *)key {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj addParam:param key:key];
+    }];
+}
+
+- (UIView *)contentView {
+    return self;
+}
+
+- (void)edit {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj edit];
+    }];
+}
+
+- (void)hide {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj hide];
+    }];
+}
+
+- (BOOL)isEdit {
+    return YES;
+}
+
+- (BOOL)isShow {
+    return YES;
+}
+
+- (NSString *)key {
+    return @"";
+}
+
+- (void)noEdit {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj noEdit];
+    }];
+}
+
+- (NSDictionary *)params {
+    return nil;
+}
+
+- (NSString *)requestContent {
+    return nil;
+}
+
+- (void)setRequestContent:(NSString *)requestContent {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setRequestContent:requestContent];
+    }];
+}
+
+- (void)setShowContent:(NSString *)content {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setShowContent:content];
+    }];
+}
+
+- (void)show {
+    [self.layoutItems enumerateObjectsUsingBlock:^(id<FansFormItemInterface>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj show];
+    }];
+}
+
+- (NSString *)showContent {
+    return nil;
+}
+
+- (NSString *)title {
+    return nil;
+}
+
 
 @end

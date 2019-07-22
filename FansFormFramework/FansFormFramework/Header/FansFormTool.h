@@ -10,5 +10,7 @@
 #define FansFormTool_h
 
 #import "UIView+FansFrame.h"
+#import "UIColor+FansColor.h"
+#import "NSString+FansAttributed.h"
 
 #endif /* FansFormTool_h */

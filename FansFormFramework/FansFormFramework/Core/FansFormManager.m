@@ -43,67 +43,24 @@ static BOOL const kIsLogInCommandLine = NO;
     [self.itemMap setObject:item forKey:item.key];
 }
 
-- (void)setShowContent:(NSString *)content forItemKey:(NSString *)itemKey {
-    [self itemForKey:itemKey].showContent = content;
+- (NSString *)toJSONString {
+    NSDictionary *dict = [self toDictionary];
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+    
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-- (NSString *)showContentForItemkey:(NSString *)itemKey {
-    return [self itemForKey:itemKey].showContent;
-}
-
-- (void)setRequestContent:(NSString *)requestContent forItemkey:(NSString *)itemKey {
-    [self itemForKey:itemKey].requestContent = requestContent;
-}
-
-- (NSString *)requestContentForItemkey:(NSString *)itemKey {
-    return [self itemForKey:itemKey].requestContent;
-}
-
-- (void)addParam:(id)param key:(NSString *)key forItemKey:(NSString *)itemKey {
-    [[self itemForKey:itemKey] addParam:param key:key];
-}
-
-- (NSDictionary *)paramsForItemKey:(NSString *)itemKey {
-    return [self itemForKey:itemKey].params;
-}
-
-- (void)noEditForItemKey:(NSString *)itemKey {
-    id<FansFormItemInterface> item = [self itemForKey:itemKey];
-    if (item.isEdit) {
-        [item noEdit];
-    } else if (kIsLogInCommandLine) {
-        NSLog(@"%@： Item(key : %@) Already noEdit",self.class, itemKey);
-    }
-}
-
-- (void)editForItemKey:(NSString *)itemKey {
-    id<FansFormItemInterface> item = [self itemForKey:itemKey];
-    if (!item.isEdit) {
-        [item edit];
-    } else if (kIsLogInCommandLine) {
-        NSLog(@"%@： Item(key : %@) Already edit",self.class, itemKey);
-    }
-}
-
-- (void)showForKey:(NSString *)itemKey {
-    id<FansFormItemInterface> item = [self itemForKey:itemKey];
-    if (!item.isShow) {
-        [item show];
+- (NSDictionary *)toDictionary {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    
+    [self.itemMap enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id<FansFormItemInterface>  _Nonnull obj, BOOL * _Nonnull stop) {
         
-    } else if (kIsLogInCommandLine) {
-        NSLog(@"%@： Item(key : %@) Already shown",self.class, itemKey);
-    }
+        [dict setObject:obj.requestContent forKey:key];
+    }];
+    
+    return dict;
 }
-
-- (void)hideForKey:(NSString *)itemKey {
-    id<FansFormItemInterface> item = [self itemForKey:itemKey];
-    if (item.isShow) {
-        [item hide];
-    } else if (kIsLogInCommandLine) {
-        NSLog(@"%@： Item(key : %@) Already hidden",self.class, itemKey);
-    }
-}
-
 
 #pragma mark - Lazy Load
 - (NSMutableDictionary *)itemMap {

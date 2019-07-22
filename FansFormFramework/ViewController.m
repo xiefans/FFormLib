@@ -34,7 +34,7 @@
     
     [baseView addItem:[FansInputItem itemWithTitle:@"测试1"
                                        placeholder:@"没有"
-                                            forKey:@"param1"]];
+                                            forKey:@"param1"].changeToMust];
     
     [baseView addItem:[FansInputItem itemWithTitle:@"测试2"
                                        placeholder:@"没有2"
@@ -53,7 +53,7 @@
 }
 
 - (void)action {
-    [_baseView noEditForItemKey:@"param3"];
+    NSLog(@"dict :%@ \n json : %@",_baseView.toDictionary,_baseView.toJSONString);
 }
 
 

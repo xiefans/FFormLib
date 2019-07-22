@@ -9,24 +9,19 @@
 #import "FansInputView.h"
 #import "FansFormTool.h"
 #import "FansFormItemConstant.h"
-@implementation FansInputView {
-    CGSize _showSize;
-}
+@implementation FansInputView
 
 @synthesize titleLb = _titleLb;
-@synthesize textView = _textView;
+@synthesize textField = _textField;
+@synthesize lineView = _lineView;
 
 #pragma mark - Overrides
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self addSubview:self.titleLb];
-        [self addSubview:self.textView];
-        
-        _showSize = CGSizeMake(
-                               [UIApplication sharedApplication].delegate.window.fans_width,
-                               FansFormItemNormalHeight
-                               );
+        [self addSubview:self.textField];
+        [self addSubview:self.lineView];
         
         _show = YES;
     }
@@ -37,16 +32,23 @@
     CGFloat gap = 3.f;
     CGFloat height = MIN(FansFormItemNormalHeight, self.fans_height - gap * 2);
     self.titleLb.frame = CGRectMake(
-                                    0,
+                                    FansFormItemHorizontalNormalGap,
                                     gap,
                                     FansFormItemTitleNormalWidth,
                                     height
                                     );
-    self.textView.frame = CGRectMake(
+    self.textField.frame = CGRectMake(
                                      self.titleLb.fans_right + FansFormItemHorizontalNormalGap,
                                      gap,
                                      self.fans_width - (self.titleLb.fans_right + FansFormItemHorizontalNormalGap),
                                      height
+                                     );
+    CGFloat lineWidth = 0.5f;
+    self.lineView.frame = CGRectMake(
+                                     0,
+                                     self.fans_height - lineWidth,
+                                     self.fans_width,
+                                     lineWidth
                                      );
 }
 
@@ -54,25 +56,7 @@
 - (void)setShow:(BOOL)show {
     _show = show;
     
-    if (show) {
-        _showSize = CGSizeMake(
-                               [UIApplication sharedApplication].delegate.window.fans_width,
-                               FansFormItemNormalHeight
-                               );
-    } else {
-        _showSize = CGSizeMake(
-                               0,
-                               0
-                               );
-    }
-    
     self.hidden = !show;
-}
-
-#pragma mark - Protocol
-#pragma mark <FansFormItemViewInterface>
-- (CGSize)getLayoutSize {
-    return _showSize;
 }
 
 
@@ -80,21 +64,29 @@
 - (UILabel *)titleLb {
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
-        _titleLb.textColor = [UIColor lightGrayColor];
+        _titleLb.textColor = [UIColor fans_colorWithHexValue:FansFormItemTitleNoramlColor];
         _titleLb.font = [UIFont systemFontOfSize:15];
     }
     return _titleLb;
 }
 
-- (UITextView *)textView {
-    if (!_textView) {
-        _textView = [[UITextView alloc] init];
-        _textView.font = [UIFont systemFontOfSize:14];
-        _textView.textColor = [UIColor grayColor];
-        _textView.backgroundColor = [UIColor lightGrayColor];
+- (UITextField *)textField {
+    if (!_textField) {
+        _textField = [[UITextField alloc] init];
+        
+        _textField.font = [UIFont systemFontOfSize:15];
+        _textField.textColor = [UIColor fans_colorWithHexValue:FansFormItemValueNoramlColor];
+        _textField.textAlignment = NSTextAlignmentRight;
     }
-    return _textView;
+    return _textField;
 }
 
+- (UIView *)lineView {
+    if (!_lineView) {
+        _lineView = [UIView new];
+        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemLineNoramlColor];
+    }
+    return _lineView;
+}
 
 @end

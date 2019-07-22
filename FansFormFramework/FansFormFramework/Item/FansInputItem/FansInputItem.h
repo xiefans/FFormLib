@@ -7,12 +7,27 @@
 //
 
 #import "FansFormProtocol.h"
-NS_ASSUME_NONNULL_BEGIN
 
 @interface FansInputItem : NSObject<FansFormItemInterface>
 
-+ (instancetype)itemWithTitle:(NSString *)title placeholder:(NSString *)placeholder forKey:(NSString *)key;
++ (instancetype)itemWithTitle:(NSString *)title
+                  placeholder:(NSString *)placeholder
+                       forKey:(NSString *)key;
+
++ (instancetype)itemWithTitle:(NSString *)title
+                  placeholder:(NSString *)placeholder
+                       forKey:(NSString *)key
+                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock;
+
++ (instancetype)itemWithTitle:(NSString *)title
+                  placeholder:(NSString *)placeholder
+                       forKey:(NSString *)key
+                 keyboradType:(UIKeyboardType)keyboradType
+                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock;
+
+- (instancetype)changeToMust;
+
+@property (nonatomic, copy, readonly) NSString *title;
 
 @end
 
-NS_ASSUME_NONNULL_END

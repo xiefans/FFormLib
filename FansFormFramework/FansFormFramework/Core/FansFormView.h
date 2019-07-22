@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger , FansFormContainerArrangeDirection) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FansFormView : UIView<FansFormContainerInterface>
+@interface FansFormView : UIView<FansFormContainerInterface, FansFormItemInterface>
 
 + (instancetype)formView;
 + (instancetype)formViewWithDirection:(FansFormContainerArrangeDirection)direction;

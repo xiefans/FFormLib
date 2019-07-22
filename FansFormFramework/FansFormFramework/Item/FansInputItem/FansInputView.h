@@ -6,16 +6,16 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "FansFormProtocol.h"
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FansInputView : UIView<FansFormItemViewInterface>
+@interface FansInputView : UIView
 
 @property (nonatomic, assign, getter=isShow) BOOL show;
 
-@property (nonatomic, strong, readonly) UITextView *textView;
+@property (nonatomic, strong, readonly) UITextField *textField;
 @property (nonatomic, strong, readonly) UILabel *titleLb;
+@property (nonatomic, strong, readonly) UIView *lineView;
 
 @end
 

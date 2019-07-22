@@ -9,19 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#pragma mark - ItemView
-
-@protocol FansFormItemViewInterface <NSObject>
-
-/**
- 返回itemView在容器中的布局大小。  注意在容器中任何的x和y都没有作用，只会获取该size去设置大小
-
- @return 布局大小
- */
-- (CGSize)getLayoutSize;
-
-@end
-
 #pragma mark - Item
 /**
  如果实现该接口
@@ -31,6 +18,7 @@
  */
 @protocol FansFormItemInterface;
 typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
+typedef void(^FansFormItemGetSizeBlock)(id<FansFormItemInterface> item, CGFloat *width ,CGFloat *height);
 @protocol FansFormItemInterface <NSObject>
 
 #pragma mark Item<Base>
@@ -39,6 +27,23 @@ typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
  通知容器刷新UI的回调
  */
 @property (nonatomic, copy) FansFormItemRefreshBlock refreshBlock;
+
+/**
+ 获取view视图大小的回调
+ */
+@property (nonatomic, copy) FansFormItemGetSizeBlock getSizeBlock;
+
+/**
+ 必填
+ */
+@property (nonatomic, assign ,getter=isMust) BOOL must;
+
+/**
+ 标题，item的对用户展示的友好名称
+
+ @return 标题
+ */
+- (NSString *)title;
 
 /**
  获取item的key
@@ -98,7 +103,7 @@ typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
 
  @return 展示view
  */
-- (UIView<FansFormItemViewInterface> *)contentView;
+- (UIView *)contentView;
 
 - (void)noEdit;
 - (void)edit;
@@ -133,20 +138,9 @@ typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
  */
 - (id<FansFormItemInterface>)itemForKey:(NSString *)key;
 
-/**
- 以下方法是找到item之后，调用item的对应方法进行操作。和item里的接口一致
- */
-- (void)setShowContent:(NSString *)content forItemKey:(NSString *)itemKey;
-- (NSString *)showContentForItemkey:(NSString *)itemKey;
-- (void)setRequestContent:(NSString *)requestContent forItemkey:(NSString *)itemKey;
-- (NSString *)requestContentForItemkey:(NSString *)itemKey;
-- (void)addParam:(id)param key:(NSString *)key forItemKey:(NSString *)itemKey;
-- (NSDictionary *)paramsForItemKey:(NSString *)itemKey;
+- (NSString *)toJSONString;
+- (NSDictionary *)toDictionary;
 
-- (void)noEditForItemKey:(NSString *)itemKey;
-- (void)editForItemKey:(NSString *)itemKey;
-- (void)showForKey:(NSString *)itemKey;
-- (void)hideForKey:(NSString *)itemKey;
 
 @end
 
@@ -155,7 +149,7 @@ typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
  如果实现了这个接口
  则该对象是可以作为容器使用。可以添加其他的item
  */
-@protocol FansFormContainerInterface <FansFormItemInterface, FansFormManagerInterface ,FansFormItemViewInterface>
+@protocol FansFormContainerInterface <FansFormManagerInterface>
 
 /**
  创建一个带处理器的容器，可以处理item之间的逻辑
@@ -164,6 +158,13 @@ typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
  @return 容器
  */
 + (instancetype)containerWithManager:(id<FansFormManagerInterface>)manager;
+
+/**
+ 返回所有的item
+
+ @return item数组
+ */
+- (NSArray<FansFormItemInterface> *)subItems;
 
 @end
 
