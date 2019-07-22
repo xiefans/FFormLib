@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BED22E5571A001EDDFD /* AppDelegate.m */; };
+		CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BF022E5571A001EDDFD /* ViewController.m */; };
+		CE9C2BF422E5571A001EDDFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9C2BF222E5571A001EDDFD /* Main.storyboard */; };
+		CE9C2BF622E5571A001EDDFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9C2BF522E5571A001EDDFD /* Assets.xcassets */; };
+		CE9C2BF922E5571A001EDDFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9C2BF722E5571A001EDDFD /* LaunchScreen.storyboard */; };
+		CE9C2BFC22E5571A001EDDFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BFB22E5571A001EDDFD /* main.m */; };
+		CE9C2C0622E5571A001EDDFD /* FansFormFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C0522E5571A001EDDFD /* FansFormFrameworkTests.m */; };
+		CE9C2C1122E5571A001EDDFD /* FansFormFrameworkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C1022E5571A001EDDFD /* FansFormFrameworkUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE9C2C0222E5571A001EDDFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE9C2BE122E5571A001EDDFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9C2BE822E5571A001EDDFD;
+			remoteInfo = FansFormFramework;
+		};
+		CE9C2C0D22E5571A001EDDFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE9C2BE122E5571A001EDDFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9C2BE822E5571A001EDDFD;
+			remoteInfo = FansFormFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FansFormFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE9C2BED22E5571A001EDDFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CE9C2BEF22E5571A001EDDFD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CE9C2BF022E5571A001EDDFD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CE9C2BF322E5571A001EDDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE9C2BF522E5571A001EDDFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE9C2BF822E5571A001EDDFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE9C2BFA22E5571A001EDDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE9C2BFB22E5571A001EDDFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE9C2C0122E5571A001EDDFD /* FansFormFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FansFormFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE9C2C0522E5571A001EDDFD /* FansFormFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormFrameworkTests.m; sourceTree = "<group>"; };
+		CE9C2C0722E5571A001EDDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE9C2C0C22E5571A001EDDFD /* FansFormFrameworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FansFormFrameworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE9C2C1022E5571A001EDDFD /* FansFormFrameworkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormFrameworkUITests.m; sourceTree = "<group>"; };
+		CE9C2C1222E5571A001EDDFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE9C2BE622E5571A001EDDFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2BFE22E5571A001EDDFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2C0922E5571A001EDDFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE9C2BE022E5571A001EDDFD = {
+			isa = PBXGroup;
+			children = (
+				CE9C2BEB22E5571A001EDDFD /* FansFormFramework */,
+				CE9C2C0422E5571A001EDDFD /* FansFormFrameworkTests */,
+				CE9C2C0F22E5571A001EDDFD /* FansFormFrameworkUITests */,
+				CE9C2BEA22E5571A001EDDFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE9C2BEA22E5571A001EDDFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */,
+				CE9C2C0122E5571A001EDDFD /* FansFormFrameworkTests.xctest */,
+				CE9C2C0C22E5571A001EDDFD /* FansFormFrameworkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE9C2BEB22E5571A001EDDFD /* FansFormFramework */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
+				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
+				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
+				CE9C2BF022E5571A001EDDFD /* ViewController.m */,
+				CE9C2BF222E5571A001EDDFD /* Main.storyboard */,
+				CE9C2BF522E5571A001EDDFD /* Assets.xcassets */,
+				CE9C2BF722E5571A001EDDFD /* LaunchScreen.storyboard */,
+				CE9C2BFA22E5571A001EDDFD /* Info.plist */,
+				CE9C2BFB22E5571A001EDDFD /* main.m */,
+			);
+			path = FansFormFramework;
+			sourceTree = "<group>";
+		};
+		CE9C2C0422E5571A001EDDFD /* FansFormFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2C0522E5571A001EDDFD /* FansFormFrameworkTests.m */,
+				CE9C2C0722E5571A001EDDFD /* Info.plist */,
+			);
+			path = FansFormFrameworkTests;
+			sourceTree = "<group>";
+		};
+		CE9C2C0F22E5571A001EDDFD /* FansFormFrameworkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2C1022E5571A001EDDFD /* FansFormFrameworkUITests.m */,
+				CE9C2C1222E5571A001EDDFD /* Info.plist */,
+			);
+			path = FansFormFrameworkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE9C2BE822E5571A001EDDFD /* FansFormFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE9C2C1522E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFramework" */;
+			buildPhases = (
+				CE9C2BE522E5571A001EDDFD /* Sources */,
+				CE9C2BE622E5571A001EDDFD /* Frameworks */,
+				CE9C2BE722E5571A001EDDFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FansFormFramework;
+			productName = FansFormFramework;
+			productReference = CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE9C2C0022E5571A001EDDFD /* FansFormFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE9C2C1822E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFrameworkTests" */;
+			buildPhases = (
+				CE9C2BFD22E5571A001EDDFD /* Sources */,
+				CE9C2BFE22E5571A001EDDFD /* Frameworks */,
+				CE9C2BFF22E5571A001EDDFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE9C2C0322E5571A001EDDFD /* PBXTargetDependency */,
+			);
+			name = FansFormFrameworkTests;
+			productName = FansFormFrameworkTests;
+			productReference = CE9C2C0122E5571A001EDDFD /* FansFormFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE9C2C0B22E5571A001EDDFD /* FansFormFrameworkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE9C2C1B22E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFrameworkUITests" */;
+			buildPhases = (
+				CE9C2C0822E5571A001EDDFD /* Sources */,
+				CE9C2C0922E5571A001EDDFD /* Frameworks */,
+				CE9C2C0A22E5571A001EDDFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE9C2C0E22E5571A001EDDFD /* PBXTargetDependency */,
+			);
+			name = FansFormFrameworkUITests;
+			productName = FansFormFrameworkUITests;
+			productReference = CE9C2C0C22E5571A001EDDFD /* FansFormFrameworkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE9C2BE122E5571A001EDDFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "glority-fans";
+				TargetAttributes = {
+					CE9C2BE822E5571A001EDDFD = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					CE9C2C0022E5571A001EDDFD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = CE9C2BE822E5571A001EDDFD;
+					};
+					CE9C2C0B22E5571A001EDDFD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = CE9C2BE822E5571A001EDDFD;
+					};
+				};
+			};
+			buildConfigurationList = CE9C2BE422E5571A001EDDFD /* Build configuration list for PBXProject "FansFormFramework" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE9C2BE022E5571A001EDDFD;
+			productRefGroup = CE9C2BEA22E5571A001EDDFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE9C2BE822E5571A001EDDFD /* FansFormFramework */,
+				CE9C2C0022E5571A001EDDFD /* FansFormFrameworkTests */,
+				CE9C2C0B22E5571A001EDDFD /* FansFormFrameworkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE9C2BE722E5571A001EDDFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9C2BF922E5571A001EDDFD /* LaunchScreen.storyboard in Resources */,
+				CE9C2BF622E5571A001EDDFD /* Assets.xcassets in Resources */,
+				CE9C2BF422E5571A001EDDFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2BFF22E5571A001EDDFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2C0A22E5571A001EDDFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE9C2BE522E5571A001EDDFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
+				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
+				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2BFD22E5571A001EDDFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9C2C0622E5571A001EDDFD /* FansFormFrameworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE9C2C0822E5571A001EDDFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9C2C1122E5571A001EDDFD /* FansFormFrameworkUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE9C2C0322E5571A001EDDFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9C2BE822E5571A001EDDFD /* FansFormFramework */;
+			targetProxy = CE9C2C0222E5571A001EDDFD /* PBXContainerItemProxy */;
+		};
+		CE9C2C0E22E5571A001EDDFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE9C2BE822E5571A001EDDFD /* FansFormFramework */;
+			targetProxy = CE9C2C0D22E5571A001EDDFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE9C2BF222E5571A001EDDFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9C2BF322E5571A001EDDFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9C2BF722E5571A001EDDFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9C2BF822E5571A001EDDFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE9C2C1322E5571A001EDDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE9C2C1422E5571A001EDDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE9C2C1622E5571A001EDDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFramework/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFramework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE9C2C1722E5571A001EDDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFramework/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFramework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE9C2C1922E5571A001EDDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFrameworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FansFormFramework.app/FansFormFramework";
+			};
+			name = Debug;
+		};
+		CE9C2C1A22E5571A001EDDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFrameworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FansFormFramework.app/FansFormFramework";
+			};
+			name = Release;
+		};
+		CE9C2C1C22E5571A001EDDFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFrameworkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFrameworkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FansFormFramework;
+			};
+			name = Debug;
+		};
+		CE9C2C1D22E5571A001EDDFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8RD2522EQU;
+				INFOPLIST_FILE = FansFormFrameworkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFrameworkUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FansFormFramework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE9C2BE422E5571A001EDDFD /* Build configuration list for PBXProject "FansFormFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE9C2C1322E5571A001EDDFD /* Debug */,
+				CE9C2C1422E5571A001EDDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE9C2C1522E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE9C2C1622E5571A001EDDFD /* Debug */,
+				CE9C2C1722E5571A001EDDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE9C2C1822E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE9C2C1922E5571A001EDDFD /* Debug */,
+				CE9C2C1A22E5571A001EDDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE9C2C1B22E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFrameworkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE9C2C1C22E5571A001EDDFD /* Debug */,
+				CE9C2C1D22E5571A001EDDFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE9C2BE122E5571A001EDDFD /* Project object */;
+}
