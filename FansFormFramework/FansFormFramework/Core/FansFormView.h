@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FansFormProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FansFormView : UIView
+@interface FansFormView : UIView<FansFormContainerInterface>
 
 @end
 

@@ -59,6 +59,7 @@
 		CE9C2C2622E5605F001EDDFD /* UIView+FansFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FansFrame.m"; sourceTree = "<group>"; };
 		CE9C2C2A22E5616D001EDDFD /* FansFormView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormView.h; sourceTree = "<group>"; };
 		CE9C2C2B22E5616D001EDDFD /* FansFormView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormView.m; sourceTree = "<group>"; };
+		CE9C2C2E22E561E7001EDDFD /* FansFormProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		CE9C2C1E22E55FC4001EDDFD /* FansFormFramework */ = {
 			isa = PBXGroup;
 			children = (
+				CE9C2C2D22E561D2001EDDFD /* Protocol */,
 				CE9C2C2922E56112001EDDFD /* Item */,
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CE9C2C2022E55FDD001EDDFD /* Header */,
@@ -184,6 +186,14 @@
 			children = (
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		CE9C2C2D22E561D2001EDDFD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2C2E22E561E7001EDDFD /* FansFormProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
