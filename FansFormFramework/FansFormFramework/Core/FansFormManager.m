@@ -8,16 +8,39 @@
 
 #import "FansFormManager.h"
 
+#if DEBUG
+
+static BOOL const kIsLogInCommandLine = YES;
+
+#else
+
+static BOOL const kIsLogInCommandLine = NO;
+
+#endif
+
+
+@interface FansFormManager ()
+
+@property (nonatomic, strong) NSMutableDictionary *itemMap;
+
+@end
+
 @implementation FansFormManager
 
 #pragma mark - Protocol
 #pragma mark <FansFormManagerInterface>
 - (id<FansFormItemInterface>)itemForKey:(NSString *)key {
-    return nil;
+    id<FansFormItemInterface> item = self.itemMap[key];
+    
+    if (!item && kIsLogInCommandLine) {
+        NSLog(@"Item(key : %@) not found in %@",key , self.class);
+    }
+    
+    return self.itemMap[key];
 }
 
 - (void)addItem:(id<FansFormItemInterface>)item {
-    
+    [self.itemMap setObject:item forKey:item.key];
 }
 
 - (void)setShowContent:(NSString *)content forItemKey:(NSString *)itemKey {
@@ -45,21 +68,49 @@
 }
 
 - (void)noEditForItemKey:(NSString *)itemKey {
-    [[self itemForKey:itemKey] noEdit];
+    id<FansFormItemInterface> item = [self itemForKey:itemKey];
+    if (item.isEdit) {
+        [item noEdit];
+    } else if (kIsLogInCommandLine) {
+        NSLog(@"%@： Item(key : %@) Already noEdit",self.class, itemKey);
+    }
 }
 
 - (void)editForItemKey:(NSString *)itemKey {
-    [[self itemForKey:itemKey] edit];
+    id<FansFormItemInterface> item = [self itemForKey:itemKey];
+    if (!item.isEdit) {
+        [item edit];
+    } else if (kIsLogInCommandLine) {
+        NSLog(@"%@： Item(key : %@) Already edit",self.class, itemKey);
+    }
 }
 
 - (void)showForKey:(NSString *)itemKey {
-    [[self itemForKey:itemKey] show];
+    id<FansFormItemInterface> item = [self itemForKey:itemKey];
+    if (!item.isShow) {
+        [item show];
+        
+    } else if (kIsLogInCommandLine) {
+        NSLog(@"%@： Item(key : %@) Already shown",self.class, itemKey);
+    }
 }
 
 - (void)hideForKey:(NSString *)itemKey {
-    [[self itemForKey:itemKey] hide];
+    id<FansFormItemInterface> item = [self itemForKey:itemKey];
+    if (item.isShow) {
+        [item hide];
+    } else if (kIsLogInCommandLine) {
+        NSLog(@"%@： Item(key : %@) Already hidden",self.class, itemKey);
+    }
 }
 
 
+#pragma mark - Lazy Load
+- (NSMutableDictionary *)itemMap {
+    if (!_itemMap) {
+        _itemMap = [NSMutableDictionary new];
+    }
+    return _itemMap;
+}
 
 @end

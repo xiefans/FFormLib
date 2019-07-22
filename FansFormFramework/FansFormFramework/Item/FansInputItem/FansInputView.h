@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FansInputView : UIView<FansFormItemViewInterface>
 
+@property (nonatomic, assign, getter=isShow) BOOL show;
+
 @property (nonatomic, strong, readonly) UITextView *textView;
 @property (nonatomic, strong, readonly) UILabel *titleLb;
 

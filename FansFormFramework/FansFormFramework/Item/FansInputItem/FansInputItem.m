@@ -16,6 +16,7 @@
 @end
 
 @implementation FansInputItem
+@synthesize refreshBlock = _refreshBlock;
 
 #pragma mark - Public Method
 + (instancetype)itemWithTitle:(NSString *)title placeholder:(NSString *)placeholder forKey:(NSString *)key {
@@ -66,19 +67,34 @@
 }
 
 - (void)edit {
-    
-}
-
-- (void)hide {
-    
+    self.inputView.backgroundColor = [UIColor clearColor];
+    self.inputView.userInteractionEnabled = YES;
 }
 
 - (void)noEdit {
-    
+    self.inputView.userInteractionEnabled = NO;
+    [self.inputView.textView resignFirstResponder];
+    self.inputView.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (BOOL)isEdit {
+    return self.inputView.userInteractionEnabled;
 }
 
 - (void)show {
+    self.inputView.show = YES;
     
+    self.refreshBlock(self);
+}
+
+- (void)hide {
+    self.inputView.show = NO;
+    
+    self.refreshBlock(self);
+}
+
+- (BOOL)isShow {
+    return self.inputView.isShow;
 }
 
 #pragma mark - Lazy Load

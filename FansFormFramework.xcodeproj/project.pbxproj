@@ -198,6 +198,7 @@
 		CE9C2C2922E56112001EDDFD /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */,
 				CE9C2C3222E57BDC001EDDFD /* FansInputItem */,
 			);
 			path = Item;
@@ -214,7 +215,6 @@
 		CE9C2C3222E57BDC001EDDFD /* FansInputItem */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */,
 				CE9C2C3322E57BF8001EDDFD /* FansInputView.h */,
 				CE9C2C3422E57BF8001EDDFD /* FansInputView.m */,
 				CE9C2C3622E57C25001EDDFD /* FansInputItem.h */,

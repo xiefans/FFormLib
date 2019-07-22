@@ -12,16 +12,25 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) FansFormView *baseView;
+
 @end
 
 @implementation ViewController
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+
+    CGRect layoutFrame = self.view.safeAreaLayoutGuide.layoutFrame;
+    _baseView.frame = layoutFrame;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"好的";
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    FansFormView *baseView = [FansFormView formView];
-    baseView.frame = self.view.bounds;
-    baseView.backgroundColor = [UIColor orangeColor];
+    FansFormView *baseView = [FansFormView formViewWithDirection:FansFormContainerArrangeVerticalDirection];
     
     [baseView addItem:[FansInputItem itemWithTitle:@"测试1"
                                        placeholder:@"没有"
@@ -31,8 +40,20 @@
                                        placeholder:@"没有2"
                                             forKey:@"param2"]];
     
+    [baseView addItem:[FansInputItem itemWithTitle:@"测试3"
+                                       placeholder:@"没有3"
+                                            forKey:@"param3"]];
+    
     
     [self.view addSubview:baseView];
+    
+    [baseView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action)]];
+    
+    _baseView = baseView;
+}
+
+- (void)action {
+    [_baseView noEditForItemKey:@"param3"];
 }
 
 

@@ -29,9 +29,16 @@
  @mark :
  item必须实现一个设置key的初始化方法，key是item在容器中的唯一标识。也是通过处理器获取请求json时和服务器对接的key
  */
+@protocol FansFormItemInterface;
+typedef void(^FansFormItemRefreshBlock)(id<FansFormItemInterface> item);
 @protocol FansFormItemInterface <NSObject>
 
 #pragma mark Item<Base>
+
+/**
+ 通知容器刷新UI的回调
+ */
+@property (nonatomic, copy) FansFormItemRefreshBlock refreshBlock;
 
 /**
  获取item的key
@@ -86,7 +93,7 @@
 /**
  获取展示用的View
  @mark :
- 一般来说容器是一个view，但是接口中我并没有做限制，不想限制大家的想象力，因为在大家的业务中容器不一定是用来展示用的。
+ 一般来说容器是一个view，但是接口中我并没有做限制，因为在大家的业务中容器不一定是用来展示用的。
  这个方法是为了迎合我实际场景。 我的容器就是用来展示的
 
  @return 展示view
@@ -95,9 +102,11 @@
 
 - (void)noEdit;
 - (void)edit;
+- (BOOL)isEdit;
 
 - (void)show;
 - (void)hide;
+- (BOOL)isShow;
 
 @end
 

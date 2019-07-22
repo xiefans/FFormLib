@@ -9,7 +9,9 @@
 #import "FansInputView.h"
 #import "FansFormTool.h"
 #import "FansFormItemConstant.h"
-@implementation FansInputView
+@implementation FansInputView {
+    CGSize _showSize;
+}
 
 @synthesize titleLb = _titleLb;
 @synthesize textView = _textView;
@@ -20,31 +22,57 @@
     if (self) {
         [self addSubview:self.titleLb];
         [self addSubview:self.textView];
+        
+        _showSize = CGSizeMake(
+                               [UIApplication sharedApplication].delegate.window.fans_width,
+                               FansFormItemNormalHeight
+                               );
+        
+        _show = YES;
     }
     return self;
 }
 
 - (void)layoutSubviews {
-    CGFloat height = MIN(FansFormItemNormalHeight, self.fans_height);
-    self.titleLb.frame = CGRectMake(0,
+    CGFloat gap = 3.f;
+    CGFloat height = MIN(FansFormItemNormalHeight, self.fans_height - gap * 2);
+    self.titleLb.frame = CGRectMake(
                                     0,
+                                    gap,
                                     FansFormItemTitleNormalWidth,
-                                    height);
+                                    height
+                                    );
     self.textView.frame = CGRectMake(
                                      self.titleLb.fans_right + FansFormItemHorizontalNormalGap,
-                                     0,
-                                     self.fans_width - self.titleLb.fans_right,
+                                     gap,
+                                     self.fans_width - (self.titleLb.fans_right + FansFormItemHorizontalNormalGap),
                                      height
                                      );
+}
+
+#pragma mark - Setter Getter
+- (void)setShow:(BOOL)show {
+    _show = show;
+    
+    if (show) {
+        _showSize = CGSizeMake(
+                               [UIApplication sharedApplication].delegate.window.fans_width,
+                               FansFormItemNormalHeight
+                               );
+    } else {
+        _showSize = CGSizeMake(
+                               0,
+                               0
+                               );
+    }
+    
+    self.hidden = !show;
 }
 
 #pragma mark - Protocol
 #pragma mark <FansFormItemViewInterface>
 - (CGSize)getLayoutSize {
-    return CGSizeMake(
-                      [UIApplication sharedApplication].delegate.window.fans_width,
-                      FansFormItemNormalHeight
-                      );
+    return _showSize;
 }
 
 
@@ -63,6 +91,7 @@
         _textView = [[UITextView alloc] init];
         _textView.font = [UIFont systemFontOfSize:14];
         _textView.textColor = [UIColor grayColor];
+        _textView.backgroundColor = [UIColor lightGrayColor];
     }
     return _textView;
 }

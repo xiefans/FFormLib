@@ -10,7 +10,7 @@
 #define FansFormItemConstant_h
 
 static CGFloat const FansFormItemNormalHeight = 45.f;
-static CGFloat const FansFormItemTitleNormalWidth = 120.f;
+static CGFloat const FansFormItemTitleNormalWidth = 90.f;
 static CGFloat const FansFormItemHorizontalNormalGap = 10.f;
 
 #endif /* FansFormItemConstant_h */

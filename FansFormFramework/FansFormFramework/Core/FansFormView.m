@@ -14,12 +14,18 @@
 @property (nonatomic, strong) id<FansFormManagerInterface> manager;
 @property (nonatomic, strong) NSMutableArray *layoutItems;
 
+@property (nonatomic, strong) UIScrollView *scrollView;
+
 @end
 
 @implementation FansFormView
 
+@synthesize refreshBlock = _refreshBlock;
+
 #pragma mark - Overrides
 - (void)layoutSubviews {
+    
+    self.scrollView.frame = self.bounds;
     
     __weak typeof(self)weakSelf = self;
     __block UIView *lastView = nil;
@@ -29,13 +35,41 @@
         UIView<FansFormItemViewInterface> *itemView = obj.contentView;
         
         if (!itemView.superview) {
-            [self addSubview:itemView];
+            [self.scrollView addSubview:itemView];
         }
         
-        itemView.frame = CGRectMake(0, lastView.fans_bottom, self.fans_width, itemView.getLayoutSize.height);
+        switch (self.direction) {
+            case FansFormContainerArrangeVerticalDirection:
+                itemView.frame = CGRectMake(
+                                            self.insets.left,
+                                            lastView ? lastView.fans_bottom : self.insets.top,
+                                            self.scrollView.fans_width - self.insets.left - self.insets.right,
+                                            itemView.getLayoutSize.height
+                                            );
+                break;
+            
+            case FansFormContainerArrangeHorizontalDirection:
+                itemView.frame = CGRectMake(
+                                            lastView ? lastView.fans_right : self.insets.left,
+                                            self.insets.top,
+                                            itemView.getLayoutSize.width,
+                                            self.scrollView.fans_height - self.insets.top - self.insets.bottom
+                                            );
+                break;
+        }
+        
+        [obj setRefreshBlock:^(id<FansFormItemInterface> item) {
+            [self setNeedsLayout];
+        }];
         
         lastView = itemView;
     }];
+    
+    
+    [self.scrollView setContentSize:CGSizeMake(
+                                               lastView.fans_right + self.insets.right,
+                                               lastView.fans_bottom + self.insets.bottom
+                                               )];
 }
 
 
@@ -45,16 +79,43 @@
     return [[self alloc] initWithManager:[FansFormManager new]];
 }
 
++ (instancetype)formViewWithDirection:(FansFormContainerArrangeDirection)direction {
+    return [[self alloc] initWithManager:[FansFormManager new]
+                               direction:direction];
+}
+
 - (instancetype)initWithManager:(id<FansFormManagerInterface>)manager {
+    return [self initWithManager:manager
+                       direction:FansFormContainerArrangeVerticalDirection];
+}
+
+- (instancetype)initWithManager:(id<FansFormManagerInterface>)manager
+                      direction:(FansFormContainerArrangeDirection)direction {
     if (self = [super init]) {
+        _direction = direction;
         _manager = manager;
+        _insets = UIEdgeInsetsMake(5, 15, 5, 15);
         [self initTool];
+        [self addSubview:self.scrollView];
     }
     return self;
 }
 
 - (void)initTool {
     _layoutItems = [NSMutableArray new];
+}
+
+#pragma mark - Private Method
+
+- (void)fans_sizeToFit {
+    [self setNeedsLayout];
+}
+
+#pragma mark - Setter Getter
+- (void)setInsets:(UIEdgeInsets)insets {
+    _insets = insets;
+    
+    [self setNeedsLayout];
 }
 
 #pragma mark - Protocol
@@ -67,6 +128,8 @@
     [_manager addItem:item];
     
     [_layoutItems addObject:item];
+    
+    [self fans_sizeToFit];
 }
 
 #pragma mark <FansFormManagerInterface>
@@ -100,18 +163,26 @@
 
 - (void)noEditForItemKey:(NSString *)itemKey {
     [_manager noEditForItemKey:itemKey];
+    
+    [self fans_sizeToFit];
 }
 
 - (void)editForItemKey:(NSString *)itemKey {
     [_manager editForItemKey:itemKey];
+    
+    [self fans_sizeToFit];
 }
 
 - (void)showForKey:(NSString *)itemKey {
     [_manager showForKey:itemKey];
+    
+    [self fans_sizeToFit];
 }
 
 - (void)hideForKey:(NSString *)itemKey {
     [_manager hideForKey:itemKey];
+    
+    [self fans_sizeToFit];
 }
 
 #pragma mark <FansFormManagerInterface>
@@ -155,6 +226,10 @@
     
 }
 
+- (BOOL)isEdit {
+    return YES;
+}
+
 - (void)show {
     
 }
@@ -163,9 +238,26 @@
     
 }
 
+- (BOOL)isShow {
+    return YES;
+}
+
 #pragma mark <FansFormItemViewInterface>
 - (CGSize)getLayoutSize {
     return self.fans_size;
+}
+
+
+#pragma mark - Lazy Load
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    return _scrollView;
 }
 
 @end
