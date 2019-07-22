@@ -1,5 +1,5 @@
 //
-//  FansFormView.h
+//  FansInputItem.h
 //  FansFormFramework
 //
 //  Created by fans on 2019/7/22.
@@ -7,14 +7,11 @@
 //
 
 #import "FansFormProtocol.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FansFormView : UIView<FansFormContainerInterface>
+@interface FansInputItem : NSObject<FansFormItemInterface>
 
-+ (instancetype)formView;
-
-- (instancetype)initWithManager:(id<FansFormManagerInterface>)manager;
++ (instancetype)itemWithTitle:(NSString *)title placeholder:(NSString *)placeholder forKey:(NSString *)key;
 
 @end
 

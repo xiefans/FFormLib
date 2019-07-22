@@ -1,5 +1,5 @@
 //
-//  FansFormView.h
+//  FansFormManager.h
 //  FansFormFramework
 //
 //  Created by fans on 2019/7/22.
@@ -10,11 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FansFormView : UIView<FansFormContainerInterface>
-
-+ (instancetype)formView;
-
-- (instancetype)initWithManager:(id<FansFormManagerInterface>)manager;
+@interface FansFormManager : NSObject<FansFormManagerInterface>
 
 @end
 

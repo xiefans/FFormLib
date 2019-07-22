@@ -6,6 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #pragma mark - ItemView
 
 @protocol FansFormItemViewInterface <NSObject>
@@ -88,7 +91,7 @@
 
  @return 展示view
  */
-- (UIView *)contentView;
+- (UIView<FansFormItemViewInterface> *)contentView;
 
 - (void)noEdit;
 - (void)edit;
@@ -101,12 +104,40 @@
 #pragma mark - Manager
 
 /**
- 如果实现了这个借口
- 则该对象是可以处理item之间逻辑的对象
+ 如果实现了这个接口
+ 则该对象是可以处理item之间逻辑的对象（处理器）
  */
 @protocol FansFormManagerInterface <NSObject>
 
+/**
+ 添加一个item到处理器中
+ 
+ @param item item
+ */
+- (void)addItem:(id<FansFormItemInterface>)item;
 
+/**
+ 根据key找到item
+ 
+ @param key key
+ @return item
+ */
+- (id<FansFormItemInterface>)itemForKey:(NSString *)key;
+
+/**
+ 以下方法是找到item之后，调用item的对应方法进行操作。和item里的接口一致
+ */
+- (void)setShowContent:(NSString *)content forItemKey:(NSString *)itemKey;
+- (NSString *)showContentForItemkey:(NSString *)itemKey;
+- (void)setRequestContent:(NSString *)requestContent forItemkey:(NSString *)itemKey;
+- (NSString *)requestContentForItemkey:(NSString *)itemKey;
+- (void)addParam:(id)param key:(NSString *)key forItemKey:(NSString *)itemKey;
+- (NSDictionary *)paramsForItemKey:(NSString *)itemKey;
+
+- (void)noEditForItemKey:(NSString *)itemKey;
+- (void)editForItemKey:(NSString *)itemKey;
+- (void)showForKey:(NSString *)itemKey;
+- (void)hideForKey:(NSString *)itemKey;
 
 @end
 
@@ -115,7 +146,7 @@
  如果实现了这个接口
  则该对象是可以作为容器使用。可以添加其他的item
  */
-@protocol FansFormContainerInterface <FansFormItemInterface>
+@protocol FansFormContainerInterface <FansFormItemInterface, FansFormManagerInterface ,FansFormItemViewInterface>
 
 /**
  创建一个带处理器的容器，可以处理item之间的逻辑
@@ -124,20 +155,6 @@
  @return 容器
  */
 + (instancetype)containerWithManager:(id<FansFormManagerInterface>)manager;
-
-/**
- 获取处理器
-
- @return 处理器
- */
-- (id<FansFormManagerInterface>)manager;
-
-/**
- 添加一个item到容器中,添加的同时，需要把item交给处理器。
-
- @param item item
- */
-- (void)addItem:(id<FansFormItemInterface>)item;
 
 @end
 
