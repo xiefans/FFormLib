@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormProtocol.h"
+#import "FansFormAbstractItem.h"
 
-@interface FansInputItem : NSObject<FansFormItemInterface>
+@interface FansInputItem : FansFormAbstractItem
 
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
@@ -17,17 +17,15 @@
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
-                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock;
+                    configBlock:(FansFormItemBlock)configBlock;
 
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
                  keyboradType:(UIKeyboardType)keyboradType
-                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock;
+                    configBlock:(FansFormItemBlock)configBlock;
 
 - (instancetype)changeToMust;
-
-@property (nonatomic, copy, readonly) NSString *title;
 
 @end
 

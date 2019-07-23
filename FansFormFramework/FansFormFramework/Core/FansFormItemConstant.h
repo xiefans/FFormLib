@@ -9,7 +9,18 @@
 #ifndef FansFormItemConstant_h
 #define FansFormItemConstant_h
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger , FansFormArrangeDirection) {
+    FansFormArrangeVerticalDirection, // 垂直方向排列
+    FansFormArrangeHorizontalDirection //水平方向排列
+};
+
+
+
 static CGFloat const FansFormItemNormalHeight = 55.f;
+static CGFloat const FansFormItemNormalWidth = 200.f;
 static CGFloat const FansFormItemTitleNormalWidth = 90.f;
 static CGFloat const FansFormItemHorizontalNormalGap = 10.f;
 

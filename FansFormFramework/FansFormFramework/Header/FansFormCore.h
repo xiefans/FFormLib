@@ -9,7 +9,7 @@
 #ifndef FansFormCore_h
 #define FansFormCore_h
 
-#import "FansFormView.h"
+#import "UIView+FansForm.h"
 #import "FansFormManager.h"
 
 #endif /* FansFormCore_h */

@@ -22,6 +22,8 @@
 		CE9C2C3822E57C25001EDDFD /* FansInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3722E57C25001EDDFD /* FansInputItem.m */; };
 		CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */; };
 		CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */; };
+		CEBD49F722E6F67D00176381 /* UIView+FansForm.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD49F622E6F67D00176381 /* UIView+FansForm.m */; };
+		CEBD49FB22E7164100176381 /* FansFormAbstractItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,10 @@
 		CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FansColor.m"; sourceTree = "<group>"; };
 		CE9C2C3E22E5B3F4001EDDFD /* NSString+FansAttributed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FansAttributed.h"; sourceTree = "<group>"; };
 		CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FansAttributed.m"; sourceTree = "<group>"; };
+		CEBD49F522E6F67D00176381 /* UIView+FansForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FansForm.h"; sourceTree = "<group>"; };
+		CEBD49F622E6F67D00176381 /* UIView+FansForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FansForm.m"; sourceTree = "<group>"; };
+		CEBD49F922E7164100176381 /* FansFormAbstractItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormAbstractItem.h; sourceTree = "<group>"; };
+		CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormAbstractItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				CE9C2C2D22E561D2001EDDFD /* Protocol */,
-				CE9C2C2922E56112001EDDFD /* Item */,
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CE9C2C2022E55FDD001EDDFD /* Header */,
 				CE9C2C1F22E55FD8001EDDFD /* Core */,
@@ -174,10 +179,11 @@
 		CE9C2C1F22E55FD8001EDDFD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C2A22E5616D001EDDFD /* FansFormView.h */,
-				CE9C2C2B22E5616D001EDDFD /* FansFormView.m */,
-				CE9C2C2F22E575E7001EDDFD /* FansFormManager.h */,
-				CE9C2C3022E575E7001EDDFD /* FansFormManager.m */,
+				CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */,
+				CEBD49F822E7160000176381 /* BaseItem */,
+				CEBD49F022E6F28F00176381 /* CoreItem */,
+				CE9C2C2922E56112001EDDFD /* OtherItem */,
+				CEBD49F122E6F64600176381 /* Category */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -205,13 +211,12 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		CE9C2C2922E56112001EDDFD /* Item */ = {
+		CE9C2C2922E56112001EDDFD /* OtherItem */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */,
 				CE9C2C3222E57BDC001EDDFD /* FansInputItem */,
 			);
-			path = Item;
+			path = OtherItem;
 			sourceTree = "<group>";
 		};
 		CE9C2C2D22E561D2001EDDFD /* Protocol */ = {
@@ -231,6 +236,35 @@
 				CE9C2C3722E57C25001EDDFD /* FansInputItem.m */,
 			);
 			path = FansInputItem;
+			sourceTree = "<group>";
+		};
+		CEBD49F022E6F28F00176381 /* CoreItem */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C2C2A22E5616D001EDDFD /* FansFormView.h */,
+				CE9C2C2B22E5616D001EDDFD /* FansFormView.m */,
+				CE9C2C2F22E575E7001EDDFD /* FansFormManager.h */,
+				CE9C2C3022E575E7001EDDFD /* FansFormManager.m */,
+			);
+			path = CoreItem;
+			sourceTree = "<group>";
+		};
+		CEBD49F122E6F64600176381 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CEBD49F522E6F67D00176381 /* UIView+FansForm.h */,
+				CEBD49F622E6F67D00176381 /* UIView+FansForm.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CEBD49F822E7160000176381 /* BaseItem */ = {
+			isa = PBXGroup;
+			children = (
+				CEBD49F922E7164100176381 /* FansFormAbstractItem.h */,
+				CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */,
+			);
+			path = BaseItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,7 +399,9 @@
 			files = (
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FansFrame.m in Sources */,
+				CEBD49F722E6F67D00176381 /* UIView+FansForm.m in Sources */,
 				CE9C2C3822E57C25001EDDFD /* FansInputItem.m in Sources */,
+				CEBD49FB22E7164100176381 /* FansFormAbstractItem.m in Sources */,
 				CE9C2C2C22E5616D001EDDFD /* FansFormView.m in Sources */,
 				CE9C2C3522E57BF8001EDDFD /* FansInputView.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,

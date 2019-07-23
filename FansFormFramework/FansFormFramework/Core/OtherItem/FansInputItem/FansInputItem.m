@@ -13,26 +13,27 @@
 @interface FansInputItem ()
 
 @property (nonatomic, strong) FansInputView *inputView;
-@property (nonatomic, copy) NSString *key;
 
 @end
 
 @implementation FansInputItem
-@synthesize refreshBlock = _refreshBlock;
-@synthesize getSizeBlock = _getSizeBlock;
-@synthesize must = _must;
-@synthesize title = _title;
+
+#pragma mark - Overrides
+- (void)setShowSize:(CGSize)showSize {
+    self.inputView.fans_size = showSize;
+    self.refreshBlock(self);
+}
 
 #pragma mark - Public Method
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
-                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock {
+                  configBlock:(FansFormItemBlock)configBlock {
     return [self itemWithTitle:title
                    placeholder:placeholder
                         forKey:key
                   keyboradType:UIKeyboardTypeDefault
-                     sizeBlock:sizeBlock];
+                     configBlock:configBlock];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title
@@ -41,33 +42,33 @@
     return [self itemWithTitle:title
                    placeholder:placeholder
                         forKey:key
-                     sizeBlock:nil];
+                     configBlock:nil];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
                  keyboradType:(UIKeyboardType)keyboradType
-                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock {
+                  configBlock:(FansFormItemBlock)configBlock {
     return [[self alloc] initWithTitle:title
                            placeholder:placeholder
                                 forKey:key
                           keyboradType:keyboradType
-                             sizeBlock:sizeBlock];
+                             configBlock:configBlock];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
                  keyboradType:(UIKeyboardType)keyboradType
-                    sizeBlock:(FansFormItemGetSizeBlock)sizeBlock {
+                  configBlock:(FansFormItemBlock)configBlock {
     if (self = [super init]) {
         self.inputView.textField.keyboardType = keyboradType;
         self.inputView.titleLb.text = title;
         self.inputView.textField.placeholder = placeholder;
-        _title = title;
+        self.title = title;
         self.key = key;
-        _getSizeBlock = sizeBlock;
+        self.configBlock = configBlock;
     }
     return self;
 }
@@ -76,88 +77,59 @@
     
     NSString *title = self.inputView.titleLb.text;
     self.inputView.titleLb.attributedText = [title beforeJoinRedStar];
-    _must = YES;
+    [super setMust:YES];
     
     return self;
 }
 
 #pragma mark - Protocol
 #pragma mark <FansFormItemInterface>
-- (NSString *)title {
-    return _title;
-}
 
 - (UIView *)contentView {
     return self.inputView;
 }
 
-- (void)setRequestContent:(NSString *)requestContent {
-    [self setShowContent:requestContent];
+- (void)setValue:(NSString *)value {
+    self.content = value;
 }
 
-- (NSString *)requestContent {
-    return self.showContent;
+- (NSString *)value {
+    return self.content;
 }
 
-- (void)setShowContent:(NSString *)content {
+- (void)setContent:(NSString *)content {
     self.inputView.textField.text = content;
 }
 
-- (NSString *)showContent {
-    return self.inputView.textField.text;
+- (NSString *)content {
+    return self.inputView.textField.text.length != 0 ? self.inputView.textField.text : nil;
 }
 
-- (NSString *)key {
-    return _key;
-}
-
-- (void)addParam:(id)param key:(NSString *)key {
+- (void)setEdit:(BOOL)edit {
+    [super setEdit:edit];
     
-}
-
-- (NSDictionary *)params {
-    return nil;
-}
-
-- (void)edit {
-    self.inputView.backgroundColor = [UIColor whiteColor];
-    self.inputView.userInteractionEnabled = YES;
-}
-
-- (void)noEdit {
-    self.inputView.userInteractionEnabled = NO;
-    [self.inputView.textField resignFirstResponder];
-    self.inputView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemNoEditNoramlColor];
-}
-
-- (BOOL)isEdit {
-    return self.inputView.userInteractionEnabled;
-}
-
-- (void)show {
-    self.inputView.show = YES;
-    
-    self.refreshBlock(self);
-}
-
-- (void)hide {
-    self.inputView.show = NO;
-    
-    self.refreshBlock(self);
-}
-
-- (BOOL)isShow {
-    return self.inputView.isShow;
+    if (edit) {
+        self.inputView.backgroundColor = [UIColor whiteColor];
+        self.inputView.userInteractionEnabled = YES;
+    } else {
+        self.inputView.userInteractionEnabled = NO;
+        [self.inputView.textField resignFirstResponder];
+        self.inputView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemNoEditNoramlColor];
+    }
 }
 
 - (void)setMust:(BOOL)must {
-    _must = must;
+    [super setMust:must];
     
     if (must) {
         [self changeToMust];
     } else {
-        self.inputView.titleLb.text = _title;
+        self.inputView.titleLb.text = self.title;
     }
+}
+
+- (FansFormAbstractItem *)itemForKey:(NSString *)key {
+    return self;
 }
 
 #pragma mark - Lazy Load

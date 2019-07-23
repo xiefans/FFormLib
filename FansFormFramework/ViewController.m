@@ -12,7 +12,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) FansFormView *baseView;
+@property (nonatomic, strong) FansFormManager *formManager;
 
 @end
 
@@ -22,7 +22,8 @@
     [super viewWillLayoutSubviews];
 
     CGRect layoutFrame = self.view.safeAreaLayoutGuide.layoutFrame;
-    _baseView.frame = layoutFrame;
+    FansFormManager *manage = self.view.fans_subItem;
+    manage.contentView.frame = layoutFrame;
 }
 
 - (void)viewDidLoad {
@@ -30,30 +31,36 @@
     self.title = @"好的";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    FansFormView *baseView = [FansFormView formViewWithDirection:FansFormContainerArrangeVerticalDirection];
-    
-    [baseView addItem:[FansInputItem itemWithTitle:@"测试1"
+    FansFormManager *formManager = [[FansFormManager alloc] initWithKey:@"jsonform"];
+    formManager.package = YES;
+    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试1"
                                        placeholder:@"没有"
                                             forKey:@"param1"].changeToMust];
     
-    [baseView addItem:[FansInputItem itemWithTitle:@"测试2"
+    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试2"
                                        placeholder:@"没有2"
                                             forKey:@"param2"]];
     
-    [baseView addItem:[FansInputItem itemWithTitle:@"测试3"
+    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试3"
                                        placeholder:@"没有3"
                                             forKey:@"param3"]];
     
+    [self.view fans_addSubItem:formManager];
     
-    [self.view addSubview:baseView];
+    [formManager.contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action)]];
     
-    [baseView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action)]];
-    
-    _baseView = baseView;
 }
 
 - (void)action {
-    NSLog(@"dict :%@ \n json : %@",_baseView.toDictionary,_baseView.toJSONString);
+    NSLog(@"dict :%@ \n json : %@",self.view.fans_subItem.makeDictionary,self.view.fans_subItem.makeJSONString);
+    
+    FansFormManager *manager = self.view.fans_subItem;
+    
+    if ([manager itemForKey:@"param1"].isShow) {
+        [manager itemForKey:@"param1"].show = NO;
+    } else {
+        [manager itemForKey:@"param1"].show = YES;
+    }
 }
 
 

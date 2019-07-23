@@ -24,6 +24,7 @@
         [self addSubview:self.lineView];
         
         _show = YES;
+        self.frame = CGRectMake(0, 0, FansFormItemNormalWidth, FansFormItemNormalHeight);
     }
     return self;
 }
