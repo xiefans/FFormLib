@@ -34,6 +34,14 @@
     return self;
 }
 
+- (void)setShowSize:(CGSize)showSize {
+    _showSize = showSize;
+    self.contentView.fans_size = showSize;
+    if (self.refreshBlock) {
+        self.refreshBlock(self);
+    }
+}
+
 - (void)addParam:(id)param key:(NSString *)key {
     [self.paramsMap setObject:param forKey:key];
 }
@@ -45,8 +53,10 @@
 - (NSDictionary *)makeDictionary {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
-    if (self.key && self.value) {
-        [dict setObject:self.value forKey:self.key];
+    id value = self.value;
+    
+    if (self.key && value) {
+        [dict setObject:value forKey:self.key];
     }
     
     return dict;
@@ -72,6 +82,20 @@
     }
     
     self.contentView.hidden = !show;
+}
+
+- (id)value {
+    if (self.handleValueBlock) {
+        return self.handleValueBlock(self, _value);
+    }
+    return _value;
+}
+
+- (instancetype)changeToMust {
+    
+    [self setMust:YES];
+    
+    return self;
 }
 
 #pragma mark - Lazy Load

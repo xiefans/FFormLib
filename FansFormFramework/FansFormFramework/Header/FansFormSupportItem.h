@@ -10,5 +10,7 @@
 #define FansFormSupportItem_h
 
 #import "FansInputItem.h"
+#import "FansTextItem.h"
+#import "FansFormDateItem.h"
 
 #endif /* FansFormSupportItem_h */

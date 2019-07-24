@@ -20,13 +20,15 @@ static BOOL const FansFormItemIsLogInCommandLine = NO;
 
 #endif
 
-@class FansFormAbstractItem;
+@class FansFormAbstractItem,FansFormItemStyle;
 
 typedef void(^FansFormItemBlock)(FansFormAbstractItem *item);
+typedef id(^FansFormItemHandleValueBlock)(FansFormAbstractItem *item, id value);
 
 @interface FansFormAbstractItem : NSObject
 
 - (instancetype)initWithKey:(NSString *)key;
+
 
 /**
  通知容器刷新UI的回调
@@ -39,9 +41,15 @@ typedef void(^FansFormItemBlock)(FansFormAbstractItem *item);
 @property (nonatomic, copy) FansFormItemBlock configBlock;
 
 /**
+ 在获取value的时候，会调用这个回调
+ */
+@property (nonatomic, copy) FansFormItemHandleValueBlock handleValueBlock;
+
+/**
  是否必填
  */
 @property (nonatomic, assign ,getter=isMust) BOOL must;
+- (instancetype)changeToMust;
 
 /**
  标题
@@ -62,8 +70,6 @@ typedef void(^FansFormItemBlock)(FansFormAbstractItem *item);
  显示的内容 (可能是数据结构)
  */
 @property (nonatomic, strong) id content;
-
-
 
 /**
  添加额外参数
@@ -86,7 +92,7 @@ typedef void(^FansFormItemBlock)(FansFormAbstractItem *item);
  
  @return 展示view
  */
-@property (nonatomic, strong, readonly) UIView *contentView;
+@property (nonatomic, strong, readonly) __kindof UIView *contentView;
 
 /**
  contentView展示的大小。

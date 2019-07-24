@@ -6,14 +6,17 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormAbstractItem.h"
+#define FansManagerGetItem(manager, key) \
+([manager itemForKey:key])
 
+
+
+#import "FansFormAbstractItem.h"
+#import "FansFormView.h"
 
 @interface FansFormManager : FansFormAbstractItem
 
 + (instancetype)managerWithDirection:(FansFormArrangeDirection)direction;
-
-
 
 /**
  子item数组
@@ -23,6 +26,8 @@
 - (void)addSubItem:(FansFormAbstractItem *)item;
 - (void)removeSubItemForKey:(NSString *)key;
 - (FansFormAbstractItem *)itemForKey:(NSString *)key;
+
+- (FansFormView *)contentView;
 
 @end
 

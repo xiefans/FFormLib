@@ -1,15 +1,16 @@
 //
-//  FansInputItem.h
+//  FansTextItem.h
 //  FansFormFramework
 //
-//  Created by fans on 2019/7/22.
+//  Created by fans on 2019/7/24.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
 #import "FansFormAbstractItem.h"
-#import "FansInputView.h"
+#import "FansTextItemView.h"
 
-@interface FansInputItem : FansFormAbstractItem
+
+@interface FansTextItem : FansFormAbstractItem
 
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
@@ -18,15 +19,15 @@
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
-                    configBlock:(FansFormItemBlock)configBlock;
+                  configBlock:(FansFormItemBlock)configBlock;
 
 + (instancetype)itemWithTitle:(NSString *)title
                   placeholder:(NSString *)placeholder
                        forKey:(NSString *)key
                  keyboradType:(UIKeyboardType)keyboradType
-                    configBlock:(FansFormItemBlock)configBlock;
+                  configBlock:(FansFormItemBlock)configBlock;
 
-- (FansInputView *)contentView;
+- (FansTextItemView *)contentView;
 
 @end
 

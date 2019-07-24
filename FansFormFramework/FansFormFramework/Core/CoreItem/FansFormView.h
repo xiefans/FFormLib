@@ -6,8 +6,8 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormProtocol.h"
 #import "FansFormItemConstant.h"
+
 @interface FansFormView : UIView
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -20,5 +20,6 @@
 @property (nonatomic, assign) UIEdgeInsets insets;
 
 @property (nonatomic, assign ,readonly) FansFormArrangeDirection direction;
+
 
 @end

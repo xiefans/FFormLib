@@ -6,6 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
+#define FansViewSubItem \
+(self.view.fans_subItem)
+
 #import <UIKit/UIKit.h>
 
 @class FansFormAbstractItem;

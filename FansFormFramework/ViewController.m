@@ -10,7 +10,7 @@
 #import "FansFormCore.h"
 #import "FansFormSupportItem.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) FansFormManager *formManager;
 
@@ -22,8 +22,8 @@
     [super viewWillLayoutSubviews];
 
     CGRect layoutFrame = self.view.safeAreaLayoutGuide.layoutFrame;
-    FansFormManager *manage = self.view.fans_subItem;
-    manage.contentView.frame = layoutFrame;
+    
+    FansViewSubItem.contentView.frame = layoutFrame;
 }
 
 - (void)viewDidLoad {
@@ -32,36 +32,47 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     FansFormManager *formManager = [[FansFormManager alloc] initWithKey:@"jsonform"];
-    formManager.package = YES;
-    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试1"
-                                       placeholder:@"没有"
-                                            forKey:@"param1"].changeToMust];
+//    formManager.package = YES;
+    [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本"
+                                             placeholder:@"请输入单行文本"
+                                                  forKey:@"input"].changeToMust];
     
-    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试2"
-                                       placeholder:@"没有2"
-                                            forKey:@"param2"]];
+    [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本2"
+                                             placeholder:@"请输入单行文本2"
+                                                  forKey:@"param3"]];
     
-    [formManager addSubItem:[FansInputItem itemWithTitle:@"测试3"
-                                       placeholder:@"没有3"
-                                            forKey:@"param3"]];
+    [formManager addSubItem:[FansTextItem itemWithTitle:@"多行文本"
+                                            placeholder:@"请输入多行文本"
+                                                 forKey:@"param2"].changeToMust];
+    
+    [formManager addSubItem:[FansFormDateItem itemWithTitle:@"日期选择"
+                                                        key:@"date"
+                                           handleValueBlock:^id(FansFormAbstractItem *item, NSDate *value) {
+                                               
+                                               NSLog(@"%@",item.class);
+                                               return [NSString stringWithFormat:@"%@",value];
+                                           }]];
+    
     
     [self.view fans_addSubItem:formManager];
     
-    [formManager.contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(action)]];
-    
+    [formManager.contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                          action:@selector(action)]];
 }
 
 - (void)action {
-    NSLog(@"dict :%@ \n json : %@",self.view.fans_subItem.makeDictionary,self.view.fans_subItem.makeJSONString);
+    NSLog(@"dict :%@ \n json : %@",FansViewSubItem.makeDictionary,FansViewSubItem.makeJSONString);
     
-    FansFormManager *manager = self.view.fans_subItem;
-    
-    if ([manager itemForKey:@"param1"].isShow) {
-        [manager itemForKey:@"param1"].show = NO;
+    if (FansManagerGetItem(FansViewSubItem, @"param2").isShow) {
+        FansManagerGetItem(FansViewSubItem, @"param2").show = NO;
     } else {
-        [manager itemForKey:@"param1"].show = YES;
+        FansManagerGetItem(FansViewSubItem, @"param2").show = YES;
     }
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 @end

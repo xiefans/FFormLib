@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger , FansFormArrangeDirection) {
 
 static CGFloat const FansFormItemNormalHeight = 55.f;
 static CGFloat const FansFormItemNormalWidth = 200.f;
-static CGFloat const FansFormItemTitleNormalWidth = 90.f;
+static CGFloat const FansFormItemTitleNormalWidth = 100.f;
 static CGFloat const FansFormItemHorizontalNormalGap = 10.f;
 
 

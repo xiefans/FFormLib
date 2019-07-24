@@ -1,48 +1,52 @@
 //
-//  FansInputView.m
+//  FansFormDateItemView.m
 //  FansFormFramework
 //
-//  Created by fans on 2019/7/22.
+//  Created by fans on 2019/7/24.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansInputView.h"
+#import "FansFormDateItemView.h"
 #import "FansFormTool.h"
 #import "FansFormItemConstant.h"
-@implementation FansInputView
+
+@implementation FansFormDateItemView
 
 @synthesize titleLb = _titleLb;
-@synthesize textField = _textField;
+@synthesize datePickerView = _datePickerView;
 @synthesize lineView = _lineView;
 
 #pragma mark - Overrides
 - (instancetype)init {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         [self addSubview:self.titleLb];
-        [self addSubview:self.textField];
         [self addSubview:self.lineView];
+        [self addSubview:self.datePickerView];
         
-        _show = YES;
-        self.frame = CGRectMake(0, 0, FansFormItemNormalWidth, FansFormItemNormalHeight);
+        
+        self.fans_size = CGSizeMake(FansFormItemNormalWidth, 200.f);
     }
     return self;
 }
 
 - (void)layoutSubviews {
+    
     CGFloat gap = 3.f;
-    CGFloat height = self.fans_height - gap * 2;
+    [self.titleLb sizeToFit];
     self.titleLb.frame = CGRectMake(
                                     FansFormItemHorizontalNormalGap,
                                     gap,
                                     FansFormItemTitleNormalWidth,
-                                    height
+                                    self.titleLb.fans_height
                                     );
-    self.textField.frame = CGRectMake(
-                                     self.titleLb.fans_right + FansFormItemHorizontalNormalGap,
-                                     gap,
-                                     self.fans_width - (self.titleLb.fans_right + FansFormItemHorizontalNormalGap),
-                                     MAX(height, 0.f)
+    
+    self.titleLb.fans_centerY = (FansFormItemNormalHeight + gap)/ 2.f;
+    
+    self.datePickerView.frame = CGRectMake(
+                                     self.titleLb.fans_x,
+                                     self.titleLb.fans_bottom + self.titleLb.fans_y,
+                                     self.fans_width,
+                                     MAX(self.fans_height - self.titleLb.fans_y * 2, 0.f)
                                      );
     CGFloat lineWidth = 0.5f;
     self.lineView.frame = CGRectMake(
@@ -51,13 +55,7 @@
                                      self.fans_width,
                                      lineWidth
                                      );
-}
-
-#pragma mark - Setter Getter
-- (void)setShow:(BOOL)show {
-    _show = show;
     
-    self.hidden = !show;
 }
 
 
@@ -66,20 +64,9 @@
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
         _titleLb.textColor = [UIColor fans_colorWithHexValue:FansFormItemTitleNoramlColor];
-        _titleLb.font = [UIFont systemFontOfSize:15];
+        _titleLb.font = [UIFont systemFontOfSize:15.f];
     }
     return _titleLb;
-}
-
-- (UITextField *)textField {
-    if (!_textField) {
-        _textField = [[UITextField alloc] init];
-        
-        _textField.font = [UIFont systemFontOfSize:15];
-        _textField.textColor = [UIColor fans_colorWithHexValue:FansFormItemValueNoramlColor];
-        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    }
-    return _textField;
 }
 
 - (UIView *)lineView {
@@ -88,6 +75,14 @@
         _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemLineNoramlColor];
     }
     return _lineView;
+}
+
+- (UIDatePicker *)datePickerView {
+    if (!_datePickerView) {
+        _datePickerView = [[UIDatePicker alloc] init];
+        _datePickerView.datePickerMode = UIDatePickerModeDate;
+    }
+    return _datePickerView;
 }
 
 @end

@@ -1,27 +1,20 @@
 //
-//  FansInputItem.m
+//  FansTextItem.m
 //  FansFormFramework
 //
-//  Created by fans on 2019/7/22.
+//  Created by fans on 2019/7/24.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansInputItem.h"
-#import "FansFormTool.h"
-#import "FansFormItemConstant.h"
-@interface FansInputItem ()
+#import "FansTextItem.h"
 
-@property (nonatomic, strong) FansInputView *inputView;
+@interface FansTextItem ()
+
+@property (nonatomic, strong) FansTextItemView *itemView;
 
 @end
 
-@implementation FansInputItem
-
-#pragma mark - Overrides
-- (void)setShowSize:(CGSize)showSize {
-    self.inputView.fans_size = showSize;
-    self.refreshBlock(self);
-}
+@implementation FansTextItem
 
 #pragma mark - Public Method
 + (instancetype)itemWithTitle:(NSString *)title
@@ -32,7 +25,7 @@
                    placeholder:placeholder
                         forKey:key
                   keyboradType:UIKeyboardTypeDefault
-                     configBlock:configBlock];
+                   configBlock:configBlock];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title
@@ -41,7 +34,7 @@
     return [self itemWithTitle:title
                    placeholder:placeholder
                         forKey:key
-                     configBlock:nil];
+                   configBlock:nil];
 }
 
 + (instancetype)itemWithTitle:(NSString *)title
@@ -53,7 +46,7 @@
                            placeholder:placeholder
                                 forKey:key
                           keyboradType:keyboradType
-                             configBlock:configBlock];
+                           configBlock:configBlock];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
@@ -62,9 +55,9 @@
                  keyboradType:(UIKeyboardType)keyboradType
                   configBlock:(FansFormItemBlock)configBlock {
     if (self = [super init]) {
-        self.inputView.textField.keyboardType = keyboradType;
-        self.inputView.titleLb.text = title;
-        self.inputView.textField.placeholder = placeholder;
+        self.itemView.textView.keyboardType = keyboradType;
+        self.itemView.titleLb.text = title;
+        self.itemView.placeholderLb.text = placeholder;
         self.title = title;
         self.key = key;
         self.configBlock = configBlock;
@@ -76,7 +69,7 @@
 #pragma mark <FansFormItemInterface>
 
 - (UIView *)contentView {
-    return self.inputView;
+    return self.itemView;
 }
 
 - (void)setValue:(NSString *)value {
@@ -88,23 +81,24 @@
 }
 
 - (void)setContent:(NSString *)content {
-    self.inputView.textField.text = content;
+    self.itemView.textView.text = content;
+    [self.itemView checkContent:content];
 }
 
 - (NSString *)content {
-    return self.inputView.textField.text.length != 0 ? self.inputView.textField.text : nil;
+    return self.itemView.textView.text.length != 0 ? self.itemView.textView.text : nil;
 }
 
 - (void)setEdit:(BOOL)edit {
     [super setEdit:edit];
     
     if (edit) {
-        self.inputView.backgroundColor = [UIColor whiteColor];
-        self.inputView.userInteractionEnabled = YES;
+        self.itemView.backgroundColor = [UIColor whiteColor];
+        self.itemView.userInteractionEnabled = YES;
     } else {
-        self.inputView.userInteractionEnabled = NO;
-        [self.inputView.textField resignFirstResponder];
-        self.inputView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemNoEditNoramlColor];
+        self.itemView.userInteractionEnabled = NO;
+        [self.itemView.textView resignFirstResponder];
+        self.itemView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormItemNoEditNoramlColor];
     }
 }
 
@@ -112,10 +106,10 @@
     [super setMust:must];
     
     if (must) {
-        NSString *title = self.inputView.titleLb.text;
-        self.inputView.titleLb.attributedText = [title beforeJoinRedStar];
+        NSString *title = self.itemView.titleLb.text;
+        self.itemView.titleLb.attributedText = [title beforeJoinRedStar];
     } else {
-        self.inputView.titleLb.text = self.title;
+        self.itemView.titleLb.text = self.title;
     }
 }
 
@@ -125,11 +119,11 @@
 
 #pragma mark - Lazy Load
 
-- (FansInputView *)inputView {
-    if (!_inputView) {
-        _inputView = [[FansInputView alloc] init];
+- (FansTextItemView *)itemView {
+    if (!_itemView) {
+        _itemView = [[FansTextItemView alloc] init];
     }
-    return _inputView;
+    return _itemView;
 }
 
 @end
