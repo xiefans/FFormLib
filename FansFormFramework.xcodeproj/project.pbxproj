@@ -16,19 +16,15 @@
 		CE9C2C0622E5571A001EDDFD /* FansFormFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C0522E5571A001EDDFD /* FansFormFrameworkTests.m */; };
 		CE9C2C1122E5571A001EDDFD /* FansFormFrameworkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C1022E5571A001EDDFD /* FansFormFrameworkUITests.m */; };
 		CE9C2C2722E5605F001EDDFD /* UIView+FansFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C2622E5605F001EDDFD /* UIView+FansFrame.m */; };
-		CE9C2C2C22E5616D001EDDFD /* FansFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C2B22E5616D001EDDFD /* FansFormView.m */; };
-		CE9C2C3122E575E7001EDDFD /* FansFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3022E575E7001EDDFD /* FansFormManager.m */; };
-		CE9C2C3522E57BF8001EDDFD /* FansInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3422E57BF8001EDDFD /* FansInputView.m */; };
-		CE9C2C3822E57C25001EDDFD /* FansInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3722E57C25001EDDFD /* FansInputItem.m */; };
 		CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */; };
 		CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */; };
-		CEBD49F722E6F67D00176381 /* UIView+FansForm.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD49F622E6F67D00176381 /* UIView+FansForm.m */; };
-		CEBD49FB22E7164100176381 /* FansFormAbstractItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */; };
-		CECB3C7B22E7FD800021FEAE /* FansTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB3C7A22E7FD800021FEAE /* FansTextItem.m */; };
-		CECB3C7E22E7FD930021FEAE /* FansTextItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB3C7D22E7FD930021FEAE /* FansTextItemView.m */; };
-		CECB3C8822E8546C0021FEAE /* FansFormActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB3C8722E8546C0021FEAE /* FansFormActionItem.m */; };
-		CECB3C8C22E855BB0021FEAE /* FansFormDateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB3C8B22E855BB0021FEAE /* FansFormDateItem.m */; };
-		CECB3C8F22E8614A0021FEAE /* FansFormDateItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB3C8E22E8614A0021FEAE /* FansFormDateItemView.m */; };
+		CEC743A522E94D0400C79E6D /* FansFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743A422E94D0400C79E6D /* FansFormView.m */; };
+		CEC743A822E94D1200C79E6D /* FansFormViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743A722E94D1200C79E6D /* FansFormViewManager.m */; };
+		CEC743AB22E9780700C79E6D /* FansFormMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AA22E9780700C79E6D /* FansFormMagic.m */; };
+		CEC743AE22E97EA600C79E6D /* FansFormContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AD22E97EA600C79E6D /* FansFormContainerView.m */; };
+		CEC743B122E97EBB00C79E6D /* FansFormContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B022E97EBB00C79E6D /* FansFormContainerManager.m */; };
+		CEC743B622E9D04000C79E6D /* FansInputViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B522E9D04000C79E6D /* FansInputViewManager.m */; };
+		CEC743B922E9D05200C79E6D /* FansFormInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B822E9D05200C79E6D /* FansFormInputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,34 +65,25 @@
 		CE9C2C2422E56047001EDDFD /* FansFormCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormCore.h; sourceTree = "<group>"; };
 		CE9C2C2522E5605F001EDDFD /* UIView+FansFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FansFrame.h"; sourceTree = "<group>"; };
 		CE9C2C2622E5605F001EDDFD /* UIView+FansFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FansFrame.m"; sourceTree = "<group>"; };
-		CE9C2C2A22E5616D001EDDFD /* FansFormView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormView.h; sourceTree = "<group>"; };
-		CE9C2C2B22E5616D001EDDFD /* FansFormView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormView.m; sourceTree = "<group>"; };
-		CE9C2C2F22E575E7001EDDFD /* FansFormManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormManager.h; sourceTree = "<group>"; };
-		CE9C2C3022E575E7001EDDFD /* FansFormManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormManager.m; sourceTree = "<group>"; };
-		CE9C2C3322E57BF8001EDDFD /* FansInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansInputView.h; sourceTree = "<group>"; };
-		CE9C2C3422E57BF8001EDDFD /* FansInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansInputView.m; sourceTree = "<group>"; };
-		CE9C2C3622E57C25001EDDFD /* FansInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansInputItem.h; sourceTree = "<group>"; };
-		CE9C2C3722E57C25001EDDFD /* FansInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansInputItem.m; sourceTree = "<group>"; };
 		CE9C2C3922E57FE7001EDDFD /* FansFormSupportItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormSupportItem.h; sourceTree = "<group>"; };
-		CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormItemConstant.h; sourceTree = "<group>"; };
 		CE9C2C3B22E5B08E001EDDFD /* UIColor+FansColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+FansColor.h"; sourceTree = "<group>"; };
 		CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FansColor.m"; sourceTree = "<group>"; };
 		CE9C2C3E22E5B3F4001EDDFD /* NSString+FansAttributed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FansAttributed.h"; sourceTree = "<group>"; };
 		CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FansAttributed.m"; sourceTree = "<group>"; };
-		CEBD49F522E6F67D00176381 /* UIView+FansForm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FansForm.h"; sourceTree = "<group>"; };
-		CEBD49F622E6F67D00176381 /* UIView+FansForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FansForm.m"; sourceTree = "<group>"; };
-		CEBD49F922E7164100176381 /* FansFormAbstractItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormAbstractItem.h; sourceTree = "<group>"; };
-		CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormAbstractItem.m; sourceTree = "<group>"; };
-		CECB3C7922E7FD800021FEAE /* FansTextItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansTextItem.h; sourceTree = "<group>"; };
-		CECB3C7A22E7FD800021FEAE /* FansTextItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansTextItem.m; sourceTree = "<group>"; };
-		CECB3C7C22E7FD930021FEAE /* FansTextItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansTextItemView.h; sourceTree = "<group>"; };
-		CECB3C7D22E7FD930021FEAE /* FansTextItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansTextItemView.m; sourceTree = "<group>"; };
-		CECB3C8622E8546C0021FEAE /* FansFormActionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormActionItem.h; sourceTree = "<group>"; };
-		CECB3C8722E8546C0021FEAE /* FansFormActionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormActionItem.m; sourceTree = "<group>"; };
-		CECB3C8A22E855BB0021FEAE /* FansFormDateItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormDateItem.h; sourceTree = "<group>"; };
-		CECB3C8B22E855BB0021FEAE /* FansFormDateItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormDateItem.m; sourceTree = "<group>"; };
-		CECB3C8D22E8614A0021FEAE /* FansFormDateItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormDateItemView.h; sourceTree = "<group>"; };
-		CECB3C8E22E8614A0021FEAE /* FansFormDateItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormDateItemView.m; sourceTree = "<group>"; };
+		CEC743A322E94D0400C79E6D /* FansFormView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormView.h; sourceTree = "<group>"; };
+		CEC743A422E94D0400C79E6D /* FansFormView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormView.m; sourceTree = "<group>"; };
+		CEC743A622E94D1200C79E6D /* FansFormViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormViewManager.h; sourceTree = "<group>"; };
+		CEC743A722E94D1200C79E6D /* FansFormViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormViewManager.m; sourceTree = "<group>"; };
+		CEC743A922E9780700C79E6D /* FansFormMagic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormMagic.h; sourceTree = "<group>"; };
+		CEC743AA22E9780700C79E6D /* FansFormMagic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormMagic.m; sourceTree = "<group>"; };
+		CEC743AC22E97EA600C79E6D /* FansFormContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormContainerView.h; sourceTree = "<group>"; };
+		CEC743AD22E97EA600C79E6D /* FansFormContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormContainerView.m; sourceTree = "<group>"; };
+		CEC743AF22E97EBB00C79E6D /* FansFormContainerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormContainerManager.h; sourceTree = "<group>"; };
+		CEC743B022E97EBB00C79E6D /* FansFormContainerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormContainerManager.m; sourceTree = "<group>"; };
+		CEC743B422E9D04000C79E6D /* FansInputViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansInputViewManager.h; sourceTree = "<group>"; };
+		CEC743B522E9D04000C79E6D /* FansInputViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansInputViewManager.m; sourceTree = "<group>"; };
+		CEC743B722E9D05200C79E6D /* FansFormInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormInputView.h; sourceTree = "<group>"; };
+		CEC743B822E9D05200C79E6D /* FansFormInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +169,7 @@
 		CE9C2C1E22E55FC4001EDDFD /* FansFormFramework */ = {
 			isa = PBXGroup;
 			children = (
+				CEC743B222E9D01C00C79E6D /* Item */,
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CE9C2C2022E55FDD001EDDFD /* Header */,
 				CE9C2C1F22E55FD8001EDDFD /* Core */,
@@ -192,11 +180,14 @@
 		CE9C2C1F22E55FD8001EDDFD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C3A22E580B1001EDDFD /* FansFormItemConstant.h */,
-				CEBD49F822E7160000176381 /* BaseItem */,
-				CEBD49F022E6F28F00176381 /* CoreItem */,
-				CE9C2C2922E56112001EDDFD /* OtherItem */,
-				CEBD49F122E6F64600176381 /* Category */,
+				CEC743A322E94D0400C79E6D /* FansFormView.h */,
+				CEC743A422E94D0400C79E6D /* FansFormView.m */,
+				CEC743A622E94D1200C79E6D /* FansFormViewManager.h */,
+				CEC743A722E94D1200C79E6D /* FansFormViewManager.m */,
+				CEC743AC22E97EA600C79E6D /* FansFormContainerView.h */,
+				CEC743AD22E97EA600C79E6D /* FansFormContainerView.m */,
+				CEC743AF22E97EBB00C79E6D /* FansFormContainerManager.h */,
+				CEC743B022E97EBB00C79E6D /* FansFormContainerManager.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -220,82 +211,29 @@
 				CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */,
 				CE9C2C3E22E5B3F4001EDDFD /* NSString+FansAttributed.h */,
 				CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */,
+				CEC743A922E9780700C79E6D /* FansFormMagic.h */,
+				CEC743AA22E9780700C79E6D /* FansFormMagic.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		CE9C2C2922E56112001EDDFD /* OtherItem */ = {
+		CEC743B222E9D01C00C79E6D /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				CECB3C8922E854DB0021FEAE /* FansFormDateItem */,
-				CECB3C7822E7FD380021FEAE /* FansTextItem */,
-				CE9C2C3222E57BDC001EDDFD /* FansInputItem */,
+				CEC743B322E9D02500C79E6D /* InputItem */,
 			);
-			path = OtherItem;
+			path = Item;
 			sourceTree = "<group>";
 		};
-		CE9C2C3222E57BDC001EDDFD /* FansInputItem */ = {
+		CEC743B322E9D02500C79E6D /* InputItem */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C3622E57C25001EDDFD /* FansInputItem.h */,
-				CE9C2C3722E57C25001EDDFD /* FansInputItem.m */,
-				CE9C2C3322E57BF8001EDDFD /* FansInputView.h */,
-				CE9C2C3422E57BF8001EDDFD /* FansInputView.m */,
+				CEC743B722E9D05200C79E6D /* FansFormInputView.h */,
+				CEC743B822E9D05200C79E6D /* FansFormInputView.m */,
+				CEC743B422E9D04000C79E6D /* FansInputViewManager.h */,
+				CEC743B522E9D04000C79E6D /* FansInputViewManager.m */,
 			);
-			path = FansInputItem;
-			sourceTree = "<group>";
-		};
-		CEBD49F022E6F28F00176381 /* CoreItem */ = {
-			isa = PBXGroup;
-			children = (
-				CE9C2C2A22E5616D001EDDFD /* FansFormView.h */,
-				CE9C2C2B22E5616D001EDDFD /* FansFormView.m */,
-				CE9C2C2F22E575E7001EDDFD /* FansFormManager.h */,
-				CE9C2C3022E575E7001EDDFD /* FansFormManager.m */,
-			);
-			path = CoreItem;
-			sourceTree = "<group>";
-		};
-		CEBD49F122E6F64600176381 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				CEBD49F522E6F67D00176381 /* UIView+FansForm.h */,
-				CEBD49F622E6F67D00176381 /* UIView+FansForm.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		CEBD49F822E7160000176381 /* BaseItem */ = {
-			isa = PBXGroup;
-			children = (
-				CEBD49F922E7164100176381 /* FansFormAbstractItem.h */,
-				CEBD49FA22E7164100176381 /* FansFormAbstractItem.m */,
-				CECB3C8622E8546C0021FEAE /* FansFormActionItem.h */,
-				CECB3C8722E8546C0021FEAE /* FansFormActionItem.m */,
-			);
-			path = BaseItem;
-			sourceTree = "<group>";
-		};
-		CECB3C7822E7FD380021FEAE /* FansTextItem */ = {
-			isa = PBXGroup;
-			children = (
-				CECB3C7922E7FD800021FEAE /* FansTextItem.h */,
-				CECB3C7A22E7FD800021FEAE /* FansTextItem.m */,
-				CECB3C7C22E7FD930021FEAE /* FansTextItemView.h */,
-				CECB3C7D22E7FD930021FEAE /* FansTextItemView.m */,
-			);
-			path = FansTextItem;
-			sourceTree = "<group>";
-		};
-		CECB3C8922E854DB0021FEAE /* FansFormDateItem */ = {
-			isa = PBXGroup;
-			children = (
-				CECB3C8A22E855BB0021FEAE /* FansFormDateItem.h */,
-				CECB3C8B22E855BB0021FEAE /* FansFormDateItem.m */,
-				CECB3C8D22E8614A0021FEAE /* FansFormDateItemView.h */,
-				CECB3C8E22E8614A0021FEAE /* FansFormDateItemView.m */,
-			);
-			path = FansFormDateItem;
+			path = InputItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,23 +366,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC743AE22E97EA600C79E6D /* FansFormContainerView.m in Sources */,
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FansFrame.m in Sources */,
-				CEBD49F722E6F67D00176381 /* UIView+FansForm.m in Sources */,
-				CE9C2C3822E57C25001EDDFD /* FansInputItem.m in Sources */,
-				CEBD49FB22E7164100176381 /* FansFormAbstractItem.m in Sources */,
-				CECB3C8F22E8614A0021FEAE /* FansFormDateItemView.m in Sources */,
-				CE9C2C2C22E5616D001EDDFD /* FansFormView.m in Sources */,
-				CECB3C8C22E855BB0021FEAE /* FansFormDateItem.m in Sources */,
-				CECB3C7B22E7FD800021FEAE /* FansTextItem.m in Sources */,
-				CE9C2C3522E57BF8001EDDFD /* FansInputView.m in Sources */,
-				CECB3C8822E8546C0021FEAE /* FansFormActionItem.m in Sources */,
-				CECB3C7E22E7FD930021FEAE /* FansTextItemView.m in Sources */,
+				CEC743B622E9D04000C79E6D /* FansInputViewManager.m in Sources */,
+				CEC743AB22E9780700C79E6D /* FansFormMagic.m in Sources */,
+				CEC743A822E94D1200C79E6D /* FansFormViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
+				CEC743B922E9D05200C79E6D /* FansFormInputView.m in Sources */,
 				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,
-				CE9C2C3122E575E7001EDDFD /* FansFormManager.m in Sources */,
+				CEC743A522E94D0400C79E6D /* FansFormView.m in Sources */,
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
+				CEC743B122E97EBB00C79E6D /* FansFormContainerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

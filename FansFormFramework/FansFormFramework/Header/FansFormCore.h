@@ -9,7 +9,8 @@
 #ifndef FansFormCore_h
 #define FansFormCore_h
 
-#import "UIView+FansForm.h"
-#import "FansFormManager.h"
+#import "FansFormMagic.h"
+#import "FansFormContainerView.h"
+
 
 #endif /* FansFormCore_h */

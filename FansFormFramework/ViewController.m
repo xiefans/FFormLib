@@ -8,11 +8,11 @@
 
 #import "ViewController.h"
 #import "FansFormCore.h"
-#import "FansFormSupportItem.h"
+#import "FansFormTool.h"
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()
 
-@property (nonatomic, strong) FansFormManager *formManager;
+@property (nonatomic, strong) FansFormContainerView *formView;
 
 @end
 
@@ -22,8 +22,7 @@
     [super viewWillLayoutSubviews];
 
     CGRect layoutFrame = self.view.safeAreaLayoutGuide.layoutFrame;
-    
-    FansViewSubItem.contentView.frame = layoutFrame;
+    self.formView.frame = layoutFrame;
 }
 
 - (void)viewDidLoad {
@@ -31,47 +30,32 @@
     self.title = @"好的";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    FansFormManager *formManager = [[FansFormManager alloc] initWithKey:@"jsonform"];
-//    formManager.package = YES;
-    [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本"
-                                             placeholder:@"请输入单行文本"
-                                                  forKey:@"input"].changeToMust];
+    _formView = [FansFormContainerView formViewWithKey:@"jsonform"];
+    _formView.manager.package = YES;
+    _formView.backgroundColor = [UIColor lightGrayColor];
+    _formView.paddingInsets = UIEdgeInsetsMake(15, 5, 5, 5);
     
-    [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本2"
-                                             placeholder:@"请输入单行文本2"
-                                                  forKey:@"param3"]];
+    [_formView addSubview:[FansFormView formViewWithKey:@"1"]];
+    [_formView addSubview:[FansFormView formViewWithKey:@"2"]];
     
-    [formManager addSubItem:[FansTextItem itemWithTitle:@"多行文本"
-                                            placeholder:@"请输入多行文本"
-                                                 forKey:@"param2"].changeToMust];
+    [_formView subviewForKey:@"1"].backgroundColor = [UIColor redColor];
+    [_formView subviewForKey:@"1"].marginInsets = UIEdgeInsetsMake(0, 10, 50, 10);
+    [_formView subviewForKey:@"1"].size = CGSizeMake(FANSScreenWidth, 0);
+    [_formView subviewForKey:@"2"].backgroundColor = [UIColor blueColor];
+    FansMagicWillGetValue([_formView subviewForKey:@"1"], ^id(FansFormViewManager *manager, id value) {
+        return @"param1";
+    });
     
-    [formManager addSubItem:[FansFormDateItem itemWithTitle:@"日期选择"
-                                                        key:@"date"
-                                           handleValueBlock:^id(FansFormAbstractItem *item, NSDate *value) {
-                                               
-                                               NSLog(@"%@",item.class);
-                                               return [NSString stringWithFormat:@"%@",value];
-                                           }]];
+    FansMagicWillGetValue([_formView subviewForKey:@"2"], ^id(FansFormViewManager *manager, id value) {
+        return @"param2";
+    });
     
-    
-    [self.view fans_addSubItem:formManager];
-    
-    [formManager.contentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(action)]];
+    [self.view addSubview:self.formView];
 }
 
-- (void)action {
-    NSLog(@"dict :%@ \n json : %@",FansViewSubItem.makeDictionary,FansViewSubItem.makeJSONString);
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    if (FansManagerGetItem(FansViewSubItem, @"param2").isShow) {
-        FansManagerGetItem(FansViewSubItem, @"param2").show = NO;
-    } else {
-        FansManagerGetItem(FansViewSubItem, @"param2").show = YES;
-    }
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@",_formView.manager.makeDictionary);
     
 }
 
