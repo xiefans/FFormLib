@@ -7,10 +7,16 @@
 //
 
 #import "FansFormView.h"
-
+#import "FansInputViewManager.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FansFormInputView : FansFormView
+
++ (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must;
+
+@property (nonatomic, strong, readonly) UILabel *titleLb;
+
+
 
 @end
 

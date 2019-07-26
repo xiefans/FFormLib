@@ -12,5 +12,8 @@
 #import "FansFormMagic.h"
 #import "FansFormContainerView.h"
 
+#import "FansFormSupportItem.h"
+#import "FansFormTool.h"
+
 
 #endif /* FansFormCore_h */

@@ -64,6 +64,7 @@
 - (void)excuteChangeShow:(BOOL)show {
     if (_changeShow) {
         _changeShow(self, show);
+        [self excuteRefreshBlock];
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "FansFormView.h"
-
+#import "FansFormTool.h"
 @interface FansFormView ()
 
 @property (nonatomic, strong) __kindof FansFormViewManager * manager;
@@ -66,15 +66,55 @@
 }
 
 - (void)changeEdit:(BOOL)isEdit {
-    NSLog(@"%@ changeEdit Fail. because the class not implement", self.class);
+    
+    if (isEdit) {
+        self.userInteractionEnabled = YES;
+        self.backgroundColor = _changeTempBackgroundColor;
+    } else {
+        self.userInteractionEnabled = NO;
+        _changeTempBackgroundColor = self.backgroundColor;
+        self.backgroundColor = [UIColor fans_colorWithHexValue:0xeeeeee];
+    }
+    
+//    NSLog(@"%@ changeEdit Fail. because the class not implement", self.class);
 }
 
 - (void)changeShow:(BOOL)isShow {
-    NSLog(@"%@ changeShow Fail. because the class not implement", self.class);
+    
+    if (isShow) {
+        self.hidden = NO;
+    } else {
+        self.hidden = YES;
+    }
+//    NSLog(@"%@ changeShow Fail. because the class not implement", self.class);
 }
 
 - (void)changeMust:(BOOL)isMust {
     NSLog(@"%@ changeMust Fail. because the class not implement", self.class);
+}
+
+- (void)setShow:(BOOL)show {
+    _manager.show = show;
+}
+
+- (BOOL)isShow {
+    return _manager.isShow;
+}
+
+- (void)setMust:(BOOL)must {
+    _manager.must = must;
+}
+
+- (BOOL)isMust {
+    return _manager.isMust;
+}
+
+- (void)setEdit:(BOOL)edit {
+    _manager.edit = edit;
+}
+
+- (BOOL)isEdit {
+    return _manager.isEdit;
 }
 
 

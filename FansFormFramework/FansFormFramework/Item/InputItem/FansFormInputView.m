@@ -10,12 +10,17 @@
 
 @implementation FansFormInputView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must {
+    FansFormInputView *view = [FansFormInputView formViewWithKey:key];
+    view.must = must;
+    return view;
 }
-*/
+
+- (instancetype)initWithKey:(NSString *)key {
+    return [self initWithManager:[FansInputViewManager managerWithKey:key]];
+}
+
+
+
 
 @end

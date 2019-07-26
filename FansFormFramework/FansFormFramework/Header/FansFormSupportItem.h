@@ -9,5 +9,6 @@
 #ifndef FansFormSupportItem_h
 #define FansFormSupportItem_h
 
+#import "FansFormInputView.h"
 
 #endif /* FansFormSupportItem_h */
