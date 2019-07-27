@@ -12,6 +12,8 @@
 @interface FansFormContainerView ()
 
 @property (nonatomic, strong) NSMutableDictionary *map;
+/** 滚动视图 */
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -23,11 +25,17 @@
     __weak typeof(self)weakSelf = self;
     
     __block FansFormView *lastView = nil;
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof FansFormView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    self.scrollView.frame = self.bounds;
+    
+    [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof FansFormView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isKindOfClass:[UIImageView class]]) {
+            return ;
+        }
         
         [obj.manager setRefreshBlock:^(FansFormViewManager *manager) {
             __strong typeof(weakSelf)self = weakSelf;
-            [self setNeedsLayout];
+            [self.scrollView setNeedsLayout];
         }];
         
         CGFloat normalHeight = 55.0f;
@@ -43,10 +51,22 @@
         }
     }];
     
+    self.scrollView.contentSize = CGSizeMake(0, lastView.fans_bottom + self.paddingInsets.bottom);
+    
 }
 
 - (instancetype)initWithKey:(NSString *)key {
     return [self initWithManager:[FansFormContainerManager managerWithKey:key]];
+}
+
+- (instancetype)initWithManager:(__kindof FansFormViewManager *)manager {
+    if (self = [super initWithManager:manager]) {
+        
+        self.paddingInsets = FansFormContainerViewNormalPadding;
+        
+        [super addSubview:self.scrollView];
+    }
+    return self;
 }
 
 - (FansFormContainerManager *)manager {
@@ -55,7 +75,7 @@
 
 
 - (void)addSubview:(__kindof FansFormView *)view {
-    [super addSubview:view];
+    [self.scrollView addSubview:view];
     [self.manager addSubManager:view.manager];
     [self.map setObject:view forKey:view.key];
 }
@@ -75,13 +95,19 @@
     return [super subviews];
 }
 
-
-
 - (NSMutableDictionary *)map {
     if (!_map) {
         _map = [NSMutableDictionary new];
     }
     return _map;
+}
+
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.showsVerticalScrollIndicator = NO;
+    }
+    return _scrollView;
 }
 
 @end

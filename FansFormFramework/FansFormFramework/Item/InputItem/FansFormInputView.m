@@ -13,6 +13,8 @@
 @synthesize titleLb = _titleLb;
 @synthesize textField = _textField;
 @synthesize lineView = _lineView;
+@synthesize titleToInputGap = _titleToInputGap;
+@synthesize titleWidth = _titleWidth;
 
 + (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must {
     return [self formViewWithKey:key title:nil placeholder:nil must:must];
@@ -29,12 +31,10 @@
     return view;
 }
 
-- (instancetype)initWithKey:(NSString *)key {
-    return [self initWithManager:[FansInputViewManager managerWithKey:key]];
-}
-
 - (instancetype)initWithManager:(__kindof FansFormViewManager *)manager {
     if (self = [super initWithManager:manager]) {
+        
+        self.paddingInsets = FansFormItemViewNormalPadding;
         
         __weak typeof(self)sself = self;
         [manager setDidSetContent:^(FansFormViewManager *manager, id content) {
@@ -64,6 +64,8 @@
         [self addSubview:self.titleLb];
         [self addSubview:self.textField];
         [self addSubview:self.lineView];
+        
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager action:@selector(excuteDidAction)]];
     }
     return self;
 }
@@ -94,11 +96,27 @@
                                      );
 }
 
+- (void)setTitleToInputGap:(CGFloat)titleToInputGap {
+    if (_titleToInputGap == titleToInputGap) {
+        return;
+    }
+    _titleToInputGap = titleToInputGap;
+    [self setNeedsLayout];
+}
+
 - (CGFloat)titleToInputGap {
     if (_titleToInputGap) {
         return _titleToInputGap;
     }
     return FansFormViewNormalGap;
+}
+
+- (void)setTitleWidth:(CGFloat)titleWidth {
+    if (_titleWidth == titleWidth) {
+        return;
+    }
+    _titleWidth = titleWidth;
+    [self setNeedsLayout];
 }
 
 - (CGFloat)titleWidth {
@@ -112,6 +130,8 @@
 - (UILabel *)titleLb {
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
+        _titleLb.textColor = [UIColor fans_colorWithHexValue:FansFormViewTitleNormalTextColor];
+        _titleLb.font = [UIFont systemFontOfSize:FansFormViewContentNormalFontSize];
     }
     return _titleLb;
 }
@@ -119,6 +139,8 @@
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] init];
+        _textField.font = [UIFont systemFontOfSize:FansFormViewContentNormalFontSize];
+        _textField.textColor = [UIColor fans_colorWithHexValue:FansFormViewContentNormalTextColor];
     }
     return _textField;
 }
@@ -126,7 +148,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [UIView new];
-        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:0xEEEEEE];
+        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormViewLineViewNormalColor];
     }
     return _lineView;
 }

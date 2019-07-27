@@ -7,7 +7,6 @@
 //
 
 #import "FansFormView.h"
-#import "FansInputViewManager.h"
 
 @interface FansFormInputView : FansFormView
 

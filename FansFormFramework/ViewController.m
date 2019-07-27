@@ -31,8 +31,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     _formView = [FansFormContainerView formViewWithKey:@"jsonform"];
-
-    _formView.paddingInsets = UIEdgeInsetsMake(15, 5, 5, 5);
     
     [_formView addSubview:[FansFormInputView formViewWithKey:@"1"
                                                        title:@"名称："
@@ -43,15 +41,8 @@
                                                  placeholder:@"请输入性别"
                                                         must:NO]];
     
+    
     [self.view addSubview:self.formView];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    NSLog(@"%@",_formView.manager.makeJSONString);
-    FansFormView *formView = [_formView subviewForKey:@"1"];
-    formView.edit = !formView.isEdit;
-    
 }
 
 @end
