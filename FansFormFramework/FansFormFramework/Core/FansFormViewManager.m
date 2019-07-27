@@ -10,6 +10,9 @@
 
 @implementation FansFormViewManager
 
+@synthesize content = _content;
+@synthesize value = _value;
+
 + (instancetype)managerWithKey:(NSString *)key {
     return [[self alloc] initWithKey:key];
 }
@@ -61,6 +64,29 @@
     }
 }
 
+- (id)content {
+    return [self excuteWillGetContent:_content];
+}
+
+- (void)setContent:(id)content {
+    _content = content;
+    [self excuteDidSetContent:content];
+}
+
+- (id)value {
+    return [self excuteWillGetValue:_value];
+}
+
+- (void)setValue:(id)value {
+    _value = value;
+    [self excuteDidSetValue:value];
+}
+
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    [self excuteDidSetTitle:title];
+}
+
 - (void)excuteChangeShow:(BOOL)show {
     if (_changeShow) {
         _changeShow(self, show);
@@ -85,6 +111,31 @@
         return _willGetValue(self, value);
     }
     return value;
+}
+
+- (void)excuteDidSetValue:(id)value {
+    if (_didSetValue) {
+        _didSetValue(self, value);
+    }
+}
+
+- (id)excuteWillGetContent:(id)content {
+    if (_willGetContent) {
+        return _willGetContent(self, content);
+    }
+    return content;
+}
+
+- (void)excuteDidSetContent:(id)content {
+    if (_didSetContent) {
+        _didSetContent(self, content);
+    }
+}
+
+- (void)excuteDidSetTitle:(id)title {
+    if (_didSetTitle) {
+        _didSetTitle(self, title);
+    }
 }
 
 - (void)excuteDidAction {

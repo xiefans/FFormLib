@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9ECA7C4B22EC7BA300A9B437 /* FansFormConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormConstant.h; sourceTree = "<group>"; };
 		CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FansFormFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE9C2BED22E5571A001EDDFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 				CE9C2C2322E56039001EDDFD /* FansFormTool.h */,
 				CE9C2C2422E56047001EDDFD /* FansFormCore.h */,
 				CE9C2C3922E57FE7001EDDFD /* FansFormSupportItem.h */,
+				9ECA7C4B22EC7BA300A9B437 /* FansFormConstant.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -552,13 +554,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RD2522EQU;
 				INFOPLIST_FILE = FansFormFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFramework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,13 +572,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RD2522EQU;
 				INFOPLIST_FILE = FansFormFramework/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glority-fans.FansFormFramework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

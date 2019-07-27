@@ -8,16 +8,23 @@
 
 #import "FansFormView.h"
 #import "FansInputViewManager.h"
-NS_ASSUME_NONNULL_BEGIN
 
 @interface FansFormInputView : FansFormView
 
 + (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must;
++ (instancetype)formViewWithKey:(NSString *)key
+                          title:(NSString *)title
+                    placeholder:(NSString *)placeholder
+                           must:(BOOL)must;
 
 @property (nonatomic, strong, readonly) UILabel *titleLb;
+@property (nonatomic, strong, readonly) UITextField *textField;
+@property (nonatomic, strong, readonly) UIView *lineView;
 
 
+/** 标题和输入框之间的距离(不设置是默认间距) */
+@property (nonatomic, assign)CGFloat titleToInputGap;
+/** 标题的宽度(不设置是默认宽度) */
+@property (nonatomic, assign)CGFloat titleWidth;
 
 @end
-
-NS_ASSUME_NONNULL_END

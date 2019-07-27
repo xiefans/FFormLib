@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FansFormViewManager.h"
+#import "FansFormConstant.h"
 
 @interface FansFormView : UIView
 

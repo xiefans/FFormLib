@@ -34,20 +34,21 @@
 
     _formView.paddingInsets = UIEdgeInsetsMake(15, 5, 5, 5);
     
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"1"]];
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"2"]];
-    
-    [_formView subviewForKey:@"1"].backgroundColor = [UIColor redColor];
-    [_formView subviewForKey:@"2"].backgroundColor = [UIColor blueColor];
-    [_formView subviewForKey:@"1"].marginInsets = UIEdgeInsetsMake(0, 10, 50, 10);
-    [_formView subviewForKey:@"1"].size = CGSizeMake(FANSScreenWidth, 0);
+    [_formView addSubview:[FansFormInputView formViewWithKey:@"1"
+                                                       title:@"名称："
+                                                 placeholder:@"请输入名称"
+                                                        must:NO]];
+    [_formView addSubview:[FansFormInputView formViewWithKey:@"2"
+                                                       title:@"性别："
+                                                 placeholder:@"请输入性别"
+                                                        must:NO]];
     
     [self.view addSubview:self.formView];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-//    NSLog(@"%@",_formView.manager.makeJSONString);
+    NSLog(@"%@",_formView.manager.makeJSONString);
     FansFormView *formView = [_formView subviewForKey:@"1"];
     formView.edit = !formView.isEdit;
     

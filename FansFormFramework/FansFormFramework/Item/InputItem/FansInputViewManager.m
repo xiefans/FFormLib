@@ -10,4 +10,12 @@
 
 @implementation FansInputViewManager
 
+- (id)value {
+    return self.content;
+}
+
+- (void)setValue:(id)value {
+    self.content = value;
+}
+
 @end

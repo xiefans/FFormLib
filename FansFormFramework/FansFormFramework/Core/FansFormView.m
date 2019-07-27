@@ -133,4 +133,10 @@
                                )];
 }
 
+- (void)setPaddingInsets:(UIEdgeInsets)paddingInsets {
+    _paddingInsets = paddingInsets;
+    
+    [self setNeedsLayout];
+}
+
 @end
