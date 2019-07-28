@@ -18,6 +18,7 @@ static unsigned const FansFormViewTitleNormalTextColor = 0x666666;
 
 static CGFloat const FansFormViewContentNormalFontSize = 14.f;
 static unsigned const FansFormViewContentNormalTextColor = 0x333333;
+static unsigned const FansFormViewPlaceholderNormalTextColor = 0xD3D3D3;
 
 static unsigned const FansFormViewLineViewNormalColor = 0xEEEEEE;
 

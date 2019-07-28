@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9EC315A622ED608A00CE8234 /* FansFormAHInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FansFormAHInputItem.m */; };
 		CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BED22E5571A001EDDFD /* AppDelegate.m */; };
 		CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BF022E5571A001EDDFD /* ViewController.m */; };
 		CE9C2BF422E5571A001EDDFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9C2BF222E5571A001EDDFD /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9EC315A422ED608A00CE8234 /* FansFormAHInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormAHInputItem.h; sourceTree = "<group>"; };
+		9EC315A522ED608A00CE8234 /* FansFormAHInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FansFormAHInputItem.m; sourceTree = "<group>"; };
 		9ECA7C4B22EC7BA300A9B437 /* FansFormConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FansFormConstant.h; sourceTree = "<group>"; };
 		CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FansFormFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */ = {
+			isa = PBXGroup;
+			children = (
+				9EC315A422ED608A00CE8234 /* FansFormAHInputItem.h */,
+				9EC315A522ED608A00CE8234 /* FansFormAHInputItem.m */,
+			);
+			path = AutoHeightInputItem;
+			sourceTree = "<group>";
+		};
 		CE9C2BE022E5571A001EDDFD = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 		CEC743B222E9D01C00C79E6D /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */,
 				CEC743B322E9D02500C79E6D /* InputItem */,
 			);
 			path = Item;
@@ -373,6 +386,7 @@
 				CEC743B922E9D05200C79E6D /* FansFormInputView.m in Sources */,
 				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,
 				CEC743A522E94D0400C79E6D /* FansFormView.m in Sources */,
+				9EC315A622ED608A00CE8234 /* FansFormAHInputItem.m in Sources */,
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FansFormContainerManager.m in Sources */,
 			);

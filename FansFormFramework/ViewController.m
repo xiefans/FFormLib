@@ -36,11 +36,20 @@
                                                        title:@"名称："
                                                  placeholder:@"请输入名称"
                                                         must:NO]];
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"2"
+    [_formView addSubview:[FansFormInputView formViewWithKey:@"3"
+                                                       title:@"名称3："
+                                                 placeholder:@"请输入名称3"
+                                                        must:NO]];
+    
+    [_formView addSubview:[FansFormAHInputItem formViewWithKey:@"2"
                                                        title:@"性别："
                                                  placeholder:@"请输入性别"
                                                         must:NO]];
     
+    [_formView addSubview:[FansFormInputView formViewWithKey:@"3"
+                                                       title:@"名称3："
+                                                 placeholder:@"请输入名称3"
+                                                        must:NO]];
     
     [self.view addSubview:self.formView];
 }

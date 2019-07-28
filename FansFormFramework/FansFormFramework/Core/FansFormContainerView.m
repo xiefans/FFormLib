@@ -29,20 +29,20 @@
     
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof FansFormView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if ([obj isKindOfClass:[UIImageView class]]) {
+        if (![obj isKindOfClass:[FansFormView class]]) {
             return ;
         }
         
         [obj.manager setRefreshBlock:^(FansFormViewManager *manager) {
             __strong typeof(weakSelf)self = weakSelf;
-            [self.scrollView setNeedsLayout];
+            [self setNeedsLayout];
         }];
         
         CGFloat normalHeight = 55.0f;
         CGFloat x = self.paddingInsets.left + obj.marginInsets.left;
         CGFloat y = (lastView ? 0.f : self.paddingInsets.top) + lastView.fans_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
         CGFloat width = (obj.size.width > 0.f ? obj.size.width : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;
-        CGFloat height = obj.size.height > 0.f ? obj.size.height : normalHeight;
+        CGFloat height = MAX(obj.size.height, normalHeight);
         
         obj.frame = CGRectMake(x, y, MAX(width, 0.f), MAX(height, 0.f));
         

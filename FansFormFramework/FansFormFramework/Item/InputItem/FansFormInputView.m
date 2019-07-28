@@ -24,7 +24,7 @@
                           title:(NSString *)title
                     placeholder:(NSString *)placeholder
                            must:(BOOL)must {
-    FansFormInputView *view = [FansFormInputView formViewWithKey:key];
+    FansFormInputView *view = [self formViewWithKey:key];
     view.must = must;
     view.titleLb.text = title;
     view.textField.placeholder = placeholder;
@@ -65,7 +65,7 @@
         [self addSubview:self.textField];
         [self addSubview:self.lineView];
         
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager action:@selector(excuteDidAction)]];
+//        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager action:@selector(excuteDidAction)]];
     }
     return self;
 }
