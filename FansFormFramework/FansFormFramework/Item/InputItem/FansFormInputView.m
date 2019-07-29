@@ -27,7 +27,8 @@
     FansFormInputView *view = [self formViewWithKey:key];
     view.must = must;
     view.titleLb.text = title;
-    view.textField.placeholder = placeholder;
+    view.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
+                                                                           attributes:@{NSForegroundColorAttributeName:[UIColor fans_colorWithHexValue:FansFormViewPlaceholderNormalTextColor]}];
     return view;
 }
 
@@ -64,8 +65,6 @@
         [self addSubview:self.titleLb];
         [self addSubview:self.textField];
         [self addSubview:self.lineView];
-        
-//        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager action:@selector(excuteDidAction)]];
     }
     return self;
 }

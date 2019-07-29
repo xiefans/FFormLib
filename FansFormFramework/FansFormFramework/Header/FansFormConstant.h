@@ -10,6 +10,7 @@
 #define FansFormConstant_h
 
 static CGFloat const FansFormViewNormalGap = 10.f;
+static CGFloat const FansFormViewNormalHeight = 55.0f;
 static CGFloat const FansFormViewTitleNormalWidth = 90.f;
 static CGFloat const FansFormViewLineNormalHeight = 0.5f;
 

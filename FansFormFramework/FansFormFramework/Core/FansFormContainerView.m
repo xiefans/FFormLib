@@ -38,7 +38,7 @@
             [self setNeedsLayout];
         }];
         
-        CGFloat normalHeight = 55.0f;
+        CGFloat normalHeight = FansFormViewNormalHeight;
         CGFloat x = self.paddingInsets.left + obj.marginInsets.left;
         CGFloat y = (lastView ? 0.f : self.paddingInsets.top) + lastView.fans_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
         CGFloat width = (obj.size.width > 0.f ? obj.size.width : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;

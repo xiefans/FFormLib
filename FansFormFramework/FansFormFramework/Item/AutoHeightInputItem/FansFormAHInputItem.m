@@ -64,7 +64,6 @@
         [self addSubview:self.textView];
         [self addSubview:self.placeholderLb];
         [self addSubview:self.lineView];
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager action:@selector(excuteDidAction)]];
         
         [self.textView addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
@@ -78,15 +77,19 @@
                                     self.paddingInsets.left,
                                     self.paddingInsets.top,
                                     self.titleWidth,
-                                    MAX(self.fans_height - self.paddingInsets.top - self.paddingInsets.bottom, 0.f)
+                                    MIN(FansFormViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
                                     );
+    CGPoint center = self.titleLb.center;
+    [self.titleLb sizeToFit];
+    self.titleLb.fans_centerY = center.y;
+    self.titleLb.fans_width = self.titleWidth;
     
     CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
     self.textView.frame = CGRectMake(
                                       x,
                                       self.titleLb.fans_y,
                                       self.fans_width - x - self.paddingInsets.right,
-                                      self.titleLb.fans_height
+                                      MAX(self.fans_height - (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
                                       );
     self.placeholderLb.frame = self.textView.frame;
     self.lineView.frame = CGRectMake(
@@ -101,7 +104,7 @@
     [self.textView sizeToFit];
     
     CGFloat height = self.fans_height;
-    self.fans_height = self.paddingInsets.top  + self.paddingInsets.bottom + self.textView.fans_height;
+    self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height;
     if (height != self.fans_height) {
         [self.manager excuteRefreshBlock];
     }
@@ -136,7 +139,7 @@
                                          attributes:@{NSFontAttributeName : self.textView.font}
                                             context:nil].size;
         CGFloat height = self.fans_height;
-        self.fans_height = self.paddingInsets.top  + self.paddingInsets.bottom + size.height;
+        self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height;
         if (height != self.fans_height) {
             [self.manager excuteRefreshBlock];
         }
@@ -144,7 +147,7 @@
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if (CGRectContainsPoint(self.textView.frame, point)) {
+    if (CGRectContainsPoint(CGRectMake(self.textView.fans_x, 0, self.textView.fans_width, self.fans_height), point)) {
         return self.textView;
     }
     return nil;
@@ -195,6 +198,7 @@
         _textView.textColor = [UIColor fans_colorWithHexValue:FansFormViewContentNormalTextColor];
         _textView.font = [UIFont systemFontOfSize:FansFormViewContentNormalFontSize];
         _textView.contentInset = UIEdgeInsetsZero;
+        _textView.textContainer.lineFragmentPadding = 0;
         _textView.textContainerInset = UIEdgeInsetsZero;
         _textView.scrollEnabled = NO;
         _textView.delegate = self;
@@ -211,6 +215,7 @@
         _placeholderLb.textContainerInset = UIEdgeInsetsZero;
         _placeholderLb.editable = NO;
         _placeholderLb.backgroundColor = [UIColor clearColor];
+        _placeholderLb.textContainer.lineFragmentPadding = 0;
     }
     return _placeholderLb;
 }
