@@ -6,14 +6,14 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormAHInputItem.h"
+#import "FFAutoHeightInputItem.h"
 #import "FansFormTool.h"
 
-@interface FansFormAHInputItem () <UITextViewDelegate>
+@interface FFAutoHeightInputItem () <UITextViewDelegate>
 
 @end
 
-@implementation FansFormAHInputItem
+@implementation FFAutoHeightInputItem
 
 @synthesize titleLb = _titleLb;
 @synthesize placeholderLb = _placeholderLb;
@@ -21,14 +21,16 @@
 @synthesize lineView = _lineView;
 @synthesize titleToInputGap = _titleToInputGap;
 @synthesize titleWidth = _titleWidth;
+@synthesize mustLb = _mustLb;
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title
                     placeholder:(NSString *)placeholder
                            must:(BOOL)must {
-    FansFormAHInputItem *item = [self formViewWithKey:key];
+    FFAutoHeightInputItem *item = [self formViewWithKey:key];
     item.titleLb.text = title;
     item.placeholderLb.text = placeholder;
+    item.manager.must = must;
     return item;
 }
 
@@ -64,6 +66,7 @@
         [self addSubview:self.textView];
         [self addSubview:self.placeholderLb];
         [self addSubview:self.lineView];
+        [self addSubview:self.mustLb];
         
         [self.textView addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
@@ -98,6 +101,15 @@
                                      self.textView.fans_right - self.titleLb.fans_left,
                                      FansFormViewLineNormalHeight
                                      );
+    
+    [self.mustLb sizeToFit];
+    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FansFormViewMustRedFormTitleGap, 0.f);
+    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+}
+
+- (void)changeMust:(BOOL)isMust {
+    
+    self.mustLb.hidden = !isMust;
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -226,6 +238,16 @@
         _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormViewLineViewNormalColor];
     }
     return _lineView;
+}
+
+- (UILabel *)mustLb {
+    if (!_mustLb) {
+        _mustLb = [[UILabel alloc] init];
+        _mustLb.text = @"*";
+        _mustLb.textColor = [UIColor redColor];
+        _mustLb.hidden = YES;
+    }
+    return _mustLb;
 }
 
 

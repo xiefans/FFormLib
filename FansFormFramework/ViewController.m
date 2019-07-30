@@ -32,21 +32,22 @@
     
     _formView = [FansFormContainerView formViewWithKey:@"jsonform"];
     
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"1"
+    [_formView addSubview:[FFInputView formViewWithKey:@"1"
                                                        title:@"名称："
                                                  placeholder:@"请输入名称"
-                                                        must:NO]];
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"3"
+                                                        must:YES]];
+    [_formView addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
                                                        title:@"名称3："
                                                  placeholder:@"请输入名称3"
-                                                        must:NO]];
+                                                      fixHeight:100.f
+                                                        must:YES]];
     
-    [_formView addSubview:[FansFormAHInputItem formViewWithKey:@"2"
+    [_formView addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
                                                        title:@"性别："
                                                  placeholder:@"请输入性别"
-                                                        must:NO]];
+                                                        must:YES]];
     
-    [_formView addSubview:[FansFormInputView formViewWithKey:@"3"
+    [_formView addSubview:[FFInputView formViewWithKey:@"3"
                                                        title:@"名称3："
                                                  placeholder:@"请输入名称3"
                                                         must:NO]];

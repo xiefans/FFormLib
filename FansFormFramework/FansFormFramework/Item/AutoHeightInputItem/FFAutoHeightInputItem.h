@@ -8,7 +8,7 @@
 
 #import "FansFormView.h"
 
-@interface FansFormAHInputItem : FansFormView
+@interface FFAutoHeightInputItem : FansFormView
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title
@@ -19,6 +19,7 @@
 @property (nonatomic, strong, readonly) UITextView *textView;
 @property (nonatomic, strong, readonly) UITextView *placeholderLb;
 @property (nonatomic, strong, readonly) UIView *lineView;
+@property (nonatomic, strong, readonly) UILabel *mustLb;
 
 
 /** 标题和输入框之间的距离(不设置是默认间距) */

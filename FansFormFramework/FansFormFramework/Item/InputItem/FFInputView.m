@@ -6,15 +6,16 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormInputView.h"
+#import "FFInputView.h"
 #import "FansFormTool.h"
-@implementation FansFormInputView
+@implementation FFInputView
 
 @synthesize titleLb = _titleLb;
 @synthesize textField = _textField;
 @synthesize lineView = _lineView;
 @synthesize titleToInputGap = _titleToInputGap;
 @synthesize titleWidth = _titleWidth;
+@synthesize mustLb = _mustLb;
 
 + (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must {
     return [self formViewWithKey:key title:nil placeholder:nil must:must];
@@ -24,7 +25,7 @@
                           title:(NSString *)title
                     placeholder:(NSString *)placeholder
                            must:(BOOL)must {
-    FansFormInputView *view = [self formViewWithKey:key];
+    FFInputView *view = [self formViewWithKey:key];
     view.must = must;
     view.titleLb.text = title;
     view.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
@@ -65,6 +66,7 @@
         [self addSubview:self.titleLb];
         [self addSubview:self.textField];
         [self addSubview:self.lineView];
+        [self addSubview:self.mustLb];
     }
     return self;
 }
@@ -93,6 +95,15 @@
                                      self.textField.fans_right - self.titleLb.fans_left,
                                      FansFormViewLineNormalHeight
                                      );
+    
+    [self.mustLb sizeToFit];
+    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FansFormViewMustRedFormTitleGap, 0.f);
+    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+}
+
+- (void)changeMust:(BOOL)isMust {
+    
+    self.mustLb.hidden = !isMust;
 }
 
 - (void)setTitleToInputGap:(CGFloat)titleToInputGap {
@@ -152,5 +163,14 @@
     return _lineView;
 }
 
+- (UILabel *)mustLb {
+    if (!_mustLb) {
+        _mustLb = [[UILabel alloc] init];
+        _mustLb.text = @"*";
+        _mustLb.textColor = [UIColor redColor];
+        _mustLb.hidden = YES;
+    }
+    return _mustLb;
+}
 
 @end
