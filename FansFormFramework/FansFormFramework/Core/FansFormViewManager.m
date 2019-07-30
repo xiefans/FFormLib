@@ -43,6 +43,14 @@
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
+- (BOOL)checkMust {
+    if (!self.must || (self.must && self.value)) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 - (void)setShow:(BOOL)show {
     if (_show != show) {
         _show = show;

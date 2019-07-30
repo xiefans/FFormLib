@@ -27,7 +27,7 @@
                            must:(BOOL)must {
     FFInputView *view = [self formViewWithKey:key];
     view.must = must;
-    view.titleLb.text = title;
+    view.manager.title = title;
     view.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
                                                                            attributes:@{NSForegroundColorAttributeName:[UIColor fans_colorWithHexValue:FansFormViewPlaceholderNormalTextColor]}];
     return view;

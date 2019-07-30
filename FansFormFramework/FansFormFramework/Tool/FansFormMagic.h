@@ -6,13 +6,15 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormViewManager.h"
+#import "FansFormContainerManager.h"
 #import "FansFormView.h"
 
 
 void FansMagicWillGetValue(FansFormView *formView, FansFormViewManagerWillGetValue willGetValue);
 
 void FansMagicDidAction(FansFormView *formView, FansFormViewManagerBlock didAction);
+
+FansFormViewManager * FansMagicCheckMust(FansFormContainerManager *manager);
 
 
 

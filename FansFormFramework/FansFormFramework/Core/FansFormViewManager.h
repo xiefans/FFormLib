@@ -61,5 +61,7 @@ typedef void(^FansFormViewManagerBlock)(FansFormViewManager *manager);
 - (NSDictionary *)makeDictionary;
 - (NSString *)makeJSONString;
 
+- (BOOL)checkMust;
+
 
 @end

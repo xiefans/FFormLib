@@ -28,7 +28,7 @@
                     placeholder:(NSString *)placeholder
                            must:(BOOL)must {
     FFAutoHeightInputItem *item = [self formViewWithKey:key];
-    item.titleLb.text = title;
+    item.manager.title = title;
     item.placeholderLb.text = placeholder;
     item.manager.must = must;
     return item;
