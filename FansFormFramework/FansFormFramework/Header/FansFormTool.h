@@ -12,5 +12,6 @@
 #import "UIView+FansFrame.h"
 #import "UIColor+FansColor.h"
 #import "NSString+FansAttributed.h"
+#import "FansFormContainerView+KeyboradAdapter.h"
 
 #endif /* FansFormTool_h */

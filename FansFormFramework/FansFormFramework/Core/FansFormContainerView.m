@@ -12,8 +12,6 @@
 @interface FansFormContainerView ()
 
 @property (nonatomic, strong) NSMutableDictionary *map;
-/** 滚动视图 */
-@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -26,6 +24,10 @@
     
     __block FansFormView *lastView = nil;
     self.scrollView.frame = self.bounds;
+    
+    if (self.scrollViewHeight) {
+        self.scrollView.fans_height = self.scrollViewHeight;
+    }
     
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof FansFormView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -53,6 +55,10 @@
     
     self.scrollView.contentSize = CGSizeMake(0, lastView.fans_bottom + self.paddingInsets.bottom);
     
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (instancetype)initWithKey:(NSString *)key {

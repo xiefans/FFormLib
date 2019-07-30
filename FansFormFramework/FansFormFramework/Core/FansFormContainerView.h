@@ -19,4 +19,9 @@
 - (NSArray<__kindof FansFormView *> *)subviews;
 
 
+/** 滚动视图 */
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, assign) CGFloat scrollViewHeight;
+
+
 @end

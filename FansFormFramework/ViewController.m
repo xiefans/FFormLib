@@ -33,7 +33,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     _formView = [FansFormContainerView formViewWithKey:@"jsonform"];
-    
+    [_formView fans_adapterKeyborad];
     [_formView addSubview:[FFInputView formViewWithKey:@"1"
                                                        title:@"名称："
                                                  placeholder:@"请输入名称"
@@ -74,6 +74,7 @@
 }
 
 - (void)eventOfCheck {
+    [self.view endEditing:YES];
     //检查必填项
     FansFormViewManager *manager = FansMagicCheckMust(self.formView.manager);
     
