@@ -59,11 +59,6 @@
     return dict;
 }
 
-- (BOOL)checkMust {
-    return NO;
-}
-
-
 - (NSMutableDictionary *)map {
     if (!_map) {
         _map = [NSMutableDictionary new];

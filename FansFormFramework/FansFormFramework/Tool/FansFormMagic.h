@@ -14,7 +14,7 @@ void FansMagicWillGetValue(FansFormView *formView, FansFormViewManagerWillGetVal
 
 void FansMagicDidAction(FansFormView *formView, FansFormViewManagerBlock didAction);
 
-FansFormViewManager * FansMagicCheckMust(FansFormContainerManager *manager);
+__kindof FansFormViewManager * FansMagicCheckMust(FansFormContainerManager *manager);
 
 
 

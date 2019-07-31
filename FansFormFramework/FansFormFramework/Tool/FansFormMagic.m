@@ -17,7 +17,7 @@ void FansMagicDidAction(FansFormView *formView, FansFormViewManagerBlock didActi
     [formView.manager setDidAction:didAction];
 }
 
-FansFormViewManager * FansMagicCheckMust(FansFormContainerManager *manager) {
+__kindof FansFormViewManager * FansMagicCheckMust(FansFormContainerManager *manager) {
     
     __block FansFormViewManager *target = nil;
     [manager.subManagers enumerateObjectsUsingBlock:^(__kindof FansFormViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
