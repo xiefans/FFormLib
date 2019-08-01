@@ -156,7 +156,7 @@
 		CE9C2BEB22E5571A001EDDFD /* FansFormFramework */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C1E22E55FC4001EDDFD /* FansFormFramework */,
+				CE9C2C1E22E55FC4001EDDFD /* FFFramework */,
 				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
 				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
 				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
@@ -188,7 +188,7 @@
 			path = FansFormFrameworkUITests;
 			sourceTree = "<group>";
 		};
-		CE9C2C1E22E55FC4001EDDFD /* FansFormFramework */ = {
+		CE9C2C1E22E55FC4001EDDFD /* FFFramework */ = {
 			isa = PBXGroup;
 			children = (
 				CEC743B222E9D01C00C79E6D /* Item */,
@@ -196,7 +196,7 @@
 				CE9C2C2022E55FDD001EDDFD /* Header */,
 				CE9C2C1F22E55FD8001EDDFD /* Core */,
 			);
-			path = FansFormFramework;
+			path = FFFramework;
 			sourceTree = "<group>";
 		};
 		CE9C2C1F22E55FD8001EDDFD /* Core */ = {
