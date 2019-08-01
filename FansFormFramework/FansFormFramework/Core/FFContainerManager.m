@@ -1,46 +1,46 @@
 //
-//  FansFormContainerManager.m
-//  FansFormFramework
+//  FFContainerManager.m
+//  FFFramework
 //
 //  Created by fans on 2019/7/25.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormContainerManager.h"
+#import "FFContainerManager.h"
 
-@interface FansFormContainerManager ()
+@interface FFContainerManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *map;
 @property (nonatomic, strong) NSMutableArray *list;
 
 @end
 
-@implementation FansFormContainerManager
+@implementation FFContainerManager
 
-- (void)addSubManager:(__kindof FansFormViewManager *)manager {
+- (void)addSubManager:(__kindof FFViewManager *)manager {
     [self.map setObject:manager forKey:manager.key];
     [self.list addObject:manager];
 }
 
 - (void)removeSubManagerForKey:(NSString *)key {
-    FansFormViewManager *manager = [self subManagerForKey:key];
+    FFViewManager *manager = [self subManagerForKey:key];
     
     [self.list removeObject:manager];
     [self.map removeObjectForKey:key];
 }
 
-- (FansFormViewManager *)subManagerForKey:(NSString *)key {
+- (FFViewManager *)subManagerForKey:(NSString *)key {
     return self.map[key];
 }
 
-- (NSArray<FansFormViewManager *> *)subManagers {
+- (NSArray<FFViewManager *> *)subManagers {
     return self.list;
 }
 
 - (NSDictionary *)makeDictionary {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
-    [self.list enumerateObjectsUsingBlock:^(FansFormViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.list enumerateObjectsUsingBlock:^(FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSDictionary *temp = obj.makeDictionary;
         

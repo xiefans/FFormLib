@@ -1,18 +1,18 @@
 //
 //  ViewController.m
-//  FansFormFramework
+//  FFFramework
 //
 //  Created by fans on 2019/7/22.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "FansFormCore.h"
-#import "FansFormTool.h"
+#import "FFCore.h"
+#import "FFTool.h"
 
 @interface ViewController ()
 
-@property (nonatomic, strong) FansFormContainerView *formView;
+@property (nonatomic, strong) FFContainerView *formView;
 
 @property (nonatomic, strong) UIButton *checkBtn;
 
@@ -32,8 +32,20 @@
     self.title = @"好的";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _formView = [FansFormContainerView formViewWithKey:@"jsonform"];
+    _formView = [FFContainerView formViewWithKey:@"jsonform"];
     [_formView fans_adapterKeyborad];
+    
+    [_formView addSubview:[FFSelectItem formViewWithTitle:@"地区"
+                                              placeholder:@"请选择地区"
+                                         instructionImage:nil
+                                            numberOfLines:1
+                                                      key:@"select"
+                                                didAction:^(__kindof FFActionView *actionView) {
+                                                    
+                                                    NSLog(@"选择");
+                                                    
+                                                }]];
+    
     [_formView addSubview:[FFInputView formViewWithKey:@"1"
                                                        title:@"名称："
                                                  placeholder:@"请输入名称"
@@ -57,7 +69,7 @@
     
     
     //这里测试递归检查
-    FansFormContainerView *temp = [FansFormContainerView formViewWithKey:@"jjj2"];
+    FFContainerView *temp = [FFContainerView formViewWithKey:@"jjj2"];
     temp.size = CGSizeMake(0.f, 120.f);
     [temp addSubview:[FFInputView formViewWithKey:@"jj1"
                                             title:@"组中1："
@@ -76,7 +88,7 @@
 - (void)eventOfCheck {
     [self.view endEditing:YES];
     //检查必填项
-    FansFormViewManager *manager = FansMagicCheckMust(self.formView.manager);
+    FFViewManager *manager = FansMagicCheckMust(self.formView.manager);
     
     NSLog(@"%@",manager);
 }

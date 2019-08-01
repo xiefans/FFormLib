@@ -1,14 +1,14 @@
 //
-//  FansFormInputView.h
-//  FansFormFramework
+//  FFInputView.h
+//  FFFramework
 //
 //  Created by fans on 2019/7/25.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormView.h"
+#import "FFView.h"
 
-@interface FFInputView : FansFormView
+@interface FFInputView : FFView
 
 + (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must;
 + (instancetype)formViewWithKey:(NSString *)key

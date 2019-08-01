@@ -1,13 +1,13 @@
 //
 //  FasnFormAHInputItem.m
-//  FansFormFramework
+//  FFFramework
 //
 //  Created by 谢帆 on 2019/7/28.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
 #import "FFAutoHeightInputItem.h"
-#import "FansFormTool.h"
+#import "FFTool.h"
 
 @interface FFAutoHeightInputItem () <UITextViewDelegate>
 
@@ -35,29 +35,29 @@
 }
 
 - (void)dealloc {
-    [self removeObserver:self.textView forKeyPath:@"text"];
+    [self.textView removeObserver:self forKeyPath:@"text"];
 }
 
-- (instancetype)initWithManager:(__kindof FansFormViewManager *)manager {
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     self = [super initWithManager:manager];
     if (self) {
-        self.paddingInsets = FansFormItemViewNormalPadding;
+        self.paddingInsets = FFItemViewNormalPadding;
         __weak typeof(self)sself = self;
-        [manager setDidSetContent:^(FansFormViewManager *manager, id content) {
+        [manager setDidSetContent:^(FFViewManager *manager, id content) {
             __strong typeof(sself)self = sself;
             self.textView.text = content;
         }];
         
-        [manager setWillGetContent:^id(FansFormViewManager *manager, id content) {
+        [manager setWillGetContent:^id(FFViewManager *manager, id content) {
             __strong typeof(sself)self = sself;
             return self.textView.text.length == 0 ? nil : self.textView.text;
         }];
         
-        [manager setWillGetValue:^id(FansFormViewManager *manager, id value) {
+        [manager setWillGetValue:^id(FFViewManager *manager, id value) {
             return manager.content;
         }];
         
-        [manager setDidSetTitle:^(FansFormViewManager *manager, NSString *title) {
+        [manager setDidSetTitle:^(FFViewManager *manager, NSString *title) {
             __strong typeof(sself)self = sself;
             self.titleLb.text = title;
         }];
@@ -80,7 +80,7 @@
                                     self.paddingInsets.left,
                                     self.paddingInsets.top,
                                     self.titleWidth,
-                                    MIN(FansFormViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
+                                    MIN(FFViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
                                     );
     CGPoint center = self.titleLb.center;
     [self.titleLb sizeToFit];
@@ -97,13 +97,13 @@
     self.placeholderLb.frame = self.textView.frame;
     self.lineView.frame = CGRectMake(
                                      self.titleLb.fans_x,
-                                     self.fans_height - FansFormViewLineNormalHeight,
+                                     self.fans_height - FFViewLineNormalHeight,
                                      self.textView.fans_right - self.titleLb.fans_left,
-                                     FansFormViewLineNormalHeight
+                                     FFViewLineNormalHeight
                                      );
     
     [self.mustLb sizeToFit];
-    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FansFormViewMustRedFormTitleGap, 0.f);
+    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FFViewMustRedFormTitleGap, 0.f);
     self.mustLb.fans_centerY = self.titleLb.fans_centerY;
 }
 
@@ -177,7 +177,7 @@
     if (_titleToInputGap) {
         return _titleToInputGap;
     }
-    return FansFormViewNormalGap;
+    return FFViewNormalGap;
 }
 
 - (void)setTitleWidth:(CGFloat)titleWidth {
@@ -192,14 +192,14 @@
     if (_titleWidth) {
         return _titleWidth;
     }
-    return FansFormViewTitleNormalWidth;
+    return FFViewTitleNormalWidth;
 }
 
 - (UILabel *)titleLb {
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
-        _titleLb.font = [UIFont systemFontOfSize:FansFormViewTitleNormalFontSize];
-        _titleLb.textColor = [UIColor fans_colorWithHexValue:FansFormViewTitleNormalTextColor];
+        _titleLb.font = [UIFont systemFontOfSize:FFViewTitleNormalFontSize];
+        _titleLb.textColor = [UIColor fans_colorWithHexValue:FFViewTitleNormalTextColor];
     }
     return _titleLb;
 }
@@ -207,8 +207,8 @@
 - (UITextView *)textView {
     if (!_textView) {
         _textView = [[UITextView alloc] init];
-        _textView.textColor = [UIColor fans_colorWithHexValue:FansFormViewContentNormalTextColor];
-        _textView.font = [UIFont systemFontOfSize:FansFormViewContentNormalFontSize];
+        _textView.textColor = [UIColor fans_colorWithHexValue:FFViewContentNormalTextColor];
+        _textView.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
         _textView.contentInset = UIEdgeInsetsZero;
         _textView.textContainer.lineFragmentPadding = 0;
         _textView.textContainerInset = UIEdgeInsetsZero;
@@ -221,8 +221,8 @@
 - (UITextView *)placeholderLb {
     if (!_placeholderLb) {
         _placeholderLb = [[UITextView alloc] init];
-        _placeholderLb.font = [UIFont systemFontOfSize:FansFormViewContentNormalFontSize];
-        _placeholderLb.textColor = [UIColor fans_colorWithHexValue:FansFormViewPlaceholderNormalTextColor];
+        _placeholderLb.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
+        _placeholderLb.textColor = [UIColor fans_colorWithHexValue:FFViewPlaceholderNormalTextColor];
         _placeholderLb.contentInset = UIEdgeInsetsZero;
         _placeholderLb.textContainerInset = UIEdgeInsetsZero;
         _placeholderLb.editable = NO;
@@ -235,7 +235,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [UIView new];
-        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FansFormViewLineViewNormalColor];
+        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FFViewLineViewNormalColor];
     }
     return _lineView;
 }

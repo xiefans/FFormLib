@@ -1,14 +1,14 @@
 //
 //  FasnFormAHInputItem.h
-//  FansFormFramework
+//  FFFramework
 //
 //  Created by 谢帆 on 2019/7/28.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormView.h"
+#import "FFView.h"
 
-@interface FFAutoHeightInputItem : FansFormView
+@interface FFAutoHeightInputItem : FFView
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title

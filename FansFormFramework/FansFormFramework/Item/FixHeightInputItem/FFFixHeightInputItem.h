@@ -1,16 +1,16 @@
 //
 //  FFFixHeightInputItem.h
-//  FansFormFramework
+//  FFFramework
 //
 //  Created by fans on 2019/7/30.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormView.h"
+#import "FFView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FFFixHeightInputItem : FansFormView
+@interface FFFixHeightInputItem : FFView
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title

@@ -1,14 +1,14 @@
 //
-//  FansFormContainerView+KeyboradAdapter.m
-//  FansFormFramework
+//  FFContainerView+KeyboradAdapter.m
+//  FFFramework
 //
 //  Created by 谢帆 on 2019/7/30.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormContainerView+KeyboradAdapter.h"
+#import "FFContainerView+KeyboradAdapter.h"
 #import "UIView+FansFrame.h"
-@implementation FansFormContainerView (KeyboradAdapter)
+@implementation FFContainerView (KeyboradAdapter)
 
 - (void)fans_adapterKeyborad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradShow:) name:UIKeyboardWillShowNotification object:nil];

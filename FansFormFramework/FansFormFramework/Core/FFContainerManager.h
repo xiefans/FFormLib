@@ -6,15 +6,15 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormViewManager.h"
+#import "FFViewManager.h"
 
 
-@interface FansFormContainerManager : FansFormViewManager
+@interface FFContainerManager : FFViewManager
 
-- (void)addSubManager:(__kindof FansFormViewManager *)manager;
+- (void)addSubManager:(__kindof FFViewManager *)manager;
 - (void)removeSubManagerForKey:(NSString *)key;
-- (__kindof FansFormViewManager *)subManagerForKey:(NSString *)key;
-- (NSArray<__kindof FansFormViewManager *> *)subManagers;
+- (__kindof FFViewManager *)subManagerForKey:(NSString *)key;
+- (NSArray<__kindof FFViewManager *> *)subManagers;
 
 
 /**

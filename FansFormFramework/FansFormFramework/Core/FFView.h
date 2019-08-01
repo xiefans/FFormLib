@@ -1,23 +1,23 @@
 //
-//  FansFormView.h
-//  FansFormFramework
+//  FFView.h
+//  FFFramework
 //
 //  Created by fans on 2019/7/25.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "FansFormViewManager.h"
-#import "FansFormConstant.h"
+#import "FFViewManager.h"
+#import "FFConstant.h"
 
-@interface FansFormView : UIView
+@interface FFView : UIView
 
 + (instancetype)formViewWithKey:(NSString *)key;
-+ (instancetype)formViewWithManager:(__kindof FansFormViewManager *)manager;
++ (instancetype)formViewWithManager:(__kindof FFViewManager *)manager;
 - (instancetype)initWithKey:(NSString *)key;
-- (instancetype)initWithManager:(__kindof FansFormViewManager *)manager;
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager;
 
-- (__kindof FansFormViewManager *)manager;
+- (__kindof FFViewManager *)manager;
 
 @property (nonatomic, copy, readonly) NSString *key;
 

@@ -1,6 +1,6 @@
 //
-//  FansFormFrameworkUITests.m
-//  FansFormFrameworkUITests
+//  FFFrameworkUITests.m
+//  FFFrameworkUITests
 //
 //  Created by fans on 2019/7/22.
 //  Copyright © 2019 glority-fans. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface FansFormFrameworkUITests : XCTestCase
+@interface FFFrameworkUITests : XCTestCase
 
 @end
 
-@implementation FansFormFrameworkUITests
+@implementation FFFrameworkUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,53 +1,53 @@
 //
-//  FansFormView.m
-//  FansFormFramework
+//  FFView.m
+//  FFFramework
 //
 //  Created by fans on 2019/7/25.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FansFormView.h"
-#import "FansFormTool.h"
-@interface FansFormView ()
+#import "FFView.h"
+#import "FFTool.h"
+@interface FFView ()
 
-@property (nonatomic, strong) __kindof FansFormViewManager * manager;
+@property (nonatomic, strong) __kindof FFViewManager * manager;
 
 @end
 
-@implementation FansFormView
+@implementation FFView
 
 + (instancetype)formViewWithKey:(NSString *)key {
     return [[self alloc] initWithKey:key];
 }
 
-+ (instancetype)formViewWithManager:(__kindof FansFormViewManager *)manager {
++ (instancetype)formViewWithManager:(__kindof FFViewManager *)manager {
     return [[self alloc] initWithManager:manager];
 }
 
 - (instancetype)initWithKey:(NSString *)key {
-    return [self initWithManager:[FansFormViewManager managerWithKey:key]];
+    return [self initWithManager:[FFViewManager managerWithKey:key]];
 }
 
-- (instancetype)initWithManager:(__kindof FansFormViewManager *)manager {
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super init]) {
         _manager = manager;
         
         __weak typeof(self)weakSelf = self;
-        [manager setChangeEdit:^(FansFormViewManager *manager, BOOL isEdit) {
+        [manager setChangeEdit:^(FFViewManager *manager, BOOL isEdit) {
             // 改变自己的edit状态
             __strong typeof(weakSelf)self = weakSelf;
             
             [self changeEdit:isEdit];
         }];
         
-        [manager setChangeMust:^(FansFormViewManager *manager, BOOL isMust) {
+        [manager setChangeMust:^(FFViewManager *manager, BOOL isMust) {
             // 改变自己的必填状态
             __strong typeof(weakSelf)self = weakSelf;
             
             [self changeMust:isMust];
         }];
         
-        [manager setChangeShow:^(FansFormViewManager *manager, BOOL isShow) {
+        [manager setChangeShow:^(FFViewManager *manager, BOOL isShow) {
             // 改变自己的显示状态
             __strong typeof(weakSelf)self = weakSelf;
             
