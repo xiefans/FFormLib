@@ -14,17 +14,20 @@
                       placeholder:(NSString *)placeholder
                  instructionImage:(UIImage *)instructionImage
                     numberOfLines:(NSInteger)numberOfLines
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction;
 
 + (instancetype)formViewWithTitle:(NSString *)title
                       placeholder:(NSString *)placeholder
                     numberOfLines:(NSInteger)numberOfLines
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction;
 
 + (instancetype)formViewWithTitle:(NSString *)title
                       placeholder:(NSString *)placeholder
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction;
 
@@ -32,5 +35,12 @@
 @property (nonatomic, strong) UILabel *placeholderLb;
 @property (nonatomic, strong) UILabel *contentLb;
 @property (nonatomic, strong) UIImageView *instructionImageView;
+@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, strong) UILabel *mustLb;
+
+/** 标题和输入框之间的距离(不设置是默认间距) */
+@property (nonatomic, assign)CGFloat titleToInputGap;
+/** 标题的宽度(不设置是默认宽度) */
+@property (nonatomic, assign)CGFloat titleWidth;
 
 @end

@@ -10,32 +10,41 @@
 #import "FFTool.h"
 @implementation FFSelectItem
 
+
+@synthesize titleToInputGap = _titleToInputGap;
+@synthesize titleWidth = _titleWidth;
+
 - (void)dealloc {
     [self.contentLb removeObserver:self forKeyPath:@"text"];
 }
 
 + (instancetype)formViewWithTitle:(NSString *)title
                       placeholder:(NSString *)placeholder
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction {
     return [self formViewWithTitle:title
                        placeholder:placeholder
                   instructionImage:nil
+                     numberOfLines:0
+                              must:must
                                key:key
                          didAction:didAction];
 }
 
-
 + (instancetype)formViewWithTitle:(NSString *)title
                       placeholder:(NSString *)placeholder
-                 instructionImage:(UIImage *)instructionImage
+                    numberOfLines:(NSInteger)numberOfLines
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction {
     
+    
     return [self formViewWithTitle:title
                        placeholder:placeholder
-                  instructionImage:instructionImage
-                     numberOfLines:0
+                  instructionImage:nil
+                     numberOfLines:numberOfLines
+                              must:must
                                key:key
                          didAction:didAction];
 }
@@ -44,13 +53,15 @@
                       placeholder:(NSString *)placeholder
                  instructionImage:(UIImage *)instructionImage
                     numberOfLines:(NSInteger)numberOfLines
+                             must:(BOOL)must
                               key:(NSString *)key
                         didAction:(FFActionViewDidAction)didAction {
     FFSelectItem *selectView = [[FFSelectItem alloc] initWithKey:key];
-    selectView.titleLb.text = title;
+    selectView.manager.title = title;
     selectView.placeholderLb.text = placeholder;
     selectView.instructionImageView.image = instructionImage;
     selectView.contentLb.numberOfLines = numberOfLines;
+    selectView.manager.must = must;
     __weak typeof(selectView)sself = selectView;
     [selectView.manager setDidAction:^(FFViewManager *manager) {
         if (didAction) {
@@ -63,6 +74,8 @@
 
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super initWithManager:manager]) {
+        
+        self.paddingInsets = FFItemViewNormalPadding;
         
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.manager
                                                                            action:@selector(excuteDidAction)]];
@@ -80,10 +93,50 @@
         [self addSubview:self.placeholderLb];
         [self addSubview:self.contentLb];
         [self addSubview:self.instructionImageView];
+        [self addSubview:self.mustLb];
+        [self addSubview:self.lineView];
         
         [self.contentLb addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.titleLb.frame = CGRectMake(
+                                    self.paddingInsets.left,
+                                    self.paddingInsets.top,
+                                    self.titleWidth,
+                                    MIN(FFViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
+                                    );
+    CGPoint center = self.titleLb.center;
+    [self.titleLb sizeToFit];
+    self.titleLb.fans_centerY = center.y;
+    self.titleLb.fans_width = self.titleWidth;
+    
+    CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
+    self.contentLb.frame = CGRectMake(
+                                     x,
+                                     self.titleLb.fans_y,
+                                     self.fans_width - x - self.paddingInsets.right,
+                                     MAX(self.fans_height - (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
+                                     );
+    self.placeholderLb.frame = self.contentLb.frame;
+    self.lineView.frame = CGRectMake(
+                                     self.titleLb.fans_x,
+                                     self.fans_height - FFViewLineNormalHeight,
+                                     self.contentLb.fans_right - self.titleLb.fans_left,
+                                     FFViewLineNormalHeight
+                                     );
+    
+    [self.mustLb sizeToFit];
+    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FFViewMustRedFormTitleGap, 0.f);
+    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+}
+
+- (void)changeMust:(BOOL)isMust {
+    self.mustLb.hidden = !isMust;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -110,10 +163,40 @@
     }
 }
 
+- (void)setTitleToInputGap:(CGFloat)titleToInputGap {
+    if (_titleToInputGap == titleToInputGap) {
+        return;
+    }
+    _titleToInputGap = titleToInputGap;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)titleToInputGap {
+    if (_titleToInputGap) {
+        return _titleToInputGap;
+    }
+    return FFViewNormalGap;
+}
+
+- (void)setTitleWidth:(CGFloat)titleWidth {
+    if (_titleWidth == titleWidth) {
+        return;
+    }
+    _titleWidth = titleWidth;
+    [self setNeedsLayout];
+}
+
+- (CGFloat)titleWidth {
+    if (_titleWidth) {
+        return _titleWidth;
+    }
+    return FFViewTitleNormalWidth;
+}
+
 - (UILabel *)titleLb {
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
-        _titleLb.font = [UIFont boldSystemFontOfSize:FFViewTitleNormalFontSize];
+        _titleLb.font = [UIFont systemFontOfSize:FFViewTitleNormalFontSize];
         _titleLb.textColor = [UIColor fans_colorWithHexValue:FFViewTitleNormalTextColor];
     }
     return _titleLb;
@@ -142,6 +225,24 @@
         _instructionImageView = [[UIImageView alloc] init];
     }
     return _instructionImageView;
+}
+
+- (UIView *)lineView {
+    if (!_lineView) {
+        _lineView = [UIView new];
+        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FFViewLineViewNormalColor];
+    }
+    return _lineView;
+}
+
+- (UILabel *)mustLb {
+    if (!_mustLb) {
+        _mustLb = [[UILabel alloc] init];
+        _mustLb.text = @"*";
+        _mustLb.textColor = [UIColor redColor];
+        _mustLb.hidden = YES;
+    }
+    return _mustLb;
 }
 
 @end

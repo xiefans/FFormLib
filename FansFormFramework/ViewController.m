@@ -38,11 +38,13 @@
     [_formView addSubview:[FFSelectItem formViewWithTitle:@"地区"
                                               placeholder:@"请选择地区"
                                          instructionImage:nil
-                                            numberOfLines:1
+                                            numberOfLines:0
+                                                     must:YES
                                                       key:@"select"
                                                 didAction:^(__kindof FFActionView *actionView) {
                                                     
-                                                    NSLog(@"选择");
+                                                    actionView.manager.content = @"你选择了我";
+                                                    actionView.manager.value = @"mustSeee";
                                                     
                                                 }]];
     
@@ -71,6 +73,7 @@
     //这里测试递归检查
     FFContainerView *temp = [FFContainerView formViewWithKey:@"jjj2"];
     temp.size = CGSizeMake(0.f, 120.f);
+    temp.manager.package = YES;
     [temp addSubview:[FFInputView formViewWithKey:@"jj1"
                                             title:@"组中1："
                                       placeholder:@"请输入组中1"
@@ -90,7 +93,11 @@
     //检查必填项
     FFViewManager *manager = FansMagicCheckMust(self.formView.manager);
     
-    NSLog(@"%@",manager);
+    if (manager) {
+        NSLog(@"%@",manager.title);
+    } else {
+        NSLog(@"%@",self.formView.manager.makeDictionary);
+    }
 }
 
 - (UIButton *)checkBtn {

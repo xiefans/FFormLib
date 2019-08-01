@@ -23,6 +23,8 @@
     __weak typeof(self)weakSelf = self;
     
     __block FFView *lastView = nil;
+    
+    CGPoint offset = self.scrollView.contentOffset;
     self.scrollView.frame = self.bounds;
     
     if (self.scrollViewHeight) {
@@ -54,7 +56,7 @@
     }];
     
     self.scrollView.contentSize = CGSizeMake(0, lastView.fans_bottom + self.paddingInsets.bottom);
-    
+    self.scrollView.contentOffset = CGPointMake(MAX(0.f, offset.x), MAX(0.f, offset.y));
 }
 
 - (void)dealloc {
