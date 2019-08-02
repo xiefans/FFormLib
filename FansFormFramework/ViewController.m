@@ -12,7 +12,7 @@
 #import "FFFormatCheck.h"
 @interface ViewController ()
 
-@property (nonatomic, strong) FFContainerView *formView;
+@property (nonatomic, strong) FFScrollContainerItem *formView;
 
 @property (nonatomic, strong) UIButton *checkBtn;
 
@@ -32,10 +32,10 @@
     self.title = @"FFFramework";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _formView = [FFContainerView formViewWithKey:@"jsonform"];
+    _formView = [FFScrollContainerItem formViewWithKey:@"jsonform"];
     [_formView fans_adapterKeyborad];
     
-    [_formView addSubview:[FFSelectItem formViewWithTitle:@"地区"
+    [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
                                               placeholder:@"请选择地区"
                                          instructionImage:nil
                                             numberOfLines:0
@@ -48,41 +48,41 @@
                                                     
                                                 }]];
     
-    [_formView addSubview:[FFInputSingleItem formViewWithKey:@"1"
+    [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"1"
                                                  title:@"名称："
                                            placeholder:@"请输入名称"
                                                   must:YES]];
-    [_formView addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
+    [_formView ff_addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
                                                           title:@"名称3："
                                                     placeholder:@"请输入名称3"
                                                       fixHeight:100.f
                                                            must:YES]];
     
-    [_formView addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
+    [_formView ff_addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
                                                            title:@"性别："
                                                      placeholder:@"请输入性别"
                                                             must:YES]];
     
-    [_formView addSubview:[FFInputSingleItem formViewWithKey:@"4"
+    [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"4"
                                                  title:@"名称4："
                                            placeholder:@"请输入名称4"
                                                   must:NO]];
     
-    
+    [_formView ff_addSubview:[FFAutoHeightContainerItem formViewWithKey:@"sub"]];
     
     //这里测试递归检查
-    FFContainerView *temp = [FFContainerView formViewWithKey:@"jjj2"];
-    temp.size = CGSizeMake(0.f, 120.f);
+    FFContainerView *temp = [FFAutoHeightContainerItem formViewWithKey:@"jjj2"];
+    
     temp.manager.package = YES;
-    [temp addSubview:[FFInputSingleItem formViewWithKey:@"jj1"
+    [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj1"
                                             title:@"组中1："
                                       placeholder:@"请输入组中1"
                                              must:NO]];
-    [temp addSubview:[FFInputSingleItem formViewWithKey:@"jj2"
+    [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj2"
                                             title:@"组中2："
                                       placeholder:@"请输入组中2"
                                              must:YES]];
-    [_formView addSubview:temp];
+    [_formView ff_addSubview:temp];
     [self.view addSubview:self.formView];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.checkBtn];
@@ -128,6 +128,13 @@
     if (res) {
         NSLog(@"%@",[self.formView.manager makeDictionary]);
     }
+    
+    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
+    
+    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
+                                                  title:@"temp："
+                                            placeholder:@"请输入temp"
+                                                   must:YES]];
 }
 
 - (UIButton *)checkBtn {

@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFContainerView.h"
+#import "FFScrollContainerItem.h"
 
-@interface FFContainerView (KeyboradAdapter)
+@interface FFScrollContainerItem (KeyboradAdapter)
 
 /**
  添加键盘弹出的适配

@@ -120,6 +120,8 @@
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
+    
+    _size = frame.size;
 }
 
 - (void)setSize:(CGSize)size {

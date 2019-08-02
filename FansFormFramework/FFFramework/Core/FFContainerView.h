@@ -12,17 +12,16 @@
 /* 默认的容器类 */
 @interface FFContainerView : FFView
 
+@property (nonatomic, strong) NSMutableDictionary *map;
+
 - (__kindof FFContainerManager *)manager;
 
-- (void)addSubview:(__kindof FFView *)view;
-- (void)removeSubviewForKey:(NSString *)key;
-- (__kindof FFView *)subviewForKey:(NSString *)key;
-- (NSArray<__kindof FFView *> *)subviews;
+- (void)ff_addSubview:(__kindof FFView *)view;
+- (void)ff_removeSubviewForKey:(NSString *)key;
+- (__kindof FFView *)ff_subviewForKey:(NSString *)key;
+- (NSArray<__kindof FFView *> *)ff_subviews;
 
 
-/** 滚动视图 */
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, assign) CGFloat scrollViewHeight;
 
 
 @end

@@ -12,6 +12,6 @@
 #import "UIView+FansFrame.h"
 #import "UIColor+FansColor.h"
 #import "NSString+FansAttributed.h"
-#import "FFContainerView+KeyboradAdapter.h"
+#import "FFScrollContainerItem+KeyboradAdapter.h"
 
 #endif /* FFTool_h */

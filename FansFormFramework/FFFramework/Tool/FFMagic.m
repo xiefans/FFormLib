@@ -18,14 +18,14 @@ void FansMagicDidAction(FFView *formView, FFViewManagerBlock didAction) {
 }
 
 void FFMagicInputShouldBeginEditing(__kindof FFContainerView *formView, NSString *key, FFInputViewShouldBeginEditingBlock shouldBeginEditing) {
-    FFInputView *inputView = [formView subviewForKey:key];
+    FFInputView *inputView = [formView ff_subviewForKey:key];
     if ([inputView isKindOfClass:[FFInputView class]]) {
         [inputView setShouldBeginEditing:shouldBeginEditing];
     }
 }
 
 void FFMagicInputDidEndEditing(__kindof FFContainerView *formView, NSString *key, FFInputViewDidEndEditingBlock didEndEditing) {
-    FFInputView *inputView = [formView subviewForKey:key];
+    FFInputView *inputView = [formView ff_subviewForKey:key];
     if ([inputView isKindOfClass:[FFInputView class]]) {
         [inputView setDidEndEditing:didEndEditing];
     }

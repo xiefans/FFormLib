@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFContainerView+KeyboradAdapter.h"
+#import "FFScrollContainerItem+KeyboradAdapter.h"
 #import "UIView+FansFrame.h"
-@implementation FFContainerView (KeyboradAdapter)
+@implementation FFScrollContainerItem (KeyboradAdapter)
 
 - (void)fans_adapterKeyborad {
     //如果父视图是个容器，子视图就没必要作用该方法
