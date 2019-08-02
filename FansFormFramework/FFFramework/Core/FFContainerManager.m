@@ -7,11 +7,12 @@
 //
 
 #import "FFContainerManager.h"
-
+#import "FFFormatCheck.h"
 @interface FFContainerManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *map;
 @property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic, strong) NSMutableDictionary *formatMap;
 
 @end
 
@@ -37,15 +38,66 @@
     return self.list;
 }
 
+- (void)addFormatCheck:(FFFormatCheck *)formatCheck forKey:(NSString *)key {
+    [self.formatMap setObject:formatCheck forKey:key];
+}
+
+- (FFFormatCheck *)formatCheckForKey:(NSString *)key {
+    return self.formatMap[key];
+}
+
+- (void)removeFormatCheckForKey:(NSString *)key {
+    [self.formatMap removeObjectForKey:key];
+}
+
+- (void)removeAllFormatCheck {
+    [self.formatMap removeAllObjects];
+}
+
+- (BOOL)checkMust {
+    return [self checkMustWithErrorComplete:nil];
+}
+
+- (BOOL)checkMustWithErrorComplete:(void(^)(__kindof FFViewManager *obj, NSString *message))errorComplete {
+    __block BOOL ok = YES;
+    __weak typeof(self)sself = self;
+    [self.subManagers enumerateObjectsUsingBlock:^(__kindof FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isKindOfClass:[FFContainerManager class]]) {
+            FFContainerManager *temp = (FFContainerManager *)obj;
+            ok = [temp checkMustWithErrorComplete:errorComplete];
+        } else {
+            if (![obj checkMust]) {
+                ok = NO;
+                if (errorComplete) {
+                    errorComplete(obj, nil);
+                }
+            } else {
+                FFFormatCheck *formatCheck = [sself formatCheckForKey:obj.key];
+                
+                if (formatCheck && ![formatCheck formatCheckWithString:obj.value]) {
+                    if (errorComplete) {
+                        errorComplete(obj, [formatCheck messageWithTitle:obj.title]);
+                    }
+                    ok = NO;
+                }
+            }
+        }
+        
+        if (!ok) {
+            *stop = YES;
+        }
+    }];
+    
+    return ok;
+}
+
 - (NSDictionary *)makeDictionary {
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
     [self.list enumerateObjectsUsingBlock:^(FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
         NSDictionary *temp = obj.makeDictionary;
-        
         [temp enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull subObj, BOOL * _Nonnull stop) {
-           
             if (key && subObj) {
                 [dict setObject:subObj forKey:key];
             }
@@ -71,6 +123,13 @@
         _list = [NSMutableArray new];
     }
     return _list;
+}
+
+- (NSMutableDictionary *)formatMap {
+    if (!_formatMap) {
+        _formatMap = [NSMutableDictionary new];
+    }
+    return _formatMap;
 }
 
 @end

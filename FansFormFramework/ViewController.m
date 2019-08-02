@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "FFCore.h"
 #import "FFTool.h"
-
+#import "FFFormatCheck.h"
 @interface ViewController ()
 
 @property (nonatomic, strong) FFContainerView *formView;
@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"好的";
+    self.title = @"FFFramework";
     self.view.backgroundColor = [UIColor whiteColor];
     
     _formView = [FFContainerView formViewWithKey:@"jsonform"];
@@ -49,24 +49,24 @@
                                                 }]];
     
     [_formView addSubview:[FFInputView formViewWithKey:@"1"
-                                                       title:@"名称："
-                                                 placeholder:@"请输入名称"
-                                                        must:YES]];
+                                                 title:@"名称："
+                                           placeholder:@"请输入名称"
+                                                  must:YES]];
     [_formView addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
-                                                       title:@"名称3："
-                                                 placeholder:@"请输入名称3"
+                                                          title:@"名称3："
+                                                    placeholder:@"请输入名称3"
                                                       fixHeight:100.f
-                                                        must:YES]];
+                                                           must:YES]];
     
     [_formView addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
-                                                       title:@"性别："
-                                                 placeholder:@"请输入性别"
-                                                        must:YES]];
+                                                           title:@"性别："
+                                                     placeholder:@"请输入性别"
+                                                            must:YES]];
     
-    [_formView addSubview:[FFInputView formViewWithKey:@"3"
-                                                       title:@"名称3："
-                                                 placeholder:@"请输入名称3"
-                                                        must:NO]];
+    [_formView addSubview:[FFInputView formViewWithKey:@"4"
+                                                 title:@"名称4："
+                                           placeholder:@"请输入名称4"
+                                                  must:NO]];
     
     
     
@@ -86,17 +86,27 @@
     [self.view addSubview:self.formView];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.checkBtn];
+    
+    //测试 格式校验
+    [_formView.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3
+                                                                          maxLength:6]
+                          forKey:@"3"];
 }
 
 - (void)eventOfCheck {
     [self.view endEditing:YES];
     //检查必填项
-    FFViewManager *manager = FansMagicCheckMust(self.formView.manager);
+    BOOL res = [self.formView.manager checkMustWithErrorComplete:^(__kindof FFViewManager *obj, NSString *message) {
+        
+        if (message) {
+            NSLog(@"%@", message);
+        } else {
+            NSLog(@"%@为空", obj.title);
+        }
+    }];
     
-    if (manager) {
-        NSLog(@"%@",manager.title);
-    } else {
-        NSLog(@"%@",self.formView.manager.makeDictionary);
+    if (res) {
+        NSLog(@"%@",[self.formView.manager makeDictionary]);
     }
 }
 

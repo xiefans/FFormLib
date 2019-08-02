@@ -14,7 +14,5 @@ void FFMagicWillGetValue(FFView *formView, FFViewManagerWillGetValue willGetValu
 
 void FFMagicDidAction(FFView *formView, FFViewManagerBlock didAction);
 
-__kindof FFViewManager * FansMagicCheckMust(FFContainerManager *manager);
-
 
 

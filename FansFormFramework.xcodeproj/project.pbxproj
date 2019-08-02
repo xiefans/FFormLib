@@ -29,6 +29,9 @@
 		CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AD22E97EA600C79E6D /* FFContainerView.m */; };
 		CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B022E97EBB00C79E6D /* FFContainerManager.m */; };
 		CEC743B922E9D05200C79E6D /* FFInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B822E9D05200C79E6D /* FFInputView.m */; };
+		CED91D2422F3DCB30035DBC4 /* FFRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D2322F3DCB30035DBC4 /* FFRelationship.m */; };
+		CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */; };
+		CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,13 @@
 		CEC743B022E97EBB00C79E6D /* FFContainerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFContainerManager.m; sourceTree = "<group>"; };
 		CEC743B722E9D05200C79E6D /* FFInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFInputView.h; sourceTree = "<group>"; };
 		CEC743B822E9D05200C79E6D /* FFInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFInputView.m; sourceTree = "<group>"; };
+		CED91D2222F3DCB30035DBC4 /* FFRelationship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFRelationship.h; sourceTree = "<group>"; };
+		CED91D2322F3DCB30035DBC4 /* FFRelationship.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFRelationship.m; sourceTree = "<group>"; };
+		CED91D3C22F3F7350035DBC4 /* FFFormatCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatCheck.h; sourceTree = "<group>"; };
+		CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormatCheck.m; sourceTree = "<group>"; };
+		CED91D3F22F40B820035DBC4 /* FFFormatLengthCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatLengthCheck.h; sourceTree = "<group>"; };
+		CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormatLengthCheck.m; sourceTree = "<group>"; };
+		CED91D4222F40E820035DBC4 /* FFFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormat.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,10 +201,12 @@
 		CE9C2C1E22E55FC4001EDDFD /* FFFramework */ = {
 			isa = PBXGroup;
 			children = (
-				CEC743B222E9D01C00C79E6D /* Item */,
-				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CE9C2C2022E55FDD001EDDFD /* Header */,
 				CE9C2C1F22E55FD8001EDDFD /* Core */,
+				CEC743B222E9D01C00C79E6D /* Item */,
+				CE9C2C2122E55FE6001EDDFD /* Tool */,
+				CED91D3B22F3F71E0035DBC4 /* FormatCheck */,
+				CED91D2122F3DC870035DBC4 /* Relationship */,
 			);
 			path = FFFramework;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 				CE9C2C2422E56047001EDDFD /* FFCore.h */,
 				CE9C2C3922E57FE7001EDDFD /* FFSupportItem.h */,
 				9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */,
+				CED91D4222F40E820035DBC4 /* FFFormat.h */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -280,6 +293,26 @@
 				CEC743B822E9D05200C79E6D /* FFInputView.m */,
 			);
 			path = InputItem;
+			sourceTree = "<group>";
+		};
+		CED91D2122F3DC870035DBC4 /* Relationship */ = {
+			isa = PBXGroup;
+			children = (
+				CED91D2222F3DCB30035DBC4 /* FFRelationship.h */,
+				CED91D2322F3DCB30035DBC4 /* FFRelationship.m */,
+			);
+			path = Relationship;
+			sourceTree = "<group>";
+		};
+		CED91D3B22F3F71E0035DBC4 /* FormatCheck */ = {
+			isa = PBXGroup;
+			children = (
+				CED91D3C22F3F7350035DBC4 /* FFFormatCheck.h */,
+				CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */,
+				CED91D3F22F40B820035DBC4 /* FFFormatLengthCheck.h */,
+				CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */,
+			);
+			path = FormatCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +453,7 @@
 				CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */,
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
+				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
 				CEC743B922E9D05200C79E6D /* FFInputView.m in Sources */,
 				CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */,
@@ -428,7 +462,9 @@
 				9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */,
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
 				9E06CDE222F0844B002404A2 /* FFContainerView+KeyboradAdapter.m in Sources */,
+				CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */,
+				CED91D2422F3DCB30035DBC4 /* FFRelationship.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

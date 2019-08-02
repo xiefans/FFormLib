@@ -11,9 +11,9 @@
 
 #import "FFMagic.h"
 #import "FFContainerView.h"
-
 #import "FFSupportItem.h"
 #import "FFTool.h"
+#import "FFFormat.h"
 
 
 #endif /* FFCore_h */

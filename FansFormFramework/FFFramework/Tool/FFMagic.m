@@ -16,25 +16,3 @@ void FansMagicWillGetValue(FFView *formView, FFViewManagerWillGetValue willGetVa
 void FansMagicDidAction(FFView *formView, FFViewManagerBlock didAction) {
     [formView.manager setDidAction:didAction];
 }
-
-__kindof FFViewManager * FansMagicCheckMust(FFContainerManager *manager) {
-    
-    __block FFViewManager *target = nil;
-    [manager.subManagers enumerateObjectsUsingBlock:^(__kindof FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
-        if ([obj isKindOfClass:[FFContainerManager class]]) {
-            target = FansMagicCheckMust(obj);
-        } else {
-            if (![obj checkMust]) {
-                target = obj;
-            }
-        }
-        
-        if (target) {
-            *stop = YES;
-        }
-    }];
-    
-    return target;
-    
-}
