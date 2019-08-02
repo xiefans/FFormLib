@@ -48,7 +48,7 @@
                                                     
                                                 }]];
     
-    [_formView addSubview:[FFInputView formViewWithKey:@"1"
+    [_formView addSubview:[FFInputSingleItem formViewWithKey:@"1"
                                                  title:@"名称："
                                            placeholder:@"请输入名称"
                                                   must:YES]];
@@ -63,7 +63,7 @@
                                                      placeholder:@"请输入性别"
                                                             must:YES]];
     
-    [_formView addSubview:[FFInputView formViewWithKey:@"4"
+    [_formView addSubview:[FFInputSingleItem formViewWithKey:@"4"
                                                  title:@"名称4："
                                            placeholder:@"请输入名称4"
                                                   must:NO]];
@@ -74,11 +74,11 @@
     FFContainerView *temp = [FFContainerView formViewWithKey:@"jjj2"];
     temp.size = CGSizeMake(0.f, 120.f);
     temp.manager.package = YES;
-    [temp addSubview:[FFInputView formViewWithKey:@"jj1"
+    [temp addSubview:[FFInputSingleItem formViewWithKey:@"jj1"
                                             title:@"组中1："
                                       placeholder:@"请输入组中1"
                                              must:NO]];
-    [temp addSubview:[FFInputView formViewWithKey:@"jj2"
+    [temp addSubview:[FFInputSingleItem formViewWithKey:@"jj2"
                                             title:@"组中2："
                                       placeholder:@"请输入组中2"
                                              must:YES]];
@@ -91,6 +91,26 @@
     [_formView.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3
                                                                           maxLength:6]
                           forKey:@"3"];
+    
+    //测试输入组件的回调事件
+    FFMagicInputShouldBeginEditing(_formView,
+                                   @"1",
+                                   ^BOOL(__kindof FFInputView *inputView) {
+                                       return YES;
+                                   });
+    
+    FFMagicInputDidEndEditing(_formView,
+                              @"1",
+                              ^(__kindof FFInputView *inputView) {
+                                 
+                                  FFFormatCheck *formatCheck = [FFFormatLengthCheck formatCheckWithMinLength:3];
+                                  
+                                  if (![formatCheck formatCheckWithString:inputView.manager.value]) {
+                                      NSLog(@"%@", [formatCheck messageWithTitle:inputView.manager.title]);
+                                      
+                                      inputView.manager.content = @"";
+                                  }
+                              });
 }
 
 - (void)eventOfCheck {

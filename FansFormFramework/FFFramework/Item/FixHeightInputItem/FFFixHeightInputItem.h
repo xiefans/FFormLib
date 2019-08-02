@@ -6,11 +6,10 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFView.h"
+#import "FFInputView.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
-@interface FFFixHeightInputItem : FFView
+@interface FFFixHeightInputItem : FFInputView
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title
@@ -36,4 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+
+@interface FFFixHeightInputItem (TextViewDelegate) <UITextViewDelegate>
+
+@end

@@ -9,7 +9,7 @@
 #ifndef FFSupportItem_h
 #define FFSupportItem_h
 
-#import "FFInputView.h"
+#import "FFInputSingleItem.h"
 #import "FFAutoHeightInputItem.h"
 #import "FFFixHeightInputItem.h"
 #import "FFSelectItem.h"

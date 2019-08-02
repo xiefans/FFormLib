@@ -10,7 +10,7 @@
 #import "FFConstant.h"
 #import "FFTool.h"
 
-@interface FFFixHeightInputItem ()<UITextViewDelegate>
+@interface FFFixHeightInputItem ()
 
 @end
 
@@ -145,18 +145,6 @@
     return item;
 }
 
-#pragma mark - Protocol
-#pragma mark <UITextViewDelegate>
-- (void)textViewDidChange:(UITextView *)textView {
-    
-    NSString *content = textView.text;
-    if (content.length == 0) {
-        self.placeholderLb.hidden = NO;
-    } else {
-        self.placeholderLb.hidden = YES;
-    }
-}
-
 #pragma mark - Lazy Load
 
 - (void)setTitleToInputGap:(CGFloat)titleToInputGap {
@@ -238,5 +226,32 @@
     return _mustLb;
 }
 
+@end
+
+
+@implementation FFFixHeightInputItem (TextViewDelegate)
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (self.shouldBeginEditing) {
+        return self.shouldBeginEditing(self);
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (self.didEndEditing) {
+        self.didEndEditing(self);
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    
+    NSString *content = textView.text;
+    if (content.length == 0) {
+        self.placeholderLb.hidden = NO;
+    } else {
+        self.placeholderLb.hidden = YES;
+    }
+}
 
 @end

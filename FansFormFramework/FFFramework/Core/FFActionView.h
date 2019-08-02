@@ -15,5 +15,4 @@ typedef void(^FFActionViewDidAction)(__kindof FFActionView *actionView);
 + (instancetype)formViewWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction;
 - (instancetype)initWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction;
 
-
 @end

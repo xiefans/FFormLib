@@ -44,6 +44,10 @@
 }
 
 - (BOOL)checkMust {
+    if (!_show) {
+        return YES;
+    }
+    
     if (!self.must || (self.must && self.value)) {
         return YES;
     } else {

@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFView.h"
+#import "FFInputView.h"
 
-@interface FFAutoHeightInputItem : FFView
+@interface FFAutoHeightInputItem : FFInputView
 
 + (instancetype)formViewWithKey:(NSString *)key
                           title:(NSString *)title
@@ -26,5 +26,10 @@
 @property (nonatomic, assign)CGFloat titleToInputGap;
 /** 标题的宽度(不设置是默认宽度) */
 @property (nonatomic, assign)CGFloat titleWidth;
+
+@end
+
+
+@interface FFAutoHeightInputItem (TextViewDelegate) <UITextViewDelegate>
 
 @end

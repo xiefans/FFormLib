@@ -9,7 +9,7 @@
 #import "FFAutoHeightInputItem.h"
 #import "FFTool.h"
 
-@interface FFAutoHeightInputItem () <UITextViewDelegate>
+@interface FFAutoHeightInputItem ()
 
 @end
 
@@ -110,23 +110,6 @@
 - (void)changeMust:(BOOL)isMust {
     
     self.mustLb.hidden = !isMust;
-}
-
-- (void)textViewDidChange:(UITextView *)textView {
-    [self.textView sizeToFit];
-    
-    CGFloat height = self.fans_height;
-    self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height;
-    if (height != self.fans_height) {
-        [self.manager excuteRefreshBlock];
-    }
-    
-    NSString *content = textView.text;
-    if (content.length == 0) {
-        self.placeholderLb.hidden = NO;
-    } else {
-        self.placeholderLb.hidden = YES;
-    }
 }
 
 - (CGSize)size {
@@ -251,5 +234,40 @@
 }
 
 
+
+@end
+
+
+@implementation FFAutoHeightInputItem (TextViewDelegate)
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (self.shouldBeginEditing) {
+        return self.shouldBeginEditing(self);
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (self.didEndEditing) {
+        self.didEndEditing(self);
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [self.textView sizeToFit];
+    
+    CGFloat height = self.fans_height;
+    self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height;
+    if (height != self.fans_height) {
+        [self.manager excuteRefreshBlock];
+    }
+    
+    NSString *content = textView.text;
+    if (content.length == 0) {
+        self.placeholderLb.hidden = NO;
+    } else {
+        self.placeholderLb.hidden = YES;
+    }
+}
 
 @end

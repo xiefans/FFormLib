@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFView.h"
+#import "FFInputView.h"
 
-@interface FFInputView : FFView
+@interface FFInputSingleItem : FFInputView
 
 + (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must;
 + (instancetype)formViewWithKey:(NSString *)key
@@ -28,3 +28,9 @@
 @property (nonatomic, assign)CGFloat titleWidth;
 
 @end
+
+
+@interface FFInputSingleItem (TextFieldDelegate)<UITextFieldDelegate>
+
+@end
+

@@ -28,10 +28,10 @@
 		CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AA22E9780700C79E6D /* FFMagic.m */; };
 		CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AD22E97EA600C79E6D /* FFContainerView.m */; };
 		CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B022E97EBB00C79E6D /* FFContainerManager.m */; };
-		CEC743B922E9D05200C79E6D /* FFInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B822E9D05200C79E6D /* FFInputView.m */; };
-		CED91D2422F3DCB30035DBC4 /* FFRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D2322F3DCB30035DBC4 /* FFRelationship.m */; };
+		CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B822E9D05200C79E6D /* FFInputSingleItem.m */; };
 		CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */; };
 		CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */; };
+		CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D4422F41C750035DBC4 /* FFInputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,15 +98,15 @@
 		CEC743AD22E97EA600C79E6D /* FFContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFContainerView.m; sourceTree = "<group>"; };
 		CEC743AF22E97EBB00C79E6D /* FFContainerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFContainerManager.h; sourceTree = "<group>"; };
 		CEC743B022E97EBB00C79E6D /* FFContainerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFContainerManager.m; sourceTree = "<group>"; };
-		CEC743B722E9D05200C79E6D /* FFInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFInputView.h; sourceTree = "<group>"; };
-		CEC743B822E9D05200C79E6D /* FFInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFInputView.m; sourceTree = "<group>"; };
-		CED91D2222F3DCB30035DBC4 /* FFRelationship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFRelationship.h; sourceTree = "<group>"; };
-		CED91D2322F3DCB30035DBC4 /* FFRelationship.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFRelationship.m; sourceTree = "<group>"; };
+		CEC743B722E9D05200C79E6D /* FFInputSingleItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFInputSingleItem.h; sourceTree = "<group>"; };
+		CEC743B822E9D05200C79E6D /* FFInputSingleItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFInputSingleItem.m; sourceTree = "<group>"; };
 		CED91D3C22F3F7350035DBC4 /* FFFormatCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatCheck.h; sourceTree = "<group>"; };
 		CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormatCheck.m; sourceTree = "<group>"; };
 		CED91D3F22F40B820035DBC4 /* FFFormatLengthCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatLengthCheck.h; sourceTree = "<group>"; };
 		CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormatLengthCheck.m; sourceTree = "<group>"; };
 		CED91D4222F40E820035DBC4 /* FFFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormat.h; sourceTree = "<group>"; };
+		CED91D4322F41C750035DBC4 /* FFInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFInputView.h; sourceTree = "<group>"; };
+		CED91D4422F41C750035DBC4 /* FFInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,6 @@
 				CEC743B222E9D01C00C79E6D /* Item */,
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CED91D3B22F3F71E0035DBC4 /* FormatCheck */,
-				CED91D2122F3DC870035DBC4 /* Relationship */,
 			);
 			path = FFFramework;
 			sourceTree = "<group>";
@@ -224,6 +223,8 @@
 				CEC743B022E97EBB00C79E6D /* FFContainerManager.m */,
 				CEB9A1A122F2A70200C8432E /* FFActionView.h */,
 				CEB9A1A222F2A70200C8432E /* FFActionView.m */,
+				CED91D4322F41C750035DBC4 /* FFInputView.h */,
+				CED91D4422F41C750035DBC4 /* FFInputView.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -281,27 +282,18 @@
 				CEB9A1A022F2A6E100C8432E /* SelectItem */,
 				CEB1E19022F0043C005BAEA3 /* FixHeightInputItem */,
 				9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */,
-				CEC743B322E9D02500C79E6D /* InputItem */,
+				CEC743B322E9D02500C79E6D /* InputSingleItem */,
 			);
 			path = Item;
 			sourceTree = "<group>";
 		};
-		CEC743B322E9D02500C79E6D /* InputItem */ = {
+		CEC743B322E9D02500C79E6D /* InputSingleItem */ = {
 			isa = PBXGroup;
 			children = (
-				CEC743B722E9D05200C79E6D /* FFInputView.h */,
-				CEC743B822E9D05200C79E6D /* FFInputView.m */,
+				CEC743B722E9D05200C79E6D /* FFInputSingleItem.h */,
+				CEC743B822E9D05200C79E6D /* FFInputSingleItem.m */,
 			);
-			path = InputItem;
-			sourceTree = "<group>";
-		};
-		CED91D2122F3DC870035DBC4 /* Relationship */ = {
-			isa = PBXGroup;
-			children = (
-				CED91D2222F3DCB30035DBC4 /* FFRelationship.h */,
-				CED91D2322F3DCB30035DBC4 /* FFRelationship.m */,
-			);
-			path = Relationship;
+			path = InputSingleItem;
 			sourceTree = "<group>";
 		};
 		CED91D3B22F3F71E0035DBC4 /* FormatCheck */ = {
@@ -448,6 +440,7 @@
 				CEB9A1A622F2ABB900C8432E /* FFSelectItem.m in Sources */,
 				CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */,
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */,
+				CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */,
 				CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FansFrame.m in Sources */,
 				CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */,
@@ -455,7 +448,7 @@
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
-				CEC743B922E9D05200C79E6D /* FFInputView.m in Sources */,
+				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
 				CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */,
 				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,
 				CEC743A522E94D0400C79E6D /* FFView.m in Sources */,
@@ -464,7 +457,6 @@
 				9E06CDE222F0844B002404A2 /* FFContainerView+KeyboradAdapter.m in Sources */,
 				CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */,
-				CED91D2422F3DCB30035DBC4 /* FFRelationship.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

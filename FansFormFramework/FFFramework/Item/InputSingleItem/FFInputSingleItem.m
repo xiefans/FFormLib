@@ -6,9 +6,10 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFInputView.h"
+#import "FFInputSingleItem.h"
 #import "FFTool.h"
-@implementation FFInputView
+
+@implementation FFInputSingleItem
 
 @synthesize titleLb = _titleLb;
 @synthesize textField = _textField;
@@ -25,7 +26,7 @@
                           title:(NSString *)title
                     placeholder:(NSString *)placeholder
                            must:(BOOL)must {
-    FFInputView *view = [self formViewWithKey:key];
+    FFInputSingleItem *view = [self formViewWithKey:key];
     view.must = must;
     view.manager.title = title;
     view.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
@@ -151,6 +152,7 @@
         _textField = [[UITextField alloc] init];
         _textField.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
         _textField.textColor = [UIColor fans_colorWithHexValue:FFViewContentNormalTextColor];
+        _textField.delegate = self;
     }
     return _textField;
 }
@@ -171,6 +173,24 @@
         _mustLb.hidden = YES;
     }
     return _mustLb;
+}
+
+@end
+
+
+@implementation FFInputSingleItem (TextFieldDelegate)
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (self.shouldBeginEditing) {
+        return self.shouldBeginEditing(self);
+    }
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (self.didEndEditing) {
+        self.didEndEditing(self);
+    }
 }
 
 @end

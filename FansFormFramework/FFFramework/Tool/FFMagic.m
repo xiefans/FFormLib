@@ -16,3 +16,17 @@ void FansMagicWillGetValue(FFView *formView, FFViewManagerWillGetValue willGetVa
 void FansMagicDidAction(FFView *formView, FFViewManagerBlock didAction) {
     [formView.manager setDidAction:didAction];
 }
+
+void FFMagicInputShouldBeginEditing(__kindof FFContainerView *formView, NSString *key, FFInputViewShouldBeginEditingBlock shouldBeginEditing) {
+    FFInputView *inputView = [formView subviewForKey:key];
+    if ([inputView isKindOfClass:[FFInputView class]]) {
+        [inputView setShouldBeginEditing:shouldBeginEditing];
+    }
+}
+
+void FFMagicInputDidEndEditing(__kindof FFContainerView *formView, NSString *key, FFInputViewDidEndEditingBlock didEndEditing) {
+    FFInputView *inputView = [formView subviewForKey:key];
+    if ([inputView isKindOfClass:[FFInputView class]]) {
+        [inputView setDidEndEditing:didEndEditing];
+    }
+}
