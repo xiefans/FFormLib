@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ 我称 manager 为处理器。 具体manager到底做了什么？
+ 
+ 1. 获取绑定View中生成的数据，绑定过程就是view 实现 manager的回调。 让调用者，可以直接设置manager的属性，通过回调影响view的状态。
+ 2. 将view中生成的数据（value），处理成参与网络请求的数据格式
+ 3. 必填校验，容器（FFContainerManager）还可以根据设置的校验规则去校验数据规则
+ 4. 拓展的时候，将逻辑和视图分离。
+    但是在拓展的时候，可以很好的将逻辑分离， 大家可以看看我的FFContainerManager 和 FFContainerView
+ */
+
 @class FFViewManager;
 
 typedef void(^FFViewManagerChangeShow)(FFViewManager *manager, BOOL isShow);
@@ -62,6 +72,5 @@ typedef void(^FFViewManagerBlock)(FFViewManager *manager);
 - (NSString *)makeJSONString;
 
 - (BOOL)checkMust;
-
 
 @end

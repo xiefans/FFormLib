@@ -10,7 +10,14 @@
 
 @interface FFContainerView (KeyboradAdapter)
 
+/**
+ 添加键盘弹出的适配
+ */
 - (void)fans_adapterKeyborad;
+
+/**
+ 移除键盘弹出的适配
+ */
 - (void)fans_removeAdapter;
 
 @end

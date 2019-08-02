@@ -9,6 +9,7 @@
 #import "FFView.h"
 #import "FFContainerManager.h"
 
+/* 默认的容器类 */
 @interface FFContainerView : FFView
 
 - (__kindof FFContainerManager *)manager;
