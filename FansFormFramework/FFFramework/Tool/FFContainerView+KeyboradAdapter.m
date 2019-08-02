@@ -11,8 +11,11 @@
 @implementation FFContainerView (KeyboradAdapter)
 
 - (void)fans_adapterKeyborad {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradHide:) name:UIKeyboardWillHideNotification object:nil];
+    //如果父视图是个容器，子视图就没必要作用该方法
+    if (![self.superview isKindOfClass:[FFContainerView class]]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradHide:) name:UIKeyboardWillHideNotification object:nil];
+    }
 }
 
 - (void)fans_removeAdapter {
