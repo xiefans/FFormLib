@@ -140,13 +140,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E5C058022F46F6800763648 /* FFAHContainerItem */ = {
+		9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */ = {
 			isa = PBXGroup;
 			children = (
 				9E5C057D22F46F6300763648 /* FFAutoHeightContainerItem.h */,
 				9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */,
 			);
-			path = FFAHContainerItem;
+			path = FFAutoHeightContainerItem;
 			sourceTree = "<group>";
 		};
 		9E5C058122F4760F00763648 /* FFScrollContainerItem */ = {
@@ -304,7 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5C058122F4760F00763648 /* FFScrollContainerItem */,
-				9E5C058022F46F6800763648 /* FFAHContainerItem */,
+				9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */,
 				CEB9A1A022F2A6E100C8432E /* SelectItem */,
 				CEB1E19022F0043C005BAEA3 /* FixHeightInputItem */,
 				9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */,

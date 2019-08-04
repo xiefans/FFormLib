@@ -16,6 +16,8 @@
 
 @implementation FFView
 
+@synthesize size = _size;
+
 + (instancetype)formViewWithKey:(NSString *)key {
     return [[self alloc] initWithKey:key];
 }
@@ -31,6 +33,9 @@
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super init]) {
         _manager = manager;
+        
+        self.paddingInsets = FFItemViewNormalPadding;
+        self.size = CGSizeMake(FANSScreenWidth, FFViewNormalHeight);
         
         __weak typeof(self)weakSelf = self;
         [manager setChangeEdit:^(FFViewManager *manager, BOOL isEdit) {

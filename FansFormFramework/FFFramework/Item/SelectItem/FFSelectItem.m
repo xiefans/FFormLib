@@ -120,7 +120,7 @@
                                      x,
                                      self.titleLb.fans_y,
                                      self.fans_width - x - self.paddingInsets.right,
-                                     MAX(self.fans_height - (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
+                                     MAX(self.fans_height - (self.titleLb.fans_y * 2 - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
                                      );
     self.placeholderLb.frame = self.contentLb.frame;
     self.lineView.frame = CGRectMake(
@@ -157,7 +157,13 @@
     if (height != self.contentLb.fans_height) {
         self.size = CGSizeMake(
                                self.size.width,
-                               self.contentLb.fans_height + self.paddingInsets.top + self.paddingInsets.bottom
+                               MAX(
+                                   self.contentLb.fans_height +
+                                   self.paddingInsets.top +
+                                   self.paddingInsets.bottom +
+                                   (self.titleLb.fans_y - self.paddingInsets.top) * 2.f,
+                                   FFViewNormalHeight
+                                   )
                                );
         [self.manager excuteRefreshBlock];
     }

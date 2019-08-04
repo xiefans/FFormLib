@@ -37,8 +37,6 @@
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super initWithManager:manager]) {
         
-        self.paddingInsets = FFItemViewNormalPadding;
-        
         __weak typeof(self)sself = self;
         [manager setDidSetContent:^(FFViewManager *manager, id content) {
             __strong typeof(sself)self = sself;

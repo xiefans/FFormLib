@@ -134,7 +134,8 @@
                                          attributes:@{NSFontAttributeName : self.textView.font}
                                             context:nil].size;
         CGFloat height = self.fans_height;
-        self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height;
+        self.fans_height = MAX(FFViewNormalHeight,
+                               (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height);
         if (height != self.fans_height) {
             [self.manager excuteRefreshBlock];
         }
@@ -257,7 +258,8 @@
     [self.textView sizeToFit];
     
     CGFloat height = self.fans_height;
-    self.fans_height = (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height;
+    self.fans_height = MAX(FFViewNormalHeight,
+                           (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height);
     if (height != self.fans_height) {
         [self.manager excuteRefreshBlock];
     }

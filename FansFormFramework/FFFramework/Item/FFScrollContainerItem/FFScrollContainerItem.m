@@ -34,11 +34,10 @@
             [self setNeedsLayout];
         }];
         
-        CGFloat normalHeight = FFViewNormalHeight;
         CGFloat x = self.paddingInsets.left + obj.marginInsets.left;
         CGFloat y = (lastView ? 0.f : self.paddingInsets.top) + lastView.fans_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
         CGFloat width = (obj.size.width > 0.f ? obj.size.width : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;
-        CGFloat height = obj.size.height? : normalHeight;
+        CGFloat height = obj.size.height;
         
         obj.frame = CGRectMake(x, y, MAX(width, 0.f), MAX(height, 0.f));
         

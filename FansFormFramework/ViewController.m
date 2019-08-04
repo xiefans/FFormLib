@@ -43,7 +43,7 @@
                                                       key:@"select"
                                                 didAction:^(__kindof FFActionView *actionView) {
                                                     
-                                                    actionView.manager.content = @"你选择了我";
+                                                    actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
                                                     actionView.manager.value = @"mustSeee";
                                                     
                                                 }]];

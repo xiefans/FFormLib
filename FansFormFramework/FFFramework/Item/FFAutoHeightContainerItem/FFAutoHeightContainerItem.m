@@ -10,6 +10,13 @@
 #import "FFTool.h"
 @implementation FFAutoHeightContainerItem
 
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
+    if (self = [super initWithManager:manager]) {
+        self.size = CGSizeMake(0.f, 0.f);
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     [self mathHeight];
 }
@@ -54,10 +61,6 @@
     [super ff_removeSubviewForKey:key];
     self.fans_height = [self mathHeight];
     [self.manager excuteRefreshBlock];
-}
-
-- (CGSize)size {
-    return CGSizeMake(0.f, MAX(1.f, [super size].height));
 }
 
 @end
