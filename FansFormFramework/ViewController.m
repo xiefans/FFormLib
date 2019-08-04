@@ -74,18 +74,6 @@
                                                      title:@"temp："
                                                placeholder:@"请输入temp"
                                                       must:YES]];
-    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-                                                     title:@"temp："
-                                               placeholder:@"请输入temp"
-                                                      must:YES]];
-    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-                                                     title:@"temp："
-                                               placeholder:@"请输入temp"
-                                                      must:YES]];
-    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-                                                     title:@"temp："
-                                               placeholder:@"请输入temp"
-                                                      must:YES]];
     
     //这里测试递归检查
     FFContainerView *temp = [FFAutoHeightContainerItem formViewWithKey:@"jjj2"];
@@ -146,12 +134,12 @@
         NSLog(@"%@",[self.formView.manager makeDictionary]);
     }
     
-//    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
-//
-//    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-//                                                  title:@"temp："
-//                                            placeholder:@"请输入temp"
-//                                                   must:YES]];
+    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
+
+    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
+                                                  title:@"temp："
+                                            placeholder:@"请输入temp"
+                                                   must:YES]];
     
     [self.formView scrollItemForKey:@"jj1" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
 }
