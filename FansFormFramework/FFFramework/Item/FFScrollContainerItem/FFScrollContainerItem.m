@@ -81,6 +81,56 @@
     return [self.scrollView subviews];
 }
 
+- (void)scrollItemForKey:(NSString *)key toPosition:(FFScrollContainerItemScrollPosition)position {
+    [self scrollItemForKey:key toPosition:position animation:NO];
+}
+
+- (void)scrollItemForKey:(NSString *)key
+              toPosition:(FFScrollContainerItemScrollPosition)position
+               animation:(BOOL)animation {
+    
+    FFView *item = [self ff_subviewForKey:key];
+    if (!item) {
+        return;
+    }
+    CGRect itemFrame = CGRectZero;
+    if (item.superview == self.scrollView) {
+        itemFrame = item.frame;
+    } else {
+        itemFrame = [item.superview convertRect:item.frame toView:self.scrollView];
+    }
+    CGFloat itemY = itemFrame.origin.y;
+    CGFloat itemBottom = CGRectGetMaxY(itemFrame);
+    CGFloat itemCenterY = (itemFrame.origin.y + CGRectGetMaxY(itemFrame)) / 2.f;
+    CGPoint offset = self.scrollView.contentOffset;
+    switch (position) {
+        case FFScrollContainerItemScrollPositionTop:
+            offset = CGPointMake(0.f, MIN(itemY,
+                                          MAX(self.scrollView.contentSize.height - self.scrollView.fans_height, 0.f)));
+            break;
+        case FFScrollContainerItemScrollPositionBottom:
+            offset = CGPointMake(0.f, MAX(itemBottom - self.scrollView.fans_height, 0.f));
+            break;
+        case FFScrollContainerItemScrollPositionCenter: {
+            //判断方向
+            if (itemCenterY > (self.scrollView.contentOffset.y + self.scrollView.fans_halfHeight)) {
+                //向上滑
+                offset = CGPointMake(0.f, MIN(itemCenterY - self.scrollView.fans_halfHeight,
+                                              MAX(self.scrollView.contentSize.height - self.scrollView.fans_height, 0.f)));
+            } else {
+                //下滑
+                offset = CGPointMake(0.f, MAX(itemCenterY - self.scrollView.fans_halfHeight, 0.f));
+            }
+        }
+            break;
+    }
+    
+    if (offset.y == self.scrollView.contentOffset.y) {
+        return;
+    }
+    [self.scrollView setContentOffset:offset animated:animation];
+}
+
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];

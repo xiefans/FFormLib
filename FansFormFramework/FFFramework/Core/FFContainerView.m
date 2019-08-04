@@ -39,14 +39,45 @@
 }
 
 - (void)ff_removeSubviewForKey:(NSString *)key {
-    FFView *view = [self ff_subviewForKey:key];
-    [view removeFromSuperview];
-    [self.manager removeSubManagerForKey:key];
-    [self.map removeObjectForKey:key];
+    FFContainerView *containerView = [self ff_containerForSubKey:key];
+    
+    if (containerView) {
+        FFView *view = [self ff_subviewForKey:key];
+        [view removeFromSuperview];
+        [containerView.manager removeSubManagerForKey:key];
+        [containerView.map removeObjectForKey:key];
+    }
 }
 
 - (FFView *)ff_subviewForKey:(NSString *)key {
-    return self.map[key];
+    FFView *item = self.map[key];
+    if (!item) {
+        for (FFView *sub in self.ff_subviews) {
+            if ([sub isKindOfClass:[FFContainerView class]]) {
+                item = [((FFContainerView *)sub) ff_subviewForKey:key];
+            }
+            
+            if (item) {
+                break;
+            }
+        }
+    }
+    return item;
+}
+
+- (FFContainerView *)ff_containerForSubKey:(NSString *)key {
+    FFView *item = self.map[key];
+    if (!item) {
+        for (FFView *sub in self.ff_subviews) {
+            if ([sub isKindOfClass:[FFContainerView class]]) {
+                item = [((FFContainerView *)sub) ff_subviewForKey:key];
+            }
+            if (item) {
+                return ((FFContainerView *)sub);
+            }
+        }
+    }
+    return self;
 }
 
 - (NSArray<FFView *> *)ff_subviews {

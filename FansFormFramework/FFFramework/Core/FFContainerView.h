@@ -21,6 +21,14 @@
 - (__kindof FFView *)ff_subviewForKey:(NSString *)key;
 - (NSArray<__kindof FFView *> *)ff_subviews;
 
+/**
+ 根据key 找到这个key的直属上级
+
+ @param key key
+ @return 直属容器
+ */
+- (__kindof FFContainerView *)ff_containerForSubKey:(NSString *)key;
+
 
 
 
