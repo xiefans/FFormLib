@@ -119,7 +119,7 @@
 }
 
 - (void)eventOfCheck {
-//    [self.view endEditing:YES];
+    
     //检查必填项
     BOOL res = [self.formView.manager checkMustWithErrorComplete:^(__kindof FFViewManager *obj, NSString *message) {
         

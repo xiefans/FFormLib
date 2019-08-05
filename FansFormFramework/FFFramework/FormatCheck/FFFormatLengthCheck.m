@@ -54,7 +54,6 @@
         if (self.maxLength < self.minLength) {
             return [NSString stringWithFormat:@"【%@】规则设置错误，最小值不能大于最大值", title];
         } else {
-            
             return [NSString stringWithFormat:@"%@长度要在%ld-%ld之间", title, self.minLength, self.maxLength];
         }
     }
@@ -78,7 +77,6 @@
             return (count <= self.maxLength && count >= self.minLength);
         }
     }
-    
 }
 
 - (void)setMinLength:(NSInteger)minLength {

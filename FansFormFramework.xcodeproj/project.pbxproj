@@ -11,6 +11,7 @@
 		9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */; };
 		9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C058322F4762D00763648 /* FFScrollContainerItem.m */; };
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
+		CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */; };
 		CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BED22E5571A001EDDFD /* AppDelegate.m */; };
 		CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BF022E5571A001EDDFD /* ViewController.m */; };
 		CE9C2BF422E5571A001EDDFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9C2BF222E5571A001EDDFD /* Main.storyboard */; };
@@ -63,6 +64,8 @@
 		9EC315A422ED608A00CE8234 /* FFAutoHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoHeightInputItem.h; sourceTree = "<group>"; };
 		9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoHeightInputItem.m; sourceTree = "<group>"; };
 		9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFConstant.h; sourceTree = "<group>"; };
+		CE6F781E22F8176C00A71165 /* FFFormcatSpecificCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormcatSpecificCheck.h; sourceTree = "<group>"; };
+		CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormcatSpecificCheck.m; sourceTree = "<group>"; };
 		CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FansFormFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE9C2BED22E5571A001EDDFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */,
 				CED91D3F22F40B820035DBC4 /* FFFormatLengthCheck.h */,
 				CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */,
+				CE6F781E22F8176C00A71165 /* FFFormcatSpecificCheck.h */,
+				CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */,
 			);
 			path = FormatCheck;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */,
+				CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */,
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
 				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
