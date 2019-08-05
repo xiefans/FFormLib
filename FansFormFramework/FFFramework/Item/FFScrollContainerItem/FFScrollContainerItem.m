@@ -32,6 +32,7 @@
         [obj.manager setRefreshBlock:^(FFViewManager *manager) {
             __strong typeof(weakSelf)self = weakSelf;
             [self setNeedsLayout];
+            [self layoutIfNeeded];
         }];
         
         CGFloat x = self.paddingInsets.left + obj.marginInsets.left;
