@@ -36,36 +36,35 @@
     [_formView fans_adapterKeyborad];
     
     [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
-                                              placeholder:@"请选择地区"
-                                            numberOfLines:0
-                                                     must:YES
-                                                      key:@"select"
-                                                didAction:^(__kindof FFActionView *actionView) {
-                                                    
-                                                    actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
-                                                    actionView.manager.value = @"mustSeee";
-                                                    
-                                                }]];
+                                                 placeholder:@"请选择地区"
+                                               numberOfLines:0
+                                                        must:YES
+                                                         key:@"select"
+                                                   didAction:^(__kindof FFActionView *actionView) {
+                                                       
+                                                       actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
+                                                       actionView.manager.value = @"mustSeee";
+                                                   }]];
     
     [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"1"
-                                                 title:@"名称："
-                                           placeholder:@"请输入名称"
-                                                  must:YES]];
-    [_formView ff_addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
-                                                          title:@"名称3："
-                                                    placeholder:@"请输入名称3"
-                                                      fixHeight:100.f
+                                                          title:@"名称："
+                                                    placeholder:@"请输入名称"
                                                            must:YES]];
+    [_formView ff_addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
+                                                             title:@"名称3："
+                                                       placeholder:@"请输入名称3"
+                                                         fixHeight:100.f
+                                                              must:YES]];
     
     [_formView ff_addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
-                                                           title:@"性别："
-                                                     placeholder:@"请输入性别"
-                                                            must:YES]];
+                                                              title:@"性别："
+                                                        placeholder:@"请输入性别"
+                                                               must:YES]];
     
     [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"4"
-                                                 title:@"名称4："
-                                           placeholder:@"请输入名称4"
-                                                  must:NO]];
+                                                          title:@"名称4："
+                                                    placeholder:@"请输入名称4"
+                                                           must:NO]];
     
     [_formView ff_addSubview:[FFAutoHeightContainerItem formViewWithKey:@"sub"]];
     FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
@@ -79,13 +78,13 @@
     
     temp.manager.package = YES;
     [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj1"
-                                            title:@"组中1："
-                                      placeholder:@"请输入组中1"
-                                             must:NO]];
+                                                     title:@"组中1："
+                                               placeholder:@"请输入组中1"
+                                                      must:NO]];
     [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj2"
-                                            title:@"组中2："
-                                      placeholder:@"请输入组中2"
-                                             must:YES]];
+                                                     title:@"组中2："
+                                               placeholder:@"请输入组中2"
+                                                      must:YES]];
     [_formView ff_addSubview:temp];
     [self.view addSubview:self.formView];
     
@@ -94,7 +93,7 @@
     //测试 格式校验
     [_formView.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3
                                                                           maxLength:6]
-                          forKey:@"3"];
+                               forKey:@"3"];
     
     //测试输入组件的回调事件
     FFMagicInputShouldBeginEditing(_formView,
@@ -106,7 +105,7 @@
     FFMagicInputDidEndEditing(_formView,
                               @"1",
                               ^(__kindof FFInputView *inputView) {
-                                 
+                                  
                                   FFFormatCheck *formatCheck = [FFFormatLengthCheck formatCheckWithMinLength:3];
                                   
                                   if (![formatCheck formatCheckWithString:inputView.manager.value]) {
@@ -134,11 +133,11 @@
     }
     
     FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
-
+    
     [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-                                                  title:@"temp："
-                                            placeholder:@"请输入temp"
-                                                   must:YES]];
+                                                     title:@"temp："
+                                               placeholder:@"请输入temp"
+                                                      must:YES]];
     
     [self.formView scrollItemForKey:@"jj1" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
 }
