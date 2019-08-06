@@ -24,6 +24,8 @@
 		CE9C2C3D22E5B08E001EDDFD /* UIColor+FansColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3C22E5B08E001EDDFD /* UIColor+FansColor.m */; };
 		CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */; };
 		CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */; };
+		CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F22922F944340096D130 /* FFResourceSupport.m */; };
+		CEB6F24222F947AC0096D130 /* FFResourceImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */; };
 		CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9A1A222F2A70200C8432E /* FFActionView.m */; };
 		CEB9A1A622F2ABB900C8432E /* FFSelectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9A1A522F2ABB900C8432E /* FFSelectItem.m */; };
 		CEC743A522E94D0400C79E6D /* FFView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743A422E94D0400C79E6D /* FFView.m */; };
@@ -93,6 +95,10 @@
 		CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FansAttributed.m"; sourceTree = "<group>"; };
 		CEB1E19122F00574005BAEA3 /* FFFixHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFixHeightInputItem.h; sourceTree = "<group>"; };
 		CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFixHeightInputItem.m; sourceTree = "<group>"; };
+		CEB6F21E22F922720096D130 /* FFResourceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceName.h; sourceTree = "<group>"; };
+		CEB6F22822F944340096D130 /* FFResourceSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceSupport.h; sourceTree = "<group>"; };
+		CEB6F22922F944340096D130 /* FFResourceSupport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFResourceSupport.m; sourceTree = "<group>"; };
+		CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FFResourceImage.bundle; sourceTree = "<group>"; };
 		CEB9A1A122F2A70200C8432E /* FFActionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFActionView.h; sourceTree = "<group>"; };
 		CEB9A1A222F2A70200C8432E /* FFActionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFActionView.m; sourceTree = "<group>"; };
 		CEB9A1A422F2ABB900C8432E /* FFSelectItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFSelectItem.h; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 		CE9C2C1E22E55FC4001EDDFD /* FFFramework */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6F21B22F922540096D130 /* Resource */,
 				CE9C2C2022E55FDD001EDDFD /* Header */,
 				CE9C2C1F22E55FD8001EDDFD /* Core */,
 				CEC743B222E9D01C00C79E6D /* Item */,
@@ -292,6 +299,25 @@
 				CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */,
 			);
 			path = FixHeightInputItem;
+			sourceTree = "<group>";
+		};
+		CEB6F21B22F922540096D130 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CEB6F21E22F922720096D130 /* FFResourceName.h */,
+				CEB6F22722F9441B0096D130 /* Support */,
+				CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CEB6F22722F9441B0096D130 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CEB6F22822F944340096D130 /* FFResourceSupport.h */,
+				CEB6F22922F944340096D130 /* FFResourceSupport.m */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		CEB9A1A022F2A6E100C8432E /* SelectItem */ = {
@@ -442,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9C2BF922E5571A001EDDFD /* LaunchScreen.storyboard in Resources */,
+				CEB6F24222F947AC0096D130 /* FFResourceImage.bundle in Resources */,
 				CE9C2BF622E5571A001EDDFD /* Assets.xcassets in Resources */,
 				CE9C2BF422E5571A001EDDFD /* Main.storyboard in Resources */,
 			);
@@ -475,6 +502,7 @@
 				CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FansFrame.m in Sources */,
 				CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */,
+				CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */,
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */,

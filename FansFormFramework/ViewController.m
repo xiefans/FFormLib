@@ -37,7 +37,6 @@
     
     [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
                                               placeholder:@"请选择地区"
-                                         instructionImage:nil
                                             numberOfLines:0
                                                      must:YES
                                                       key:@"select"

@@ -9,6 +9,7 @@
 #ifndef FFTool_h
 #define FFTool_h
 
+#import "FFResourceSupport.h"
 #import "UIView+FansFrame.h"
 #import "UIColor+FansColor.h"
 #import "NSString+FansAttributed.h"

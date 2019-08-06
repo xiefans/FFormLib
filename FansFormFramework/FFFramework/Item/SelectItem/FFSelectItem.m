@@ -8,6 +8,7 @@
 
 #import "FFSelectItem.h"
 #import "FFTool.h"
+#import "FFResourceName.h"
 @implementation FFSelectItem
 
 
@@ -25,7 +26,7 @@
                         didAction:(FFActionViewDidAction)didAction {
     return [self formViewWithTitle:title
                        placeholder:placeholder
-                  instructionImage:nil
+                  instructionImage:[FFResourceSupport blackRightArrowSmallImage]
                      numberOfLines:0
                               must:must
                                key:key
@@ -42,7 +43,7 @@
     
     return [self formViewWithTitle:title
                        placeholder:placeholder
-                  instructionImage:nil
+                  instructionImage:[FFResourceSupport blackRightArrowSmallImage]
                      numberOfLines:numberOfLines
                               must:must
                                key:key
@@ -116,17 +117,33 @@
     self.titleLb.fans_width = self.titleWidth;
     
     CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
+    CGFloat contentWidth = self.fans_width - x - self.paddingInsets.right;
+    
+    if (self.instructionImageView.image) {
+        self.instructionImageView.frame = CGRectMake(
+                                                     self.fans_width - self.paddingInsets.right - self.instructionImageView.fans_width,
+                                                     0.f,
+                                                     self.instructionImageView.fans_width,
+                                                     self.instructionImageView.fans_height
+                                                     );
+        contentWidth = self.instructionImageView.fans_x - FFViewNormalGap - x;
+    } else {
+        self.instructionImageView.frame = CGRectMake(0.f, 0.f, 0.f, 0.f);
+    }
+    self.instructionImageView.fans_centerY = self.fans_centerY;
+    
     self.contentLb.frame = CGRectMake(
                                      x,
                                      self.titleLb.fans_y,
-                                     self.fans_width - x - self.paddingInsets.right,
+                                     contentWidth,
                                      MAX(self.fans_height - (self.titleLb.fans_y * 2 - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
                                      );
+    
     self.placeholderLb.frame = self.contentLb.frame;
     self.lineView.frame = CGRectMake(
                                      self.titleLb.fans_x,
                                      self.fans_height - FFViewLineNormalHeight,
-                                     self.contentLb.fans_right - self.titleLb.fans_left,
+                                     self.fans_right - self.titleLb.fans_left - self.paddingInsets.right,
                                      FFViewLineNormalHeight
                                      );
     
@@ -229,6 +246,10 @@
 - (UIImageView *)instructionImageView {
     if (!_instructionImageView) {
         _instructionImageView = [[UIImageView alloc] init];
+        _instructionImageView.fans_width = FFViewSelectItemInstructionImageViewWidth;
+        _instructionImageView.fans_height = FFViewSelectItemInstructionImageViewHeight;
+        _instructionImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _instructionImageView.layer.masksToBounds = YES;
     }
     return _instructionImageView;
 }

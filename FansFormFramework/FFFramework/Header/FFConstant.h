@@ -29,6 +29,10 @@ static CGFloat const FFViewFixHeightNormalHeight = 150.f; /**< 固定高度（�
 
 static CGFloat const FFViewMustRedFormTitleGap = 5.f; /**< 必填标记距离标题的距离 */
 
+static CGFloat const FFViewSelectItemInstructionImageViewWidth = 20.f; /**< SelectItem的指示图片的默认大小 */
+static CGFloat const FFViewSelectItemInstructionImageViewHeight = FFViewSelectItemInstructionImageViewWidth; /**< SelectItem的指示图片的默认大小 */
+
+
 
 #define FFContainerViewNormalPadding \
 (UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f))
