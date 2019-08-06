@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "FFAutoHeightContainerItem.h"
+#import "FFAutoSizeContainerItem.h"
 #import "FFTool.h"
-@implementation FFAutoHeightContainerItem
+@implementation FFAutoSizeContainerItem
 
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super initWithManager:manager]) {
@@ -38,7 +38,7 @@
         CGFloat normalHeight = FFViewNormalHeight;
         CGFloat x = self.paddingInsets.left + obj.marginInsets.left;
         CGFloat y = (lastView ? 0.f : self.paddingInsets.top) + lastView.fans_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
-        CGFloat width = (obj.size.width > 0.f ? obj.size.width : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;
+        CGFloat width = (obj.size.width > 0.f ? MIN(obj.size.width, self.fans_width) : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;
         CGFloat height = MAX(obj.size.height, normalHeight);
         
         obj.frame = CGRectMake(x, y, MAX(width, 0.f), MAX(height, 0.f));
@@ -55,12 +55,14 @@
     [self addSubview:view];
     [super ff_addSubview:view];
     self.fans_height = [self mathHeight];
+    self.size = CGSizeMake(self.size.width, self.fans_height);
     [self.manager excuteRefreshBlock];
 }
 
 - (void)ff_removeSubviewForKey:(NSString *)key {
     [super ff_removeSubviewForKey:key];
     self.fans_height = [self mathHeight];
+    self.size = CGSizeMake(self.size.width, self.fans_height);
     [self.manager excuteRefreshBlock];
 }
 

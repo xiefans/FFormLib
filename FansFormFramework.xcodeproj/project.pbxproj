@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E06CDE222F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E06CDE122F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m */; };
-		9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */; };
+		9E5C057F22F46F6300763648 /* FFAutoSizeContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C057E22F46F6300763648 /* FFAutoSizeContainerItem.m */; };
 		9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C058322F4762D00763648 /* FFScrollContainerItem.m */; };
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
 		CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */; };
@@ -59,8 +59,8 @@
 /* Begin PBXFileReference section */
 		9E06CDE022F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFScrollContainerItem+KeyboradAdapter.h"; sourceTree = "<group>"; };
 		9E06CDE122F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FFScrollContainerItem+KeyboradAdapter.m"; sourceTree = "<group>"; };
-		9E5C057D22F46F6300763648 /* FFAutoHeightContainerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoHeightContainerItem.h; sourceTree = "<group>"; };
-		9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoHeightContainerItem.m; sourceTree = "<group>"; };
+		9E5C057D22F46F6300763648 /* FFAutoSizeContainerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoSizeContainerItem.h; sourceTree = "<group>"; };
+		9E5C057E22F46F6300763648 /* FFAutoSizeContainerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoSizeContainerItem.m; sourceTree = "<group>"; };
 		9E5C058222F4762D00763648 /* FFScrollContainerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFScrollContainerItem.h; sourceTree = "<group>"; };
 		9E5C058322F4762D00763648 /* FFScrollContainerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFScrollContainerItem.m; sourceTree = "<group>"; };
 		9EC315A422ED608A00CE8234 /* FFAutoHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoHeightInputItem.h; sourceTree = "<group>"; };
@@ -149,13 +149,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */ = {
+		9E5C058022F46F6800763648 /* FFAutoSizeContainerItem */ = {
 			isa = PBXGroup;
 			children = (
-				9E5C057D22F46F6300763648 /* FFAutoHeightContainerItem.h */,
-				9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */,
+				9E5C057D22F46F6300763648 /* FFAutoSizeContainerItem.h */,
+				9E5C057E22F46F6300763648 /* FFAutoSizeContainerItem.m */,
 			);
-			path = FFAutoHeightContainerItem;
+			path = FFAutoSizeContainerItem;
 			sourceTree = "<group>";
 		};
 		9E5C058122F4760F00763648 /* FFScrollContainerItem */ = {
@@ -333,7 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5C058122F4760F00763648 /* FFScrollContainerItem */,
-				9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */,
+				9E5C058022F46F6800763648 /* FFAutoSizeContainerItem */,
 				CEB9A1A022F2A6E100C8432E /* SelectItem */,
 				CEB1E19022F0043C005BAEA3 /* FixHeightInputItem */,
 				9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */,
@@ -505,7 +505,7 @@
 				CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */,
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
-				9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */,
+				9E5C057F22F46F6300763648 /* FFAutoSizeContainerItem.m in Sources */,
 				CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */,
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,

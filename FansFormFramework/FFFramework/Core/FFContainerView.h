@@ -9,8 +9,19 @@
 #import "FFView.h"
 #import "FFContainerManager.h"
 
+typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
+    FFContainerViewLayoutDirectionVertical, /**< 垂直方向布局 */
+    FFContainerViewLayoutDirectionHorizontal /**< 水平方向布局 */
+};
+
 /* 默认的容器类 */
 @interface FFContainerView : FFView
+
++ (instancetype)formViewWithKey:(NSString *)key
+                layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
+- (instancetype)initWithKey:(NSString *)key
+            layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
+@property (nonatomic, assign, readonly) FFContainerViewLayoutDirection layoutDirection;
 
 @property (nonatomic, strong) NSMutableDictionary *map;
 

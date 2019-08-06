@@ -32,7 +32,7 @@
     self.title = @"FFFramework";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _formView = [FFScrollContainerItem formViewWithKey:@"jsonform"];
+    _formView = [FFScrollContainerItem formViewWithKey:@"jsonform" layoutDirection:FFContainerViewLayoutDirectionHorizontal];
     [_formView fans_adapterKeyborad];
     
     [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
@@ -66,18 +66,19 @@
                                                     placeholder:@"请输入名称4"
                                                            must:NO]];
     
-    [_formView ff_addSubview:[FFAutoHeightContainerItem formViewWithKey:@"sub"]];
-    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
+    [_formView ff_addSubview:[FFAutoSizeContainerItem formViewWithKey:@"sub"]];
+    FFAutoSizeContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
+    item.size = CGSizeMake(FANSScreenWidth/2.f, 0.f);
     [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
                                                      title:@"temp："
                                                placeholder:@"请输入temp"
                                                       must:YES]];
     
     //这里测试递归检查
-    FFContainerView *temp = [FFAutoHeightContainerItem formViewWithKey:@"jjj2"];
+    FFContainerView *temp = [FFAutoSizeContainerItem formViewWithKey:@"jjj2"];
     
     temp.manager.package = YES;
-    [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj1"
+    [temp ff_addSubview:[FFAutoHeightInputItem formViewWithKey:@"jj1"
                                                      title:@"组中1："
                                                placeholder:@"请输入组中1"
                                                       must:NO]];
@@ -132,14 +133,13 @@
         NSLog(@"%@",[self.formView.manager makeDictionary]);
     }
     
-    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
-    
+    FFAutoSizeContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
     [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
                                                      title:@"temp："
                                                placeholder:@"请输入temp"
                                                       must:YES]];
     
-    [self.formView scrollItemForKey:@"jj1" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
+    [self.formView scrollItemForKey:@"sub" toPosition:FFScrollContainerItemScrollPositionLeft animation:YES];
 }
 
 - (UIButton *)checkBtn {

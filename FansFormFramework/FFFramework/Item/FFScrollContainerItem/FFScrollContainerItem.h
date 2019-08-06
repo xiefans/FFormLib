@@ -8,10 +8,12 @@
 
 #import "FFContainerView.h"
 
-typedef NS_ENUM(NSInteger , FFScrollContainerItemScrollPosition) {
-    FFScrollContainerItemScrollPositionBottom, /**< 滑动到视图底部 */
-    FFScrollContainerItemScrollPositionCenter, /**< 滑动到视图中心 */
-    FFScrollContainerItemScrollPositionTop /**< 滑动到视图顶部 */
+typedef NS_OPTIONS(NSInteger , FFScrollContainerItemScrollPosition) {
+    FFScrollContainerItemScrollPositionCenter = 0, /**< 滑动到视图中心 */
+    FFScrollContainerItemScrollPositionBottom = 1 << 1, /**< 滑动到视图底部 */
+    FFScrollContainerItemScrollPositionTop = 1 << 2, /**< 滑动到视图顶部 */
+    FFScrollContainerItemScrollPositionLeft = 1 << 3, /**< 滑动到视图左侧 */
+    FFScrollContainerItemScrollPositionRight = 1 << 4, /**< 滑动到视图右侧 */
 };
 
 @interface FFScrollContainerItem : FFContainerView

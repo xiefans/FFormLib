@@ -16,6 +16,17 @@
 
 @implementation FFContainerView
 
++ (instancetype)formViewWithKey:(NSString *)key layoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    return [[self alloc] initWithKey:key layoutDirection:layoutDirection];
+}
+
+- (instancetype)initWithKey:(NSString *)key layoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    if (self = [self initWithKey:key]) {
+        _layoutDirection = layoutDirection;
+    }
+    return self;
+}
+
 - (instancetype)initWithKey:(NSString *)key {
     return [self initWithManager:[FFContainerManager managerWithKey:key]];
 }
