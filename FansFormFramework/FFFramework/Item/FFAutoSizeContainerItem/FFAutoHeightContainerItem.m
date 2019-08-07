@@ -89,14 +89,14 @@
     return userHeight + self.paddingInsets.bottom;
 }
 
-- (void)ff_addSubview:(__kindof FFView *)view {
+- (void)ff_addItem:(__kindof FFView *)view {
     [self addSubview:view];
-    [super ff_addSubview:view];
+    [super ff_addItem:view];
     [self ff_refreshSize];
 }
 
-- (void)ff_removeSubviewForKey:(NSString *)key {
-    [super ff_removeSubviewForKey:key];
+- (void)ff_removeItemForKey:(NSString *)key {
+    [super ff_removeItemForKey:key];
     [self ff_refreshSize];
 }
 

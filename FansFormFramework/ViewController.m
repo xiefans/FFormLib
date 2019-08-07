@@ -77,7 +77,7 @@
     _formView = [FFScrollContainerItem formViewWithKey:@"jsonform" layoutDirection:FFContainerViewLayoutDirectionVertical];
     [_formView fans_addKeyboradAdapter];
     //基础表单组件
-    [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
+    [_formView ff_addItem:[FFSelectItem formViewWithTitle:@"地区"
                                                  placeholder:@"请选择地区"
                                                numberOfLines:0
                                                         must:YES
@@ -87,46 +87,46 @@
                                                        actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
                                                        actionView.manager.value = @"mustSeee";
                                                    }]];
-    [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"1"
+    [_formView ff_addItem:[FFInputSingleItem formViewWithKey:@"1"
                                                           title:@"名称："
                                                     placeholder:@"请输入名称"
                                                            must:YES]];
-    [_formView ff_addSubview:[FFFixHeightInputItem formViewWithKey:@"3"
+    [_formView ff_addItem:[FFFixHeightInputItem formViewWithKey:@"3"
                                                              title:@"名称3："
                                                        placeholder:@"请输入名称3"
                                                          fixHeight:100.f
                                                               must:YES]];
     
-    [_formView ff_addSubview:[FFAutoHeightInputItem formViewWithKey:@"2"
+    [_formView ff_addItem:[FFAutoHeightInputItem formViewWithKey:@"2"
                                                               title:@"性别："
                                                         placeholder:@"请输入性别"
                                                                must:YES]];
     
-    [_formView ff_addSubview:[FFInputSingleItem formViewWithKey:@"4"
+    [_formView ff_addItem:[FFInputSingleItem formViewWithKey:@"4"
                                                           title:@"名称4："
                                                     placeholder:@"请输入名称4"
                                                            must:NO]];
     
     //自动size的容器。
     FFAutoHeightContainerItem *item = [FFAutoHeightContainerItem formViewWithKey:@"sub" layoutDirection:FFContainerViewLayoutDirectionHorizontal];
-    [item ff_addSubview:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
+    [item ff_addItem:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
                                                      title:@"temp："
                                                placeholder:@"请输入temp"
                                                       must:YES]];
-    [_formView ff_addSubview:item];
+    [_formView ff_addItem:item];
     
     //这里测试递归检查
     FFContainerView *temp = [FFAutoHeightContainerItem formViewWithKey:@"jjj2"];
     temp.manager.package = YES;
-    [temp ff_addSubview:[FFAutoHeightInputItem formViewWithKey:@"jj1"
+    [temp ff_addItem:[FFAutoHeightInputItem formViewWithKey:@"jj1"
                                                          title:@"组中1："
                                                    placeholder:@"请输入组中1"
                                                           must:NO]];
-    [temp ff_addSubview:[FFInputSingleItem formViewWithKey:@"jj2"
+    [temp ff_addItem:[FFInputSingleItem formViewWithKey:@"jj2"
                                                      title:@"组中2："
                                                placeholder:@"请输入组中2"
                                                       must:YES]];
-    [_formView ff_addSubview:temp];
+    [_formView ff_addItem:temp];
     [self.view addSubview:self.formView];
 }
 
@@ -146,13 +146,13 @@
         NSLog(@"%@",[self.formView.manager makeDictionary]);
     }
     
-    FFAutoHeightContainerItem *item = [self.formView ff_subviewForKey:@"sub"];
+    FFAutoHeightContainerItem *item = [self.formView ff_itemForKey:@"sub"];
     FFView *tempView = [FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
                                                     title:@"temp："
                                               placeholder:@"请输入temp"
                                                      must:YES];
     tempView.size = CGSizeMake(FANSScreenWidth / 3.f, arc4random() % 20 + 30);
-    [item ff_addSubview:tempView];
+    [item ff_addItem:tempView];
     
     [self.formView scrollItemForKey:@"sub" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
 }

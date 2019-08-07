@@ -27,13 +27,13 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
 
 - (__kindof FFContainerManager *)manager;
 
-- (void)ff_addSubview:(__kindof FFView *)view;
-- (void)ff_removeSubviewForKey:(NSString *)key;
-- (__kindof FFView *)ff_subviewForKey:(NSString *)key;
-- (NSArray<__kindof FFView *> *)ff_subviews;
+- (void)ff_addItem:(__kindof FFView *)view;
+- (void)ff_removeItemForKey:(NSString *)key;
+- (__kindof FFView *)ff_itemForKey:(NSString *)key;
+- (NSArray<__kindof FFView *> *)ff_allItem;
 
 /**
- 根据key 找到这个key的直属上级 (可以隔级查找)
+ 根据key 找到这个key的直属上级 (key可以隔级查找)
 
  @param key key
  @return 直属容器
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
  @param key key
  @return item
  */
-- (__kindof FFView *)ff_deepSubiewForKey:(NSString *)key;
+- (__kindof FFView *)ff_deepItemForKey:(NSString *)key;
 
 
 

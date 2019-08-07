@@ -44,13 +44,13 @@
 }
 
 
-- (void)ff_addSubview:(__kindof FFView *)view {
+- (void)ff_addItem:(__kindof FFView *)view {
     [self.manager addSubManager:view.manager];
     [self.map setObject:view forKey:view.key];
 }
 
-- (void)ff_removeSubviewForKey:(NSString *)key {
-    FFView *view = [self ff_subviewForKey:key];
+- (void)ff_removeItemForKey:(NSString *)key {
+    FFView *view = [self ff_itemForKey:key];
     if (view) {
         [view removeFromSuperview];
         [self.manager removeSubManagerForKey:key];
@@ -58,16 +58,16 @@
     }
 }
 
-- (FFView *)ff_subviewForKey:(NSString *)key {
+- (FFView *)ff_itemForKey:(NSString *)key {
     return self.map[key];
 }
 
-- (FFView *)ff_deepSubiewForKey:(NSString *)key {
+- (FFView *)ff_deepItemForKey:(NSString *)key {
     FFView *item = self.map[key];
     if (!item) {
-        for (FFView *sub in self.ff_subviews) {
+        for (FFView *sub in self.ff_allItem) {
             if ([sub isKindOfClass:[FFContainerView class]]) {
-                item = [((FFContainerView *)sub) ff_subviewForKey:key];
+                item = [((FFContainerView *)sub) ff_itemForKey:key];
             }
             
             if (item) {
@@ -81,9 +81,9 @@
 - (FFContainerView *)ff_deepContainerForSubKey:(NSString *)key {
     FFView *item = self.map[key];
     if (!item) {
-        for (FFView *sub in self.ff_subviews) {
+        for (FFView *sub in self.ff_allItem) {
             if ([sub isKindOfClass:[FFContainerView class]]) {
-                item = [((FFContainerView *)sub) ff_subviewForKey:key];
+                item = [((FFContainerView *)sub) ff_itemForKey:key];
             }
             if (item) {
                 return ((FFContainerView *)sub);
@@ -93,7 +93,7 @@
     return self;
 }
 
-- (NSArray<FFView *> *)ff_subviews {
+- (NSArray<FFView *> *)ff_allItem {
     return [self subviews];
 }
 

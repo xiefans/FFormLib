@@ -94,12 +94,12 @@
     return [super manager];
 }
 
-- (void)ff_addSubview:(__kindof FFView *)view {
+- (void)ff_addItem:(__kindof FFView *)view {
     [self.scrollView addSubview:view];
-    [super ff_addSubview:view];
+    [super ff_addItem:view];
 }
 
-- (NSArray<FFView *> *)ff_subviews {
+- (NSArray<FFView *> *)ff_allItem {
     return [self.scrollView subviews];
 }
 
@@ -111,7 +111,7 @@
               toPosition:(FFScrollContainerItemScrollPosition)position
                animation:(BOOL)animation {
     
-    FFView *item = [self ff_deepSubiewForKey:key];
+    FFView *item = [self ff_deepItemForKey:key];
     if (!item) {
         return;
     }
