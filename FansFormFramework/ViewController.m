@@ -147,11 +147,11 @@
     }
     
     FFAutoHeightContainerItem *item = [self.formView ff_itemForKey:@"sub"];
-    FFView *tempView = [FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
+    FFView *tempView = [FFAutoHeightInputItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
                                                     title:@"temp："
                                               placeholder:@"请输入temp"
                                                      must:YES];
-    tempView.size = CGSizeMake(FANSScreenWidth / 3.f, arc4random() % 20 + 30);
+//    tempView.size = CGSizeMake(FANSScreenWidth / 3.f, arc4random() % 20 + 30);
     [item ff_addItem:tempView];
     
     [self.formView scrollItemForKey:@"sub" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
