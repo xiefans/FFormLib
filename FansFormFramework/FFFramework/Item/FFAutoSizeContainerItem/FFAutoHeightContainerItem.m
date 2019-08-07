@@ -35,6 +35,7 @@
         
         [obj.manager setRefreshBlock:^(FFViewManager *manager) {
             __strong typeof(weakSelf)self = weakSelf;
+            [self ff_refreshSize];
             [self setNeedsLayout];
             [self layoutIfNeeded];
         }];
