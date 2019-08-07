@@ -25,8 +25,8 @@
     
     __weak typeof(self)weakSelf = self;
     __block FFView *lastView = nil;
-    __block CGFloat useHeight = self.paddingInsets.top; //已经使用的高度， 只在横向布局时使用到了
-    __block CGFloat useWidth = self.paddingInsets.left;
+    __block CGFloat useHeight = self.paddingInsets.top; // 已经使用的高度， 只在横向布局时使用到了
+    __block CGFloat useWidth = self.paddingInsets.left; // 已经使用的宽度
     [self.ff_allItem enumerateObjectsUsingBlock:^(__kindof FFView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if (!obj.manager.isShow) {
@@ -60,15 +60,15 @@
                 
                 width = obj.size.width - obj.marginInsets.left - obj.marginInsets.right;
                 if (remainingWidth >= obj.size.width && lastView) {
-                    //可以放得下
+                    // 可以放得下
                     x = useWidth + obj.marginInsets.left;
                     y = lastView.fans_y - lastView.marginInsets.top + obj.marginInsets.top;
                 } else {
-                    //放不下
+                    // 放不下
                     x = self.paddingInsets.left + obj.marginInsets.left;
                     y = useHeight + obj.marginInsets.top;
                     useWidth = self.paddingInsets.left;
-                    //这里是折行了, 证明之前一个view 是 那一行最后一个视图。 需要接受边距控制
+                    // 这里是折行了, 证明之前一个view 是 那一行最后一个视图。 需要接受边距控制
                     if (lastView) {
                         lastView.fans_width = MAX(0.f, lastView.fans_width - self.paddingInsets.right);
                     }
