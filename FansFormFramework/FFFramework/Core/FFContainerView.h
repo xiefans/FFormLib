@@ -33,12 +33,20 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
 - (NSArray<__kindof FFView *> *)ff_subviews;
 
 /**
- 根据key 找到这个key的直属上级
+ 根据key 找到这个key的直属上级 (可以隔级查找)
 
  @param key key
  @return 直属容器
  */
-- (__kindof FFContainerView *)ff_containerForSubKey:(NSString *)key;
+- (__kindof FFContainerView *)ff_deepContainerForSubKey:(NSString *)key;
+
+/**
+ 深度查找， 可以隔级查找到item
+
+ @param key key
+ @return item
+ */
+- (__kindof FFView *)ff_deepSubiewForKey:(NSString *)key;
 
 
 

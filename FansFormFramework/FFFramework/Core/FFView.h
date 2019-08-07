@@ -23,10 +23,6 @@
 /** 整个容器体系中，唯一表示一个item */
 @property (nonatomic, copy, readonly) NSString *key;
 
-@property (nonatomic, assign, getter=isShow) BOOL show;
-@property (nonatomic, assign, getter=isEdit) BOOL edit;
-@property (nonatomic, assign, getter=isMust) BOOL must;
-
 /* 下面三个方法是给子类重写 来改变自身的状态. 如果想手动改变一个item的状态，请使用上面三个属性 */
 - (void)changeEdit:(BOOL)isEdit;
 - (void)changeShow:(BOOL)isShow;

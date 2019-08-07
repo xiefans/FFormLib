@@ -111,7 +111,7 @@
               toPosition:(FFScrollContainerItemScrollPosition)position
                animation:(BOOL)animation {
     
-    FFView *item = [self ff_subviewForKey:key];
+    FFView *item = [self ff_deepSubiewForKey:key];
     if (!item) {
         return;
     }

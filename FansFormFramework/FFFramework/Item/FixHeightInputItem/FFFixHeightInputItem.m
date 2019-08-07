@@ -137,7 +137,7 @@
                            must:(BOOL)must {
     FFFixHeightInputItem *item = [self formViewWithKey:key];
     item.manager.title = title;
-    item.must = must;
+    item.manager.must = must;
     item.placeholderLb.text = placeholder;
     if (fixHeight) {
         item.size = CGSizeMake(0.f, fixHeight);

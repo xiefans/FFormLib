@@ -98,30 +98,6 @@
     NSLog(@"%@ changeMust Fail. because the class not implement", self.class);
 }
 
-- (void)setShow:(BOOL)show {
-    _manager.show = show;
-}
-
-- (BOOL)isShow {
-    return _manager.isShow;
-}
-
-- (void)setMust:(BOOL)must {
-    _manager.must = must;
-}
-
-- (BOOL)isMust {
-    return _manager.isMust;
-}
-
-- (void)setEdit:(BOOL)edit {
-    _manager.edit = edit;
-}
-
-- (BOOL)isEdit {
-    return _manager.isEdit;
-}
-
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];

@@ -10,7 +10,7 @@
 #import "UIView+FansFrame.h"
 @implementation FFScrollContainerItem (KeyboradAdapter)
 
-- (void)fans_adapterKeyborad {
+- (void)fans_addKeyboradAdapter {
     //如果父视图是个容器，子视图就没必要作用该方法
     if (![self.superview isKindOfClass:[FFContainerView class]]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventOfKeyboradShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -18,7 +18,7 @@
     }
 }
 
-- (void)fans_removeAdapter {
+- (void)fans_removeKeyboradAdapter {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }

@@ -75,7 +75,7 @@
 
 - (void)configUI {
     _formView = [FFScrollContainerItem formViewWithKey:@"jsonform" layoutDirection:FFContainerViewLayoutDirectionVertical];
-    [_formView fans_adapterKeyborad];
+    [_formView fans_addKeyboradAdapter];
     //基础表单组件
     [_formView ff_addSubview:[FFSelectItem formViewWithTitle:@"地区"
                                                  placeholder:@"请选择地区"
