@@ -30,7 +30,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
     id value = [self excuteWillGetValue:_value];
-    if (_key && value) {
+    if (_key && value && !self.isIgnore) {
         [dict setObject:value forKey:_key];
     }
     

@@ -8,7 +8,7 @@
 
 #import "FFContainerView.h"
 
-@interface FFAutoSizeContainerItem : FFContainerView
+@interface FFAutoHeightContainerItem : FFContainerView
 
 
 

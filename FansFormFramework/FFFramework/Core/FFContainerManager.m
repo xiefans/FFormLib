@@ -63,6 +63,10 @@
     __weak typeof(self)sself = self;
     [self.subManagers enumerateObjectsUsingBlock:^(__kindof FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
+        if (obj.isIgnore) {
+            return ;
+        }
+        
         if ([obj isKindOfClass:[FFContainerManager class]]) {
             FFContainerManager *temp = (FFContainerManager *)obj;
             ok = [temp checkMustWithErrorComplete:errorComplete];

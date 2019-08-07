@@ -44,6 +44,7 @@ typedef void(^FFViewManagerBlock)(FFViewManager *manager);
 @property (nonatomic, strong) id value;
 @property (nonatomic, strong) id content;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, assign, getter=isIgnore) BOOL ignore; /**< 如果为no ， 则代表不参与请求json的生成 */
 
 @property (nonatomic, copy) FFViewManagerChangeShow changeShow;
 @property (nonatomic, copy) FFViewManagerChangeEdit changeEdit;

@@ -14,6 +14,6 @@
 #import "FFFixHeightInputItem.h"
 #import "FFSelectItem.h"
 #import "FFScrollContainerItem.h"
-#import "FFAutoSizeContainerItem.h"
+#import "FFAutoHeightContainerItem.h"
 
 #endif /* FFSupportItem_h */
