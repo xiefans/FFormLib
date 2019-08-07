@@ -32,7 +32,6 @@
     return [super size];
 }
 
-
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     self = [super initWithManager:manager];
     if (self) {
@@ -146,7 +145,6 @@
 }
 
 #pragma mark - Lazy Load
-
 - (void)setTitleToInputGap:(CGFloat)titleToInputGap {
     if (_titleToInputGap == titleToInputGap) {
         return;

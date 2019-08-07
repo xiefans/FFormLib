@@ -12,22 +12,21 @@
 
 - (void)layoutSubviews {
     
-    __weak typeof(self)weakSelf = self;
-    
-    __block FFView *lastView = nil;
-    
     CGPoint offset = self.scrollView.contentOffset;
-    self.scrollView.frame = self.bounds;
+    self.scrollView.frame = CGRectMake(
+                                       self.bounds.origin.x,
+                                       self.bounds.origin.y,
+                                       self.bounds.size.width,
+                                       self.scrollViewHeight ?  : self.bounds.size.height
+                                       );
     
-    if (self.scrollViewHeight) {
-        self.scrollView.fans_height = self.scrollViewHeight;
-    }
-    
+    __weak typeof(self)weakSelf = self;
+    __block FFView *lastView = nil;
     __block CGFloat maxHeight = 0.f;
     
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof FFView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        if (![obj isKindOfClass:[FFView class]]) {
+        if (![obj isKindOfClass:[FFView class]] || !obj.manager.isShow) {
             return ;
         }
         
@@ -50,17 +49,12 @@
             width = (obj.size.width > 0.f ? MIN(obj.size.width, self.fans_width) : self.fans_width);
         }
         
-        
         CGFloat height = obj.size.height;
-        if (maxHeight < height) {
-            maxHeight = height;
-        }
+        maxHeight = MAX(height, maxHeight);
         
         obj.frame = CGRectMake(x, y, MAX(width, 0.f), MAX(height, 0.f));
         
-        if (obj.manager.isShow) {
-            lastView = obj;
-        }
+        lastView = obj;
     }];
     
     if (self.layoutDirection == FFContainerViewLayoutDirectionVertical) {

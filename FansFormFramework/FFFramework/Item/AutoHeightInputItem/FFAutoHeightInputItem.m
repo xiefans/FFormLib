@@ -107,15 +107,6 @@
     self.mustLb.fans_centerY = self.titleLb.fans_centerY;
 }
 
-- (void)changeMust:(BOOL)isMust {
-    
-    self.mustLb.hidden = !isMust;
-}
-
-- (CGSize)size {
-    return CGSizeMake(0.f, self.fans_height);
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary<NSKeyValueChangeKey,id> *)change
@@ -124,22 +115,34 @@
     if (object == self.textView && [keyPath isEqualToString:@"text"]) {
         
         NSString *content = change[NSKeyValueChangeNewKey];
-        if (content.length == 0) {
-            self.placeholderLb.hidden = NO;
-        } else {
-            self.placeholderLb.hidden = YES;
-        }
-        CGSize size = [content boundingRectWithSize:CGSizeMake(self.textView.fans_width, CGFLOAT_MAX)
-                                            options:NSStringDrawingUsesLineFragmentOrigin
-                                         attributes:@{NSFontAttributeName : self.textView.font}
-                                            context:nil].size;
-        CGFloat height = self.fans_height;
-        self.fans_height = MAX(FFViewNormalHeight,
-                               (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height);
-        if (height != self.fans_height) {
-            [self.manager excuteRefreshBlock];
-        }
+        [self ff_refreshHeightWithContent:content];
     }
+}
+
+- (void)ff_refreshHeightWithContent:(NSString *)content {
+    if (content.length == 0) {
+        self.placeholderLb.hidden = NO;
+    } else {
+        self.placeholderLb.hidden = YES;
+    }
+    CGSize size = [content boundingRectWithSize:CGSizeMake(self.textView.fans_width, CGFLOAT_MAX)
+                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                     attributes:@{NSFontAttributeName : self.textView.font}
+                                        context:nil].size;
+    CGFloat height = self.fans_height;
+    self.fans_height = MAX(FFViewNormalHeight,
+                           (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height);
+    if (height != self.fans_height) {
+        [self.manager excuteRefreshBlock];
+    }
+}
+
+- (void)changeMust:(BOOL)isMust {
+    self.mustLb.hidden = !isMust;
+}
+
+- (CGSize)size {
+    return CGSizeMake(0.f, self.fans_height);
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
@@ -255,21 +258,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    [self.textView sizeToFit];
-    
-    CGFloat height = self.fans_height;
-    self.fans_height = MAX(FFViewNormalHeight,
-                           (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + self.textView.fans_height);
-    if (height != self.fans_height) {
-        [self.manager excuteRefreshBlock];
-    }
-    
-    NSString *content = textView.text;
-    if (content.length == 0) {
-        self.placeholderLb.hidden = NO;
-    } else {
-        self.placeholderLb.hidden = YES;
-    }
+    [self ff_refreshHeightWithContent:textView.text];
 }
 
 @end
