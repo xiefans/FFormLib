@@ -86,9 +86,9 @@
     return useHeight + self.paddingInsets.bottom;
 }
 
-- (void)ff_addItem:(__kindof FFView *)view {
-    [self addSubview:view];
-    [super ff_addItem:view];
+- (void)ff_addItem:(__kindof FFView *)item {
+    [self addSubview:item];
+    [super ff_addItem:item];
     [self ff_refreshSize];
 }
 

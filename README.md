@@ -1,114 +1,44 @@
-# FansFormFramework
+## FFFormFramework
 
-## 使用说明
+### 场景
 
-- 为什么使用该框架？
+1. 你的boss让你做一个大量信息录入的界面，类似这样
 
-  如果你要在App上实现一个大信息量的表单提交，那么你应该学习一下该框架。
+   | 姓名         | 请输入您的姓名                  |
+   | ------------ | ------------------------------- |
+   | 性别         | 请输入您的性别                  |
+   | 星座         | 请输入您的星座                  |
+   | 出生日期     | 请选择您的出生日期              |
+   | 出生地       | 请选择您的出生地                |
+   | 是否有对象   | 请问您是否有对象 （checkbox）   |
+   | 是否有房有车 | 请问您是否有房有车 （checkbox） |
 
-  如果没有该框架，你的代码是这样的。
+2. 当然，所有的表单提交，表单展示界面。 我都可以满足你
 
-  ```objective-c
-  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    	if (indexPath.row == 0) {
-        //这是第一个输入项
-        
-      }  else if (indexPath.row == 1) {
-        //这是第二个输入项
-        
-      }
-    	
-    	......
-    
-  }
-  
-  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-      if (indexPath.row == 0) {
-        //这是第一个输入项触发的事件
-        
-      }  else if (indexPath.row == 1) {
-        //这是第二个输入项触发的事件
-        
-      }
-    	
-    	......
-  }
-  
-  //校验提交的数据
-  - (void)check {
-    //取第一个
-    
-    // 取第二个
-    
-    .....
-  }
-  
-  
-  //提交参数
-  - (void)submit {
-    //取第一个
-    
-    // 取第二个
-    
-    .....
-  }
-  ```
+3. 如果你的项目是信息管理系统，那么你就更离不开我了
 
-  如果你使用了该框架
+### 简述
 
-  ```objective-c
-  - (void)viewDidLoad {
-      [super viewDidLoad];
-      self.title = @"好的";
-      self.view.backgroundColor = [UIColor whiteColor];
-      
-      FansFormManager *formManager = [[FansFormManager alloc] initWithKey:@"jsonform"];
-  
-      [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本"
-                                               placeholder:@"请输入单行文本"
-                                                    forKey:@"input"].changeToMust];
-      
-      [formManager addSubItem:[FansInputItem itemWithTitle:@"单行文本2"
-                                               placeholder:@"请输入单行文本2"
-                                                    forKey:@"param3"]];
-      
-      [formManager addSubItem:[FansTextItem itemWithTitle:@"多行文本"
-                                              placeholder:@"请输入多行文本"
-                                                   forKey:@"param2"].changeToMust];
-      
-      [formManager addSubItem:[FansFormDateItem itemWithTitle:@"日期选择"
-                                                          key:@"date"
-                                             handleValueBlock:^id(FansFormAbstractItem *item, NSDate *value) {
-                                               //这里可以转换为服务器想要的格式
-                                                 return [NSString stringWithFormat:@"%@",value];
-                                             }]];
-      
-      
-      [self.view fans_addSubItem:formManager];
-  }
-  
-  - (void)submit {
-    
-    NSString *json = FansViewSubItem.makeJSONString;
-    
-    //提交
-    
-  }
-  ```
+1. 我将一个输入单元封装
+2. 为每一个输入单元配备一个处理器（manager）
+3. 从基单元派生出容器（container）单元
+4. 容器单元的功能类似于系统的UIView，可以为所有的子单元布局， 可以添加所有从基单元派生出来的子单元（包括容器单元）
+5. 容器单元的处理器可以处理所有子单元的请求数据，必填校验，格式校验等
 
-  提交就是这么简单！！   目前check还在开发中，大家敬请期待
+### 主要设计模式
 
-## 日志
+1. 桥接模式（bridge）
+2. 组合模式（Composite）
 
-- 2019 / 07 / 24   V 1.1
+### 架构图
 
-  整理架构，修改了基类接口
+我比较懒，等你找到对象了再催我做架构图
 
-  新增多行输入组件
+### 示例图 - 包括但不限于 （这是个开放性框架，可以自定义单元并添加到容器中。完全取决于你的大脑）
 
-  新增时间选择组件
+我比较懒，等你找到对象了再催我做示例图 
 
+### 如何建立自己的单元库
 
-
-
+我比较懒，等你找到对象了我再教你建立
 

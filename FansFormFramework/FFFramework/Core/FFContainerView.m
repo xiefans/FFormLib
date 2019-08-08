@@ -44,9 +44,9 @@
 }
 
 
-- (void)ff_addItem:(__kindof FFView *)view {
-    [self.manager addSubManager:view.manager];
-    [self.map setObject:view forKey:view.key];
+- (void)ff_addItem:(__kindof FFView *)item {
+    [self.manager addSubManager:item.manager];
+    [self.map setObject:item forKey:item.key];
 }
 
 - (void)ff_removeItemForKey:(NSString *)key {

@@ -88,9 +88,9 @@
     return [super manager];
 }
 
-- (void)ff_addItem:(__kindof FFView *)view {
-    [self.scrollView addSubview:view];
-    [super ff_addItem:view];
+- (void)ff_addItem:(__kindof FFView *)item {
+    [self.scrollView addSubview:item];
+    [super ff_addItem:item];
 }
 
 - (NSArray<FFView *> *)ff_allItem {

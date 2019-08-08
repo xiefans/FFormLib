@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
 
 - (__kindof FFContainerManager *)manager;
 
-- (void)ff_addItem:(__kindof FFView *)view;
+- (void)ff_addItem:(__kindof FFView *)item;
 - (void)ff_removeItemForKey:(NSString *)key;
 - (__kindof FFView *)ff_itemForKey:(NSString *)key;
 - (NSArray<__kindof FFView *> *)ff_allItem;
