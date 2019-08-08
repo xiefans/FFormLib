@@ -35,6 +35,7 @@
         
         [obj.manager setRefreshBlock:^(FFViewManager *manager) {
             __strong typeof(weakSelf)self = weakSelf;
+            [self ff_refreshSize];
             [self setNeedsLayout];
             [self layoutIfNeeded];
         }];
@@ -59,7 +60,10 @@
                 CGFloat remainingWidth = self.fans_width - useWidth - obj.marginInsets.left - obj.marginInsets.right - self.paddingInsets.right;
                 
                 width = obj.size.width - obj.marginInsets.left - obj.marginInsets.right;
-                if (remainingWidth >= obj.size.width && lastView) {
+                if (width <= 0.f) {
+                    width = self.fans_width - self.paddingInsets.left - self.paddingInsets.right - obj.marginInsets.left - obj.marginInsets.right;
+                }
+                if (remainingWidth >= width && lastView) {
                     // 可以放得下
                     x = useWidth + obj.marginInsets.left;
                     y = lastView.fans_y - lastView.marginInsets.top + obj.marginInsets.top;
