@@ -30,24 +30,3 @@ void FFMagicInputDidEndEditing(__kindof FFContainerView *formView, NSString *key
         [inputView setDidEndEditing:didEndEditing];
     }
 }
-
-
-BOOL FFMagicCheckFormArray(FFView *view, NSArray<FFFormatCheck *> *checkArray, NSString **message) {
-    
-    BOOL res = YES;
-    
-    for (FFFormatCheck *obj in checkArray) {
-        res = [obj formatCheckWithString:view.manager.value];
-        
-        if (!res) {
-            res = NO;
-            if (view.manager.value) {
-                *message = [obj messageWithTitle:view.manager.title];
-            } else {
-                *message = nil;
-            }
-        }
-    }
-    
-    return res;
-}

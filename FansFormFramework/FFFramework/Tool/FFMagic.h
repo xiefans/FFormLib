@@ -44,14 +44,4 @@ void FFMagicInputShouldBeginEditing(__kindof FFContainerView *formView, NSString
  */
 void FFMagicInputDidEndEditing(__kindof FFContainerView *formView, NSString *key, FFInputViewDidEndEditingBlock didEndEditing);
 
-/**
- 给一个item，检测所有传入的FormCheck格式
-
- @param checkArray 需要满足格式
- @param view 待检测的item
- @param message 返回的错误提示语 (如果 返回值为NO， message为nil。  则证明待检查的value是nil)
- @return 返回是否满足
- */
-BOOL FFMagicCheckFormArray(FFView *view, NSArray<FFFormatCheck *> *checkArray, NSString **message);
-
 
