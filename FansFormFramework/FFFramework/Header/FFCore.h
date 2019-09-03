@@ -14,6 +14,7 @@
 #import "FFSupportItem.h"
 #import "FFTool.h"
 #import "FFFormat.h"
+#import "FFMultipleParametersManager.h"
 
 
 #endif /* FFCore_h */

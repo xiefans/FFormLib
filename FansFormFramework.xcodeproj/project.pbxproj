@@ -13,6 +13,7 @@
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
 		CE4EB703231DF5BE003E896F /* UINavigationController+FFPuspPop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */; };
 		CE4EB706231DF618003E896F /* ViewBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB705231DF618003E896F /* ViewBController.m */; };
+		CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */; };
 		CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */; };
 		CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BED22E5571A001EDDFD /* AppDelegate.m */; };
 		CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BF022E5571A001EDDFD /* ViewController.m */; };
@@ -72,6 +73,8 @@
 		CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FFPuspPop.m"; sourceTree = "<group>"; };
 		CE4EB704231DF618003E896F /* ViewBController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewBController.h; sourceTree = "<group>"; };
 		CE4EB705231DF618003E896F /* ViewBController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewBController.m; sourceTree = "<group>"; };
+		CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFMultipleParametersManager.h; sourceTree = "<group>"; };
+		CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFMultipleParametersManager.m; sourceTree = "<group>"; };
 		CE6F781E22F8176C00A71165 /* FFFormcatSpecificCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormcatSpecificCheck.h; sourceTree = "<group>"; };
 		CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormcatSpecificCheck.m; sourceTree = "<group>"; };
 		CE9C2BE922E5571A001EDDFD /* FansFormFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FansFormFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +262,8 @@
 				CEC743A422E94D0400C79E6D /* FFView.m */,
 				CEC743A622E94D1200C79E6D /* FFViewManager.h */,
 				CEC743A722E94D1200C79E6D /* FFViewManager.m */,
+				CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */,
+				CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */,
 				CEC743AC22E97EA600C79E6D /* FFContainerView.h */,
 				CEC743AD22E97EA600C79E6D /* FFContainerView.m */,
 				CEC743AF22E97EBB00C79E6D /* FFContainerManager.h */,
@@ -521,6 +526,7 @@
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
 				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
+				CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */,
 				9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */,
 				CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */,
 				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,

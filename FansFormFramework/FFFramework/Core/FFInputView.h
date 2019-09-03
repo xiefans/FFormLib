@@ -8,7 +8,6 @@
 
 #import "FFView.h"
 
-
 @class FFInputView;
 typedef BOOL(^FFInputViewShouldBeginEditingBlock)(__kindof FFInputView *inputView);
 typedef void(^FFInputViewDidEndEditingBlock)(__kindof FFInputView *inputView);
