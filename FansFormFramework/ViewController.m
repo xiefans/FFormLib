@@ -80,30 +80,16 @@
     _formView = [FFScrollContainerItem formViewWithKey:@"jsonform" layoutDirection:FFContainerViewLayoutDirectionVertical];
     [_formView fans_addKeyboradAdapter];
     //基础表单组件
-    FFMultipleParametersManager *manager = [FFMultipleParametersManager managerWithKey:@"select"];
-    [manager setParameter:@"1" forKey:@"lon"];
-    [manager setParameter:@"100" forKey:@"lat"];
-    FFSelectItem *selectItem = [[FFSelectItem alloc] initWithManager:manager];
-    selectItem.titleLb.text = @"地区";
-    selectItem.manager.title = @"地区";
-    selectItem.placeholderLb.text = @"请选择地区";
-    selectItem.contentLb.numberOfLines = 0;
-    selectItem.manager.must = YES;
-    __weak typeof(selectItem)weakSelectItem = selectItem;
-    [selectItem.manager setDidAction:^(FFViewManager *manager) {
-        weakSelectItem.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
-    }];
-    [_formView ff_addItem:selectItem];
-//    [_formView ff_addItem:[FFSelectItem formViewWithTitle:@"地区"
-//                                                 placeholder:@"请选择地区"
-//                                               numberOfLines:0
-//                                                        must:YES
-//                                                         key:@"select"
-//                                                   didAction:^(__kindof FFActionView *actionView) {
-//
-//                                                       actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
-//                                                       actionView.manager.value = @"mustSeee";
-//                                                   }]];
+    [_formView ff_addItem:[FFSelectItem formViewWithTitle:@"地区"
+                                                 placeholder:@"请选择地区"
+                                               numberOfLines:0
+                                                        must:YES
+                                                         key:@"select"
+                                                   didAction:^(__kindof FFActionView *actionView) {
+
+                                                       actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
+                                                       actionView.manager.value = @"mustSeee";
+                                                   }]];
     [_formView ff_addItem:[FFInputSingleItem formViewWithKey:@"1"
                                                           title:@"名称："
                                                     placeholder:@"请输入名称"

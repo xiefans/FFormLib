@@ -8,6 +8,19 @@
 
 #import "FFMultipleParametersManager.h"
 
+@interface FFMultipleParametersManagerItem : NSObject
+
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic, assign) BOOL must;
+@property (nonatomic, strong) id value;
+
+@end
+
+@implementation FFMultipleParametersManagerItem
+
+
+@end
+
 @interface FFMultipleParametersManager ()
 
 @property (nonatomic, strong) NSMutableDictionary *parameters;
@@ -15,11 +28,21 @@
 @end
 
 @implementation FFMultipleParametersManager
-@synthesize willGetValue = _willGetValue;
+
+- (void)registerKey:(NSString *)key must:(BOOL)must {
+    FFMultipleParametersManagerItem *item = self.parameters[key];
+    if (item == nil) {
+        item = [[FFMultipleParametersManagerItem alloc] init];
+        [self.parameters setObject:item forKey:key];
+    }
+    item.key = key;
+    item.must = must;
+}
 
 - (void)setParameter:(id)parameter forKey:(NSString *)key {
-    if (parameter && key) {
-        [self.parameters setObject:parameter forKey:key];
+    FFMultipleParametersManagerItem *item = self.parameters[key];
+    if (item) {
+        item.value = parameter;
     }
 }
 
@@ -30,7 +53,8 @@
 }
 
 - (id)paramterForKey:(NSString *)key {
-    return self.parameters[key];
+    FFMultipleParametersManagerItem *item = self.parameters[key];
+    return item.value;
 }
 
 - (id)excuteWillGetValue:(id)value withKey:(NSString *)key {
@@ -44,9 +68,9 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
     for (NSString *key in self.parameters.allKeys) {
-        id value = self.parameters[key];
+        FFMultipleParametersManagerItem *item = self.parameters[key];
         
-        value = [self excuteWillGetValue:value withKey:key];
+        id value = [self excuteWillGetValue:item.value withKey:key];
         if (key && value && !self.isIgnore) {
             [dict setObject:value forKey:key];
         }
@@ -60,7 +84,15 @@
         return YES;
     }
     
-    if (!self.must || (self.must && self.value)) {
+    BOOL res = YES;
+    for (FFMultipleParametersManagerItem *item in self.parameters.allValues) {
+        if (item.must && !item.value) {
+            res = NO;
+            break;
+        }
+    }
+    
+    if (!self.must || (self.must && res)) {
         return YES;
     } else {
         return NO;

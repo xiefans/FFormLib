@@ -21,6 +21,8 @@ typedef id(^FFMultipleParametersManagerWillGetValue)(FFMultipleParametersManager
 
 @property (nonatomic, copy) FFMultipleParametersManagerWillGetValue multipleWillGetValue;
 
+- (void)registerKey:(NSString *)key must:(BOOL)must;
+
 - (void)setParameter:(id)parameter forKey:(NSString *)key;
 - (void)removeParameterForKey:(NSString *)key;
 - (id)paramterForKey:(NSString *)key;
