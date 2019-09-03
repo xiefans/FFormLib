@@ -10,5 +10,6 @@
 #define FFFormat_h
 
 #import "FFFormatLengthCheck.h"
+#import "FFFormcatSpecificCheck.h"
 
 #endif /* FFFormat_h */
