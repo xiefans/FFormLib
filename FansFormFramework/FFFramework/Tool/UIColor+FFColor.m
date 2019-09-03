@@ -1,17 +1,17 @@
 //
-//  UIColor+FansColor.m
+//  UIColor+ffColor.m
 //  FFFramework
 //
-//  Created by fans on 2019/7/22.
-//  Copyright © 2019 glority-fans. All rights reserved.
+//  Created by ff on 2019/7/22.
+//  Copyright © 2019 glority-ff. All rights reserved.
 //
 
-#import "UIColor+FansColor.h"
+#import "UIColor+FFColor.h"
 
-@implementation UIColor (FansColor)
+@implementation UIColor (FFColor)
 
 #pragma mark - Constructor
-+ (UIColor *)fans_colorWithHexString:(NSString *)hexString {
++ (UIColor *)ff_colorWithHexString:(NSString *)hexString {
     if (hexString.length != 7) {
         return nil;
     }
@@ -28,7 +28,7 @@
     return [UIColor colorWithRed:(float)red / 255.0 green:(float)green / 255.0 blue:(float)blue / 255.0 alpha:alpha];
 }
 
-+ (UIColor *)fans_colorWithAlphaHexString:(NSString *)hexString {
++ (UIColor *)ff_colorWithAlphaHexString:(NSString *)hexString {
     if (hexString.length != 9) {
         return nil;
     }
@@ -46,7 +46,7 @@
     return [UIColor colorWithRed:(float)red / 255.0 green:(float)green / 255.0 blue:(float)blue / 255.0 alpha:alpha];
 }
 
-+ (UIColor *)fans_colorWithHexValue:(unsigned)hexValue {
++ (UIColor *)ff_colorWithHexValue:(unsigned)hexValue {
     unsigned red = 0.0f;
     unsigned green = 0.0f;
     unsigned blue = 0.0f;
@@ -59,7 +59,7 @@
     return [UIColor colorWithRed:(float) red / 255.0 green:(float) green / 255.0 blue:(float) blue / 255.0 alpha:alpha];
 }
 
-+ (UIColor *)fans_colorWithAlphaHexValue:(unsigned int)hexValue {
++ (UIColor *)ff_colorWithAlphaHexValue:(unsigned int)hexValue {
     unsigned red = 0.0f;
     unsigned green = 0.0f;
     unsigned blue = 0.0f;
@@ -74,7 +74,7 @@
 }
 
 #pragma mark - Public Method
-- (NSString *)fans_hexString {
+- (NSString *)ff_hexString {
     CGFloat red = 0.0f;
     CGFloat green = 0.0f;
     CGFloat blue = 0.0f;
@@ -85,7 +85,7 @@
     return [NSString stringWithFormat:@"#%02X%02X%02X", (unsigned) (red * 255), (unsigned) (green * 255), (unsigned) (blue * 255)];
 }
 
-- (NSString *)fans_hexStringWithAlpha {
+- (NSString *)ff_hexStringWithAlpha {
     CGFloat red = 0.0f;
     CGFloat green = 0.0f;
     CGFloat blue = 0.0f;
@@ -96,7 +96,7 @@
     return [NSString stringWithFormat:@"#%02X%02X%02X%02X", (unsigned) (alpha * 255), (unsigned) (red * 255), (unsigned) (green * 255), (unsigned) (blue * 255)];
 }
 
-- (unsigned)fans_hexValue {
+- (unsigned)ff_hexValue {
     CGFloat red = 0.0f;
     CGFloat green = 0.0f;
     CGFloat blue = 0.0f;
@@ -113,7 +113,7 @@
     return hexValue;
 }
 
-- (unsigned)fans_hexValueWithAlpha {
+- (unsigned)ff_hexValueWithAlpha {
     CGFloat red = 0.0f;
     CGFloat green = 0.0f;
     CGFloat blue = 0.0f;

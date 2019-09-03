@@ -35,7 +35,7 @@
         _manager = manager;
         
         self.paddingInsets = FFItemViewNormalPadding;
-        self.size = CGSizeMake(FANSScreenWidth, FFViewNormalHeight);
+        self.size = CGSizeMake(FFScreenWidth, FFViewNormalHeight);
         
         __weak typeof(self)weakSelf = self;
         [manager setChangeEdit:^(FFViewManager *manager, BOOL isEdit) {
@@ -78,7 +78,7 @@
     } else {
         self.userInteractionEnabled = NO;
         _changeTempBackgroundColor = self.backgroundColor;
-        self.backgroundColor = [UIColor fans_colorWithHexValue:0xeeeeee];
+        self.backgroundColor = [UIColor ff_colorWithHexValue:0xeeeeee];
     }
     
 //    NSLog(@"%@ changeEdit Fail. because the class not implement", self.class);

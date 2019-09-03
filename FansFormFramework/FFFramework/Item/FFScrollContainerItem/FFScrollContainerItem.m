@@ -41,12 +41,12 @@
         CGFloat width = 0.f;
         if (self.layoutDirection == FFContainerViewLayoutDirectionVertical) {
             x = self.paddingInsets.left + obj.marginInsets.left;
-            y = (lastView ? 0.f : self.paddingInsets.top) + lastView.fans_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
-            width = (obj.size.width > 0.f ? MIN(obj.size.width, self.fans_width) : self.fans_width) - x - obj.marginInsets.right - self.paddingInsets.right;
+            y = (lastView ? 0.f : self.paddingInsets.top) + lastView.ff_bottom + obj.marginInsets.top + lastView.marginInsets.bottom;
+            width = (obj.size.width > 0.f ? MIN(obj.size.width, self.ff_width) : self.ff_width) - x - obj.marginInsets.right - self.paddingInsets.right;
         } else {
             y = self.paddingInsets.top + obj.marginInsets.top;
-            x = (lastView ? 0.f : self.paddingInsets.left) + lastView.fans_right + obj.marginInsets.left + lastView.marginInsets.right;
-            width = (obj.size.width > 0.f ? MIN(obj.size.width, self.fans_width) : self.fans_width);
+            x = (lastView ? 0.f : self.paddingInsets.left) + lastView.ff_right + obj.marginInsets.left + lastView.marginInsets.right;
+            width = (obj.size.width > 0.f ? MIN(obj.size.width, self.ff_width) : self.ff_width);
         }
         
         CGFloat height = obj.size.height;
@@ -58,9 +58,9 @@
     }];
     
     if (self.layoutDirection == FFContainerViewLayoutDirectionVertical) {
-        self.scrollView.contentSize = CGSizeMake(0.f, lastView.fans_bottom + self.paddingInsets.bottom);
+        self.scrollView.contentSize = CGSizeMake(0.f, lastView.ff_bottom + self.paddingInsets.bottom);
     } else {
-        self.scrollView.contentSize = CGSizeMake(lastView.fans_right + self.paddingInsets.right, maxHeight);
+        self.scrollView.contentSize = CGSizeMake(lastView.ff_right + self.paddingInsets.right, maxHeight);
     }
     
     self.scrollView.contentOffset = CGPointMake(MAX(0.f, offset.x), MAX(0.f, offset.y));
@@ -126,22 +126,22 @@
     //滑到中心
     if (position == FFScrollContainerItemScrollPositionCenter) {
         CGFloat x = 0.f;
-        if (itemCenterX > (self.scrollView.contentOffset.x + self.scrollView.fans_halfWidth)) {
+        if (itemCenterX > (self.scrollView.contentOffset.x + self.scrollView.ff_halfWidth)) {
             //向左滑
-            x = MIN(itemCenterX - self.scrollView.fans_halfWidth,
-                    MAX(self.scrollView.contentSize.width - self.scrollView.fans_width, 0.f));
+            x = MIN(itemCenterX - self.scrollView.ff_halfWidth,
+                    MAX(self.scrollView.contentSize.width - self.scrollView.ff_width, 0.f));
         } else {
             //向右滑
-            x = MAX(itemCenterX - self.scrollView.fans_halfWidth, 0.f);
+            x = MAX(itemCenterX - self.scrollView.ff_halfWidth, 0.f);
         }
         
         CGFloat y = 0.f;
-        if (itemCenterY > (self.scrollView.contentOffset.y + self.scrollView.fans_halfHeight)) {
-            y = MIN(itemCenterY - self.scrollView.fans_halfHeight,
-                            MAX(self.scrollView.contentSize.height - self.scrollView.fans_height, 0.f));
+        if (itemCenterY > (self.scrollView.contentOffset.y + self.scrollView.ff_halfHeight)) {
+            y = MIN(itemCenterY - self.scrollView.ff_halfHeight,
+                            MAX(self.scrollView.contentSize.height - self.scrollView.ff_height, 0.f));
         } else {
             //下滑
-            y = MAX(itemCenterY - self.scrollView.fans_halfHeight, 0.f);
+            y = MAX(itemCenterY - self.scrollView.ff_halfHeight, 0.f);
         }
         offset = CGPointMake(x, y);
     } else {
@@ -149,15 +149,15 @@
         CGFloat y = offset.y;
         if ((position & FFScrollContainerItemScrollPositionTop)) {
             y = MIN(itemY,
-                    MAX(self.scrollView.contentSize.height - self.scrollView.fans_height, 0.f));
+                    MAX(self.scrollView.contentSize.height - self.scrollView.ff_height, 0.f));
         } else if (position & FFScrollContainerItemScrollPositionBottom){
-            y = MAX(itemBottom - self.scrollView.fans_height, 0.f);
+            y = MAX(itemBottom - self.scrollView.ff_height, 0.f);
         }
         
         if (position & FFScrollContainerItemScrollPositionLeft) {
-            x = MAX(MIN(itemX - self.paddingInsets.left, self.scrollView.contentSize.width - self.scrollView.fans_width), 0.f);
+            x = MAX(MIN(itemX - self.paddingInsets.left, self.scrollView.contentSize.width - self.scrollView.ff_width), 0.f);
         } else if (position & FFScrollContainerItemScrollPositionRight) {
-            x = MAX(itemRight + self.paddingInsets.right - self.scrollView.fans_width, 0.f);
+            x = MAX(itemRight + self.paddingInsets.right - self.scrollView.ff_width, 0.f);
         }
         offset = CGPointMake(x, y);
     }

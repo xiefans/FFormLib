@@ -109,47 +109,47 @@
                                     self.paddingInsets.left,
                                     self.paddingInsets.top,
                                     self.titleWidth,
-                                    MIN(FFViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
+                                    MIN(FFViewNormalHeight, self.ff_height) - self.paddingInsets.top - self.paddingInsets.bottom
                                     );
     CGPoint center = self.titleLb.center;
     [self.titleLb sizeToFit];
-    self.titleLb.fans_centerY = center.y;
-    self.titleLb.fans_width = self.titleWidth;
+    self.titleLb.ff_centerY = center.y;
+    self.titleLb.ff_width = self.titleWidth;
     
-    CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
-    CGFloat contentWidth = self.fans_width - x - self.paddingInsets.right;
+    CGFloat x = self.titleLb.ff_right + self.titleToInputGap;
+    CGFloat contentWidth = self.ff_width - x - self.paddingInsets.right;
     
     if (self.instructionImageView.image) {
         self.instructionImageView.frame = CGRectMake(
-                                                     self.fans_width - self.paddingInsets.right - self.instructionImageView.fans_width,
+                                                     self.ff_width - self.paddingInsets.right - self.instructionImageView.ff_width,
                                                      0.f,
-                                                     self.instructionImageView.fans_width,
-                                                     self.instructionImageView.fans_height
+                                                     self.instructionImageView.ff_width,
+                                                     self.instructionImageView.ff_height
                                                      );
-        contentWidth = self.instructionImageView.fans_x - FFViewNormalGap - x;
+        contentWidth = self.instructionImageView.ff_x - FFViewNormalGap - x;
     } else {
         self.instructionImageView.frame = CGRectMake(0.f, 0.f, 0.f, 0.f);
     }
-    self.instructionImageView.fans_centerY = self.fans_centerY;
+    self.instructionImageView.ff_centerY = self.ff_centerY;
     
     self.contentLb.frame = CGRectMake(
                                      x,
-                                     self.titleLb.fans_y,
+                                     self.titleLb.ff_y,
                                      contentWidth,
-                                     MAX(self.fans_height - (self.titleLb.fans_y * 2 - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
+                                     MAX(self.ff_height - (self.titleLb.ff_y * 2 - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
                                      );
     
     self.placeholderLb.frame = self.contentLb.frame;
     self.lineView.frame = CGRectMake(
-                                     self.titleLb.fans_x,
-                                     self.fans_height - FFViewLineNormalHeight,
-                                     self.fans_right - self.titleLb.fans_left - self.paddingInsets.right,
+                                     self.titleLb.ff_x,
+                                     self.ff_height - FFViewLineNormalHeight,
+                                     self.ff_right - self.titleLb.ff_left - self.paddingInsets.right,
                                      FFViewLineNormalHeight
                                      );
     
     [self.mustLb sizeToFit];
-    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FFViewMustRedFormTitleGap, 0.f);
-    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+    self.mustLb.ff_origin = CGPointMake(self.titleLb.ff_x - self.mustLb.ff_width - FFViewMustRedFormTitleGap, 0.f);
+    self.mustLb.ff_centerY = self.titleLb.ff_centerY;
 }
 
 - (void)changeMust:(BOOL)isMust {
@@ -169,16 +169,16 @@
         self.placeholderLb.hidden = NO;
     }
     
-    CGFloat height = self.contentLb.fans_height;
+    CGFloat height = self.contentLb.ff_height;
     [self.contentLb sizeToFit];
-    if (height != self.contentLb.fans_height) {
+    if (height != self.contentLb.ff_height) {
         self.size = CGSizeMake(
                                self.size.width,
                                MAX(
-                                   self.contentLb.fans_height +
+                                   self.contentLb.ff_height +
                                    self.paddingInsets.top +
                                    self.paddingInsets.bottom +
-                                   (self.titleLb.fans_y - self.paddingInsets.top) * 2.f,
+                                   (self.titleLb.ff_y - self.paddingInsets.top) * 2.f,
                                    FFViewNormalHeight
                                    )
                                );
@@ -220,7 +220,7 @@
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
         _titleLb.font = [UIFont systemFontOfSize:FFViewTitleNormalFontSize];
-        _titleLb.textColor = [UIColor fans_colorWithHexValue:FFViewTitleNormalTextColor];
+        _titleLb.textColor = [UIColor ff_colorWithHexValue:FFViewTitleNormalTextColor];
     }
     return _titleLb;
 }
@@ -229,7 +229,7 @@
     if (!_placeholderLb) {
         _placeholderLb = [[UILabel alloc] init];
         _placeholderLb.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
-        _placeholderLb.textColor = [UIColor fans_colorWithHexValue:FFViewPlaceholderNormalTextColor];
+        _placeholderLb.textColor = [UIColor ff_colorWithHexValue:FFViewPlaceholderNormalTextColor];
     }
     return _placeholderLb;
 }
@@ -238,7 +238,7 @@
     if (!_contentLb) {
         _contentLb = [[UILabel alloc] init];
         _contentLb.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
-        _contentLb.textColor = [UIColor fans_colorWithHexValue:FFViewContentNormalTextColor];
+        _contentLb.textColor = [UIColor ff_colorWithHexValue:FFViewContentNormalTextColor];
     }
     return _contentLb;
 }
@@ -246,8 +246,8 @@
 - (UIImageView *)instructionImageView {
     if (!_instructionImageView) {
         _instructionImageView = [[UIImageView alloc] init];
-        _instructionImageView.fans_width = FFViewSelectItemInstructionImageViewWidth;
-        _instructionImageView.fans_height = FFViewSelectItemInstructionImageViewHeight;
+        _instructionImageView.ff_width = FFViewSelectItemInstructionImageViewWidth;
+        _instructionImageView.ff_height = FFViewSelectItemInstructionImageViewHeight;
         _instructionImageView.contentMode = UIViewContentModeScaleAspectFit;
         _instructionImageView.layer.masksToBounds = YES;
     }
@@ -257,7 +257,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [UIView new];
-        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FFViewLineViewNormalColor];
+        _lineView.backgroundColor = [UIColor ff_colorWithHexValue:FFViewLineViewNormalColor];
     }
     return _lineView;
 }

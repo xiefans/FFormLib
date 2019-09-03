@@ -10,6 +10,9 @@
 #import "FFCore.h"
 #import "FFTool.h"
 #import "FFFormatCheck.h"
+
+#import "ViewBController.h"
+
 @interface ViewController ()
 
 @property (nonatomic, strong) FFScrollContainerItem *formView;
@@ -151,7 +154,7 @@
                                                     title:@"temp："
                                               placeholder:@"请输入temp"
                                                      must:YES];
-    tempView.size = CGSizeMake(FANSScreenWidth / 3.f, arc4random() % 20 + 30);
+    tempView.size = CGSizeMake(FFScreenWidth / 3.f, arc4random() % 20 + 30);
     [item ff_addItem:tempView];
     
     [self.formView scrollItemForKey:@"sub" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];

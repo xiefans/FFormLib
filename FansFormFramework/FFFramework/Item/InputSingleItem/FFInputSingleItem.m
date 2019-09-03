@@ -30,7 +30,7 @@
     view.manager.must = must;
     view.manager.title = title;
     view.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:placeholder
-                                                                           attributes:@{NSForegroundColorAttributeName:[UIColor fans_colorWithHexValue:FFViewPlaceholderNormalTextColor]}];
+                                                                           attributes:@{NSForegroundColorAttributeName:[UIColor ff_colorWithHexValue:FFViewPlaceholderNormalTextColor]}];
     return view;
 }
 
@@ -77,27 +77,27 @@
                                     self.paddingInsets.left,
                                     self.paddingInsets.top,
                                     self.titleWidth,
-                                    MAX(self.fans_height - self.paddingInsets.top - self.paddingInsets.bottom, 0.f)
+                                    MAX(self.ff_height - self.paddingInsets.top - self.paddingInsets.bottom, 0.f)
                                     );
     
-    CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
+    CGFloat x = self.titleLb.ff_right + self.titleToInputGap;
     self.textField.frame = CGRectMake(
                                       x,
-                                      self.titleLb.fans_y,
-                                      self.fans_width - x - self.paddingInsets.right,
-                                      self.titleLb.fans_height
+                                      self.titleLb.ff_y,
+                                      self.ff_width - x - self.paddingInsets.right,
+                                      self.titleLb.ff_height
                                       );
     
     self.lineView.frame = CGRectMake(
-                                     self.titleLb.fans_x,
-                                     self.fans_height - FFViewLineNormalHeight,
-                                     self.textField.fans_right - self.titleLb.fans_left,
+                                     self.titleLb.ff_x,
+                                     self.ff_height - FFViewLineNormalHeight,
+                                     self.textField.ff_right - self.titleLb.ff_left,
                                      FFViewLineNormalHeight
                                      );
     
     [self.mustLb sizeToFit];
-    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FFViewMustRedFormTitleGap, 0.f);
-    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+    self.mustLb.ff_origin = CGPointMake(self.titleLb.ff_x - self.mustLb.ff_width - FFViewMustRedFormTitleGap, 0.f);
+    self.mustLb.ff_centerY = self.titleLb.ff_centerY;
 }
 
 - (void)changeMust:(BOOL)isMust {
@@ -139,7 +139,7 @@
 - (UILabel *)titleLb {
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
-        _titleLb.textColor = [UIColor fans_colorWithHexValue:FFViewTitleNormalTextColor];
+        _titleLb.textColor = [UIColor ff_colorWithHexValue:FFViewTitleNormalTextColor];
         _titleLb.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
     }
     return _titleLb;
@@ -149,7 +149,7 @@
     if (!_textField) {
         _textField = [[UITextField alloc] init];
         _textField.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
-        _textField.textColor = [UIColor fans_colorWithHexValue:FFViewContentNormalTextColor];
+        _textField.textColor = [UIColor ff_colorWithHexValue:FFViewContentNormalTextColor];
         _textField.delegate = self;
     }
     return _textField;
@@ -158,7 +158,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [UIView new];
-        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FFViewLineViewNormalColor];
+        _lineView.backgroundColor = [UIColor ff_colorWithHexValue:FFViewLineViewNormalColor];
     }
     return _lineView;
 }

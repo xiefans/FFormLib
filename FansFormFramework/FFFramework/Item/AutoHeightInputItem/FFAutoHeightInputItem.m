@@ -80,31 +80,31 @@
                                     self.paddingInsets.left,
                                     self.paddingInsets.top,
                                     self.titleWidth,
-                                    MIN(FFViewNormalHeight, self.fans_height) - self.paddingInsets.top - self.paddingInsets.bottom
+                                    MIN(FFViewNormalHeight, self.ff_height) - self.paddingInsets.top - self.paddingInsets.bottom
                                     );
     CGPoint center = self.titleLb.center;
     [self.titleLb sizeToFit];
-    self.titleLb.fans_centerY = center.y;
-    self.titleLb.fans_width = self.titleWidth;
+    self.titleLb.ff_centerY = center.y;
+    self.titleLb.ff_width = self.titleWidth;
     
-    CGFloat x = self.titleLb.fans_right + self.titleToInputGap;
+    CGFloat x = self.titleLb.ff_right + self.titleToInputGap;
     self.textView.frame = CGRectMake(
                                       x,
-                                      self.titleLb.fans_y,
-                                      self.fans_width - x - self.paddingInsets.right,
-                                      MAX(self.fans_height - (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
+                                      self.titleLb.ff_y,
+                                      self.ff_width - x - self.paddingInsets.right,
+                                      MAX(self.ff_height - (self.titleLb.ff_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom), 0.f)
                                       );
     self.placeholderLb.frame = self.textView.frame;
     self.lineView.frame = CGRectMake(
-                                     self.titleLb.fans_x,
-                                     self.fans_height - FFViewLineNormalHeight,
-                                     self.textView.fans_right - self.titleLb.fans_left,
+                                     self.titleLb.ff_x,
+                                     self.ff_height - FFViewLineNormalHeight,
+                                     self.textView.ff_right - self.titleLb.ff_left,
                                      FFViewLineNormalHeight
                                      );
     
     [self.mustLb sizeToFit];
-    self.mustLb.fans_origin = CGPointMake(self.titleLb.fans_x - self.mustLb.fans_width - FFViewMustRedFormTitleGap, 0.f);
-    self.mustLb.fans_centerY = self.titleLb.fans_centerY;
+    self.mustLb.ff_origin = CGPointMake(self.titleLb.ff_x - self.mustLb.ff_width - FFViewMustRedFormTitleGap, 0.f);
+    self.mustLb.ff_centerY = self.titleLb.ff_centerY;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -125,14 +125,14 @@
     } else {
         self.placeholderLb.hidden = YES;
     }
-    CGSize size = [content boundingRectWithSize:CGSizeMake(self.textView.fans_width, CGFLOAT_MAX)
+    CGSize size = [content boundingRectWithSize:CGSizeMake(self.textView.ff_width, CGFLOAT_MAX)
                                         options:NSStringDrawingUsesLineFragmentOrigin
                                      attributes:@{NSFontAttributeName : self.textView.font}
                                         context:nil].size;
-    CGFloat height = self.fans_height;
-    self.fans_height = MAX(FFViewNormalHeight,
-                           (self.titleLb.fans_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height);
-    if (height != self.fans_height) {
+    CGFloat height = self.ff_height;
+    self.ff_height = MAX(FFViewNormalHeight,
+                           (self.titleLb.ff_y * 2.f - self.paddingInsets.top + self.paddingInsets.bottom) + size.height);
+    if (height != self.ff_height) {
         [self.manager excuteRefreshBlock];
     }
 }
@@ -142,11 +142,11 @@
 }
 
 - (CGSize)size {
-    return CGSizeMake(0.f, self.fans_height);
+    return CGSizeMake(0.f, self.ff_height);
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if (CGRectContainsPoint(CGRectMake(self.textView.fans_x, 0, self.textView.fans_width, self.fans_height), point)) {
+    if (CGRectContainsPoint(CGRectMake(self.textView.ff_x, 0, self.textView.ff_width, self.ff_height), point)) {
         return self.textView;
     }
     return nil;
@@ -186,7 +186,7 @@
     if (!_titleLb) {
         _titleLb = [[UILabel alloc] init];
         _titleLb.font = [UIFont systemFontOfSize:FFViewTitleNormalFontSize];
-        _titleLb.textColor = [UIColor fans_colorWithHexValue:FFViewTitleNormalTextColor];
+        _titleLb.textColor = [UIColor ff_colorWithHexValue:FFViewTitleNormalTextColor];
     }
     return _titleLb;
 }
@@ -194,7 +194,7 @@
 - (UITextView *)textView {
     if (!_textView) {
         _textView = [[UITextView alloc] init];
-        _textView.textColor = [UIColor fans_colorWithHexValue:FFViewContentNormalTextColor];
+        _textView.textColor = [UIColor ff_colorWithHexValue:FFViewContentNormalTextColor];
         _textView.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
         _textView.contentInset = UIEdgeInsetsZero;
         _textView.textContainer.lineFragmentPadding = 0;
@@ -209,7 +209,7 @@
     if (!_placeholderLb) {
         _placeholderLb = [[UITextView alloc] init];
         _placeholderLb.font = [UIFont systemFontOfSize:FFViewContentNormalFontSize];
-        _placeholderLb.textColor = [UIColor fans_colorWithHexValue:FFViewPlaceholderNormalTextColor];
+        _placeholderLb.textColor = [UIColor ff_colorWithHexValue:FFViewPlaceholderNormalTextColor];
         _placeholderLb.contentInset = UIEdgeInsetsZero;
         _placeholderLb.textContainerInset = UIEdgeInsetsZero;
         _placeholderLb.editable = NO;
@@ -222,7 +222,7 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = [UIView new];
-        _lineView.backgroundColor = [UIColor fans_colorWithHexValue:FFViewLineViewNormalColor];
+        _lineView.backgroundColor = [UIColor ff_colorWithHexValue:FFViewLineViewNormalColor];
     }
     return _lineView;
 }

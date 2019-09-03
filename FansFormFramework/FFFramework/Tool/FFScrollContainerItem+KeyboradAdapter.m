@@ -7,7 +7,7 @@
 //
 
 #import "FFScrollContainerItem+KeyboradAdapter.h"
-#import "UIView+FansFrame.h"
+#import "UIView+FFFrame.h"
 @implementation FFScrollContainerItem (KeyboradAdapter)
 
 - (void)fans_addKeyboradAdapter {
@@ -30,16 +30,16 @@
     int height = keyboardRect.size.height;
     NSTimeInterval time = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
     
-    CGFloat scale = FANSScreenHeight - self.fans_bottom;
+    CGFloat scale = FFScreenHeight - self.ff_bottom;
     
-    if (scale > height || self.fans_height < height) {
+    if (scale > height || self.ff_height < height) {
         return;
     }
     
     scale = height - scale;
-    self.scrollViewHeight = self.fans_height - scale;
+    self.scrollViewHeight = self.ff_height - scale;
     [UIView animateWithDuration:time animations:^{
-        self.scrollView.fans_height = self.fans_height - scale;
+        self.scrollView.ff_height = self.ff_height - scale;
     }];
 }
 
