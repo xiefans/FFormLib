@@ -34,7 +34,6 @@
                                                               must:NO]];
     // 设置格式校验
     [self.scrollItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:6 maxLength:11] forKey:@"test"];
-    
 }
 
 #pragma mark - Overrides Template Method
