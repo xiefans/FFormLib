@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA1CADE231F475D002574AC /* Example */,
-				CE9C2C1E22E55FC4001EDDFD /* FFLib */,
+				CE9C2C1E22E55FC4001EDDFD /* FFormLib */,
 				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
 				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
 				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
@@ -271,7 +271,7 @@
 			path = FansFormFrameworkUITests;
 			sourceTree = "<group>";
 		};
-		CE9C2C1E22E55FC4001EDDFD /* FFLib */ = {
+		CE9C2C1E22E55FC4001EDDFD /* FFormLib */ = {
 			isa = PBXGroup;
 			children = (
 				CEB6F21B22F922540096D130 /* Resource */,
@@ -281,7 +281,7 @@
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CED91D3B22F3F71E0035DBC4 /* FormatCheck */,
 			);
-			path = FFLib;
+			path = FFormLib;
 			sourceTree = "<group>";
 		};
 		CE9C2C1F22E55FD8001EDDFD /* Core */ = {
