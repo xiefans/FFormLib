@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SingleModel.h"
+#import "FFCore.h"
+#import <Masonry.h>
 
-@class FFContainerView;
 @interface ExampleViewController : UIViewController
+
+@property (nonatomic, strong) FFScrollContainerItem *scrollItem;
+@property (nonatomic, strong) __kindof FFView *showItem;
 
 @property (nonatomic, assign) SingleModelType type;
 
@@ -24,6 +28,7 @@
 - (void)eventOfEditClick;
 - (void)eventOfMustClick;
 - (void)eventOfCheckClick;
+- (FFView *)getSingleItem;
 
 - (void)showTip:(NSString *)tip;
 

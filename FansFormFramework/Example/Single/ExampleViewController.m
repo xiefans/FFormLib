@@ -37,6 +37,8 @@
     
     [self configUI];
     [self configLayout];
+    
+    [self.scrollItem ff_addItem:self.showItem];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -45,19 +47,39 @@
 
 #pragma mark - Template Method
 - (void)eventOfShowClick {
-    
+    self.showItem.manager.show = !self.showItem.manager.isShow;
 }
 
 - (void)eventOfEditClick {
-    
+    self.showItem.manager.edit = !self.showItem.manager.isEdit;
 }
 
 - (void)eventOfMustClick {
-    
+    self.showItem.manager.must = !self.showItem.manager.isMust;
 }
 
 - (void)eventOfCheckClick {
+    __weak typeof(self)sself = self;
+    BOOL res = [self.scrollItem.manager checkMustWithErrorComplete:^(__kindof FFViewManager *obj, NSString *message) {
+        __strong typeof(sself)self = sself;
+        if (message) {
+            [self showTip:message];
+        } else {
+            if ([obj isKindOfClass:[FFInputView class]]) {
+                [self showTip:[NSString stringWithFormat:@"请输入%@", obj.title]];
+            } else {
+                [self showTip:[NSString stringWithFormat:@"请选择%@", obj.title]];
+            }
+        }
+    }];
     
+    if (res) {
+        [self showTip:@"Success"];
+    }
+}
+
+- (FFView *)getSingleItem {
+    return [FFView formViewWithKey:@"test"];
 }
 
 #pragma mark - Public Method
@@ -77,6 +99,7 @@
     [self.topView addSubview:self.tipLb];
     [self.view addSubview:self.showTitleLb];
     [self.view addSubview:self.contentView];
+    [self.contentView addSubview:self.scrollItem];
     [self.view addSubview:self.operationTitleLb];
     [self.view addSubview:self.bottomView];
     [self.bottomView addSubview:self.showBtn];
@@ -119,6 +142,12 @@
         make.bottom.equalTo(self.operationTitleLb.mas_top);
     }];
     
+    [self.scrollItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.top.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView);
+    }];
+    
     [self.operationTitleLb mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_greaterThanOrEqualTo(0.f);
         make.left.right.equalTo(self.showTitleLb);
@@ -140,6 +169,20 @@
 }
 
 #pragma mark - Lazy Load
+- (FFScrollContainerItem *)scrollItem {
+    if (!_scrollItem) {
+        _scrollItem = [FFScrollContainerItem formViewWithKey:@"supper"];
+    }
+    return _scrollItem;
+}
+
+- (__kindof FFView *)showItem {
+    if (!_showItem) {
+        _showItem = [self getSingleItem];
+    }
+    return _showItem;
+}
+
 - (UIView *)topView {
     if (!_topView) {
         _topView = [[UIView alloc] init];
