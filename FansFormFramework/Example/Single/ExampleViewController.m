@@ -65,7 +65,7 @@
         if (message) {
             [self showTip:message];
         } else {
-            if ([obj isKindOfClass:[FFInputView class]]) {
+            if (obj.viewType == FFViewManagerViewTypeInput) {
                 [self showTip:[NSString stringWithFormat:@"请输入%@", obj.title]];
             } else {
                 [self showTip:[NSString stringWithFormat:@"请选择%@", obj.title]];

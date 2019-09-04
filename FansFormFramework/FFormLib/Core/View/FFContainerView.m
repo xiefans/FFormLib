@@ -33,7 +33,7 @@
 
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super initWithManager:manager]) {
-        
+        manager.viewType = FFViewManagerViewTypeContainer;
         self.paddingInsets = FFContainerViewNormalPadding;
     }
     return self;

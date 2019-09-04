@@ -10,6 +10,11 @@
 
 @implementation FFInputView
 
-
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
+    if (self = [super initWithManager:manager]) {
+        manager.viewType = FFViewManagerViewTypeInput;
+    }
+    return self;
+}
 
 @end

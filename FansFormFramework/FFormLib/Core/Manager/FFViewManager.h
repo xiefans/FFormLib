@@ -18,6 +18,13 @@
     但是在拓展的时候，可以很好的将逻辑分离， 大家可以看看我的FFContainerManager 和 FFContainerView
  */
 
+typedef NS_ENUM(NSInteger , FFViewManagerViewType) {
+    FFViewManagerViewTypeNone, 
+    FFViewManagerViewTypeInput, // 绑定的是输入组件
+    FFViewManagerViewTypeAction, // 绑定的是action组件
+    FFViewManagerViewTypeContainer, // 绑定的是容器组件
+};
+
 @class FFViewManager;
 
 typedef void(^FFViewManagerChangeShow)(FFViewManager *manager, BOOL isShow);
@@ -35,6 +42,8 @@ typedef void(^FFViewManagerBlock)(FFViewManager *manager);
 
 + (instancetype)managerWithKey:(NSString *)key;
 - (instancetype)initWithKey:(NSString *)key;
+
+@property (nonatomic, assign) FFViewManagerViewType viewType;
 
 @property (nonatomic, assign, getter=isShow) BOOL show;
 @property (nonatomic, assign, getter=isEdit) BOOL edit;

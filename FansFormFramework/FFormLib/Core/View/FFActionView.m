@@ -28,5 +28,12 @@
     return self;
 }
 
+- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
+    if (self = [super initWithManager:manager]) {
+        manager.viewType = FFViewManagerViewTypeAction;
+    }
+    return self;
+}
+
 
 @end
