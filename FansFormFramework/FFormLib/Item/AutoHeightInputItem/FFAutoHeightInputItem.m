@@ -141,6 +141,12 @@
     self.mustLb.hidden = !isMust;
 }
 
+- (void)changeEdit:(BOOL)isEdit {
+    [super changeEdit:isEdit];
+    
+    self.textView.editable = isEdit;
+}
+
 - (CGSize)size {
     return CGSizeMake(0.f, self.ff_height);
 }
@@ -201,6 +207,7 @@
         _textView.textContainerInset = UIEdgeInsetsZero;
         _textView.scrollEnabled = NO;
         _textView.delegate = self;
+        _textView.backgroundColor = [UIColor clearColor];
     }
     return _textView;
 }

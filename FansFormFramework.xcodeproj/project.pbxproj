@@ -29,6 +29,9 @@
 		CEA1CAE2231F4F44002574AC /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE1231F4F44002574AC /* SingleModel.m */; };
 		CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */; };
 		CEA1CAE9231F5B01002574AC /* SingleInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */; };
+		CEA1CAED231F8526002574AC /* FixHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEC231F8526002574AC /* FixHeightInputViewController.m */; };
+		CEA1CAF0231F8672002574AC /* AutoHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */; };
+		CEA1CAF3231F895B002574AC /* SelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAF2231F895B002574AC /* SelectItemViewController.m */; };
 		CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */; };
 		CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F22922F944340096D130 /* FFResourceSupport.m */; };
 		CEB6F24222F947AC0096D130 /* FFResourceImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */; };
@@ -113,6 +116,12 @@
 		CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleInputViewController.h; sourceTree = "<group>"; };
 		CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleInputViewController.m; sourceTree = "<group>"; };
 		CEA1CAEA231F5F84002574AC /* FFormLibHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFormLibHeader.h; sourceTree = "<group>"; };
+		CEA1CAEB231F8526002574AC /* FixHeightInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixHeightInputViewController.h; sourceTree = "<group>"; };
+		CEA1CAEC231F8526002574AC /* FixHeightInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FixHeightInputViewController.m; sourceTree = "<group>"; };
+		CEA1CAEE231F8672002574AC /* AutoHeightInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoHeightInputViewController.h; sourceTree = "<group>"; };
+		CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoHeightInputViewController.m; sourceTree = "<group>"; };
+		CEA1CAF1231F895B002574AC /* SelectItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectItemViewController.h; sourceTree = "<group>"; };
+		CEA1CAF2231F895B002574AC /* SelectItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectItemViewController.m; sourceTree = "<group>"; };
 		CEB1E19122F00574005BAEA3 /* FFFixHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFixHeightInputItem.h; sourceTree = "<group>"; };
 		CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFixHeightInputItem.m; sourceTree = "<group>"; };
 		CEB6F21E22F922720096D130 /* FFResourceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceName.h; sourceTree = "<group>"; };
@@ -371,6 +380,12 @@
 				CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */,
 				CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */,
 				CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */,
+				CEA1CAEB231F8526002574AC /* FixHeightInputViewController.h */,
+				CEA1CAEC231F8526002574AC /* FixHeightInputViewController.m */,
+				CEA1CAEE231F8672002574AC /* AutoHeightInputViewController.h */,
+				CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */,
+				CEA1CAF1231F895B002574AC /* SelectItemViewController.h */,
+				CEA1CAF2231F895B002574AC /* SelectItemViewController.m */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -607,7 +622,9 @@
 				CEB9A1A622F2ABB900C8432E /* FFSelectItem.m in Sources */,
 				CE4EB703231DF5BE003E896F /* UINavigationController+FFPuspPop.m in Sources */,
 				CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */,
+				CEA1CAF3231F895B002574AC /* SelectItemViewController.m in Sources */,
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FFColor.m in Sources */,
+				CEA1CAF0231F8672002574AC /* AutoHeightInputViewController.m in Sources */,
 				CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */,
 				CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */,
 				CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */,
@@ -618,6 +635,7 @@
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */,
+				CEA1CAED231F8526002574AC /* FixHeightInputViewController.m in Sources */,
 				CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */,
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,

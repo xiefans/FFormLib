@@ -101,7 +101,6 @@
 }
 
 - (void)changeMust:(BOOL)isMust {
-    
     self.mustLb.hidden = !isMust;
 }
 

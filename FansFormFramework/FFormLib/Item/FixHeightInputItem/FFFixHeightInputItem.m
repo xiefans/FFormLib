@@ -109,6 +109,12 @@
     self.mustLb.hidden = !isMust;
 }
 
+- (void)changeEdit:(BOOL)isEdit {
+    [super changeEdit:isEdit];
+    
+    self.textView.editable = isEdit;
+}
+
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     if (CGRectContainsPoint(CGRectMake(self.textView.ff_x, 0, self.textView.ff_width, self.ff_height), point)) {
         return self.textView;

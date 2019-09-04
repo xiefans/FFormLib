@@ -8,6 +8,9 @@
 
 #import "SingleModel.h"
 #import "SingleInputViewController.h"
+#import "FixHeightInputViewController.h"
+#import "AutoHeightInputViewController.h"
+#import "SelectItemViewController.h"
 
 @implementation SingleModel
 
@@ -89,7 +92,21 @@
             exampleController = vc;
         }
             break;
-            
+        case SingleModelTypeFixHeightInput:{
+            FixHeightInputViewController *vc = [[FixHeightInputViewController alloc] init];
+            exampleController = vc;
+        }
+            break;
+        case SingleModelTypeAutoHeightInput:{
+            AutoHeightInputViewController *vc = [[AutoHeightInputViewController alloc] init];
+            exampleController = vc;
+        }
+            break;
+        case SingleModelTypeSelectItem:{
+            SelectItemViewController *vc = [[SelectItemViewController alloc] init];
+            exampleController = vc;
+        }
+            break;
         default:
             exampleController = [[ExampleViewController alloc] init];
             break;
