@@ -112,6 +112,7 @@
 		CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleInputViewController.h; sourceTree = "<group>"; };
 		CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleInputViewController.m; sourceTree = "<group>"; };
+		CEA1CAEA231F5F84002574AC /* FFormLibHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFormLibHeader.h; sourceTree = "<group>"; };
 		CEB1E19122F00574005BAEA3 /* FFFixHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFixHeightInputItem.h; sourceTree = "<group>"; };
 		CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFixHeightInputItem.m; sourceTree = "<group>"; };
 		CEB6F21E22F922720096D130 /* FFResourceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceName.h; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 				CE9C2C1E22E55FC4001EDDFD /* FFormLib */,
 				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
 				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
+				CEA1CAEA231F5F84002574AC /* FFormLibHeader.h */,
 				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
 				CE9C2BF022E5571A001EDDFD /* ViewController.m */,
 				CE9C2BF222E5571A001EDDFD /* Main.storyboard */,
@@ -804,6 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RD2522EQU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FansFormFramework/FFormLibHeader.h";
 				INFOPLIST_FILE = FansFormFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -823,6 +826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RD2522EQU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FansFormFramework/FFormLibHeader.h";
 				INFOPLIST_FILE = FansFormFramework/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

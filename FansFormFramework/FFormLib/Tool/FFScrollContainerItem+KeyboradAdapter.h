@@ -13,11 +13,11 @@
 /**
  添加键盘弹出的适配
  */
-- (void)fans_addKeyboradAdapter;
+- (void)ff_addKeyboradAdapter;
 
 /**
  移除键盘弹出的适配
  */
-- (void)fans_removeKeyboradAdapter;
+- (void)ff_removeKeyboradAdapter;
 
 @end

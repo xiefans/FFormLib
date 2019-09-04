@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger , SingleModelType) {
 
 + (NSString *)infoWithType:(SingleModelType)type;
 + (NSString *)titleWithType:(SingleModelType)type;
++ (NSString *)tipWithType:(SingleModelType)type;
 + (UIViewController *)controllerWithType:(SingleModelType)type;
 
 @end

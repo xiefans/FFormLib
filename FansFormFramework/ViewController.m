@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #import "SingleModel.h"
+#import "FFTool.h"
 #import <Masonry.h>
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) UILabel *coryrightLb;
 
 @end
 
@@ -23,12 +25,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"FFLib";
+    self.title = FrameworkName;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configData];
     
     [self.view addSubview:self.tableView];
+    [self.tableView addSubview:self.coryrightLb];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuide);
         make.left.right.bottom.equalTo(self.view);
@@ -71,6 +74,17 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"header"];
+    if (!headerView) {
+        headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"header"];
+        headerView.textLabel.numberOfLines = 0;
+    }
+    headerView.textLabel.text = @"【tip】所有非容器视图都要添加在容器视图中才可以使用";
+    
+    return headerView;
+}
+
 #pragma mark <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -88,6 +102,17 @@
         _tableView.dataSource = self;
     }
     return _tableView;
+}
+
+- (UILabel *)coryrightLb {
+    if (!_coryrightLb) {
+        _coryrightLb = [[UILabel alloc] initWithFrame:CGRectMake(0.f, -30.f, FFScreenWidth, 30.f)];
+        _coryrightLb.textColor = [UIColor grayColor];
+        _coryrightLb.textAlignment = NSTextAlignmentCenter;
+        _coryrightLb.font = [UIFont systemFontOfSize:15.f];
+        _coryrightLb.text = Copyright;
+    }
+    return _coryrightLb;
 }
 
 @end

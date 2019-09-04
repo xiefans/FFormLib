@@ -79,7 +79,7 @@
             } else {
                 FFFormatCheck *formatCheck = [sself formatCheckForKey:obj.key];
                 
-                if (formatCheck && ![formatCheck formatCheckWithString:obj.value]) {
+                if (formatCheck && ![formatCheck formatCheckWithString:obj.value] && obj.value) {
                     if (errorComplete) {
                         errorComplete(obj, [formatCheck messageWithTitle:obj.title]);
                     }

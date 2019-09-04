@@ -27,20 +27,38 @@
 + (NSString *)infoWithType:(SingleModelType)type {
     switch (type) {
         case SingleModelTypeSignleInput:
-            return @"单行输入组件， 需要添加在容器组件中使用";
+            return @"单行输入组件。";
         case SingleModelTypeFixHeightInput:
-            return @"多行输入组件，高度固定可设置， 需要添加在容器组件中使用";
+            return @"多行输入组件，高度固定可设置。";
         case SingleModelTypeAutoHeightInput:
-            return @"多行输入组件，高度随内容撑开， 需要添加在容器组件中使用";
+            return @"多行输入组件，高度随内容撑开。";
         case SingleModelTypeSelectItem:
-            return @"响应单击事件的组件，可以展示选择的数据以其他形式展示的组件， 例如日期选择， 需要添加在容器组件中使用";
+            return @"响应单击事件的组件，可以展示选择的数据以其他形式展示的组件， 例如日期选择。";
         case SingleModelTypeScrollContainer:
-            return @"容器组件， 设置固定的高度，在这个高度内可以滑动。 可以添加其他子组件";
+            return @"容器组件， 设置固定的高度，在这个高度内可以滑动。\n可以添加其他子组件";
         case SingleModelTypeAutoHeightContainer:
-            return @"容器组件， 高度随着子组件的内容撑开。 可以添加其他子组件";
+            return @"容器组件， 高度随着子组件的内容撑开。\n可以添加其他子组件";
         default:
             return nil;
-            break;
+    }
+}
+
++ (NSString *)tipWithType:(SingleModelType)type {
+    switch (type) {
+        case SingleModelTypeSignleInput:
+            return @"单行输入组件 \n可以添加在容器视图中使用";
+        case SingleModelTypeFixHeightInput:
+            return @"多行输入组件 \n1. 高度固定可设置\n2. 可以添加在容器视图中使用";
+        case SingleModelTypeAutoHeightInput:
+            return @"多行输入组件 \n1. 高度随内容撑开\n2. 可以添加在容器视图中使用";
+        case SingleModelTypeSelectItem:
+            return @"响应单击事件的组件 \n该组件比较通用，响应点击事件之后，可以做任何操作，最后把操作的结果给到该组件的manager，参与json生成以及展示";
+        case SingleModelTypeScrollContainer:
+            return @"容器组件 \n1. 设置固定的高度，在这个高度内可以滑动\n2. 可以添加其他子组件\n3. 可以选择子组件的布局方向";
+        case SingleModelTypeAutoHeightContainer:
+            return [NSString stringWithFormat:@"容器组件 \n1. 高度随着子组件的内容撑开\n2. 可以将该组件添加到%@中，会有更好的体验效果\n3. 可以添加其他子组件\n4. 可以选择子组件的布局方向", [self titleWithType:type]];
+        default:
+            return nil;
     }
 }
 
@@ -60,7 +78,6 @@
             return @"AutoHeightContainer";
         default:
             return nil;
-            break;
     }
 }
 
