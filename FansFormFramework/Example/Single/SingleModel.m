@@ -11,6 +11,7 @@
 #import "FixHeightInputViewController.h"
 #import "AutoHeightInputViewController.h"
 #import "SelectItemViewController.h"
+#import "ScrollContainerViewController.h"
 
 @implementation SingleModel
 
@@ -59,7 +60,7 @@
         case SingleModelTypeScrollContainer:
             return @"容器组件 \n1. 设置固定的高度，在这个高度内可以滑动\n2. 可以添加其他子组件\n3. 可以选择子组件的布局方向";
         case SingleModelTypeAutoHeightContainer:
-            return [NSString stringWithFormat:@"容器组件 \n1. 高度随着子组件的内容撑开\n2. 可以将该组件添加到%@中，会有更好的体验效果\n3. 可以添加其他子组件\n4. 可以选择子组件的布局方向", [self titleWithType:type]];
+            return [NSString stringWithFormat:@"容器组件 \n1. 高度随着子组件的内容撑开\n2. 可以将该组件添加到%@中，会有更好的体验效果\n3. 可以添加其他子组件\n4. 可以选择子组件的布局方向", [self titleWithType:SingleModelTypeScrollContainer]];
         default:
             return nil;
     }
@@ -85,7 +86,7 @@
 }
 
 + (UIViewController *)controllerWithType:(SingleModelType)type {
-    ExampleViewController *exampleController = nil;
+    ExampleSingleViewController *exampleController = nil;
     switch (type) {
         case SingleModelTypeSignleInput: {
             SingleInputViewController *vc = [[SingleInputViewController alloc] init];
@@ -107,8 +108,13 @@
             exampleController = vc;
         }
             break;
+        case SingleModelTypeScrollContainer:{
+            ScrollContainerViewController *vc = [ScrollContainerViewController new];
+            exampleController = vc;
+        }
+            break;
         default:
-            exampleController = [[ExampleViewController alloc] init];
+            exampleController = [[ExampleSingleViewController alloc] init];
             break;
     }
     exampleController.type = type;

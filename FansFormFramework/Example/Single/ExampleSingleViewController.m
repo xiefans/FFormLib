@@ -6,9 +6,9 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "ExampleViewController.h"
+#import "ExampleSingleViewController.h"
 #import <Masonry.h>
-@interface ExampleViewController ()
+@interface ExampleSingleViewController ()
 
 @property (nonatomic, strong) UILabel *tipTitleLb;
 @property (nonatomic, strong) UILabel *showTitleLb;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ExampleViewController
+@implementation ExampleSingleViewController
 @synthesize topView = _topView;
 @synthesize bottomView = _bottomView;
 @synthesize contentView = _contentView;
@@ -37,8 +37,6 @@
     
     [self configUI];
     [self configLayout];
-    
-    [self.scrollItem ff_addItem:self.showItem];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

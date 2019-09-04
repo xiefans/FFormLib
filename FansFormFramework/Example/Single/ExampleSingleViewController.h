@@ -11,7 +11,7 @@
 #import "FFCore.h"
 #import <Masonry.h>
 
-@interface ExampleViewController : UIViewController
+@interface ExampleSingleViewController : UIViewController
 
 @property (nonatomic, strong) FFScrollContainerItem *scrollItem;
 @property (nonatomic, strong) __kindof FFView *showItem;

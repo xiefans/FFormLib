@@ -6,8 +6,8 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "ExampleViewController.h"
+#import "ExampleSingleViewController.h"
 
-@interface SingleInputViewController : ExampleViewController
+@interface SingleInputViewController : ExampleSingleViewController
 
 @end

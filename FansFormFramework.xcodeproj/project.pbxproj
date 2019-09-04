@@ -27,7 +27,7 @@
 		CE9C2C3D22E5B08E001EDDFD /* UIColor+FFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3C22E5B08E001EDDFD /* UIColor+FFColor.m */; };
 		CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */; };
 		CEA1CAE2231F4F44002574AC /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE1231F4F44002574AC /* SingleModel.m */; };
-		CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */; };
+		CEA1CAE6231F5A1B002574AC /* ExampleSingleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE5231F5A1B002574AC /* ExampleSingleViewController.m */; };
 		CEA1CAE9231F5B01002574AC /* SingleInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */; };
 		CEA1CAED231F8526002574AC /* FixHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEC231F8526002574AC /* FixHeightInputViewController.m */; };
 		CEA1CAF0231F8672002574AC /* AutoHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */; };
@@ -43,6 +43,7 @@
 		CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743AD22E97EA600C79E6D /* FFContainerView.m */; };
 		CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B022E97EBB00C79E6D /* FFContainerManager.m */; };
 		CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC743B822E9D05200C79E6D /* FFInputSingleItem.m */; };
+		CEC92B65231FD45100513081 /* ScrollContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC92B64231FD45100513081 /* ScrollContainerViewController.m */; };
 		CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */; };
 		CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D4022F40B820035DBC4 /* FFFormatLengthCheck.m */; };
 		CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED91D4422F41C750035DBC4 /* FFInputView.m */; };
@@ -111,8 +112,8 @@
 		CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FansAttributed.m"; sourceTree = "<group>"; };
 		CEA1CAE0231F4F44002574AC /* SingleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleModel.h; sourceTree = "<group>"; };
 		CEA1CAE1231F4F44002574AC /* SingleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleModel.m; sourceTree = "<group>"; };
-		CEA1CAE4231F5A1B002574AC /* ExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
-		CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		CEA1CAE4231F5A1B002574AC /* ExampleSingleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleSingleViewController.h; sourceTree = "<group>"; };
+		CEA1CAE5231F5A1B002574AC /* ExampleSingleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleSingleViewController.m; sourceTree = "<group>"; };
 		CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleInputViewController.h; sourceTree = "<group>"; };
 		CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleInputViewController.m; sourceTree = "<group>"; };
 		CEA1CAEA231F5F84002574AC /* FFormLibHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFormLibHeader.h; sourceTree = "<group>"; };
@@ -144,6 +145,8 @@
 		CEC743B022E97EBB00C79E6D /* FFContainerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFContainerManager.m; sourceTree = "<group>"; };
 		CEC743B722E9D05200C79E6D /* FFInputSingleItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFInputSingleItem.h; sourceTree = "<group>"; };
 		CEC743B822E9D05200C79E6D /* FFInputSingleItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFInputSingleItem.m; sourceTree = "<group>"; };
+		CEC92B63231FD45100513081 /* ScrollContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollContainerViewController.h; sourceTree = "<group>"; };
+		CEC92B64231FD45100513081 /* ScrollContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollContainerViewController.m; sourceTree = "<group>"; };
 		CED91D3C22F3F7350035DBC4 /* FFFormatCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatCheck.h; sourceTree = "<group>"; };
 		CED91D3D22F3F7350035DBC4 /* FFFormatCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFormatCheck.m; sourceTree = "<group>"; };
 		CED91D3F22F40B820035DBC4 /* FFFormatLengthCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormatLengthCheck.h; sourceTree = "<group>"; };
@@ -187,13 +190,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9E5C058022F46F6800763648 /* FFAutoSizeContainerItem */ = {
+		9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */ = {
 			isa = PBXGroup;
 			children = (
 				9E5C057D22F46F6300763648 /* FFAutoHeightContainerItem.h */,
 				9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */,
 			);
-			path = FFAutoSizeContainerItem;
+			path = FFAutoHeightContainerItem;
 			sourceTree = "<group>";
 		};
 		9E5C058122F4760F00763648 /* FFScrollContainerItem */ = {
@@ -376,8 +379,8 @@
 			children = (
 				CEA1CAE0231F4F44002574AC /* SingleModel.h */,
 				CEA1CAE1231F4F44002574AC /* SingleModel.m */,
-				CEA1CAE4231F5A1B002574AC /* ExampleViewController.h */,
-				CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */,
+				CEA1CAE4231F5A1B002574AC /* ExampleSingleViewController.h */,
+				CEA1CAE5231F5A1B002574AC /* ExampleSingleViewController.m */,
 				CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */,
 				CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */,
 				CEA1CAEB231F8526002574AC /* FixHeightInputViewController.h */,
@@ -386,6 +389,8 @@
 				CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */,
 				CEA1CAF1231F895B002574AC /* SelectItemViewController.h */,
 				CEA1CAF2231F895B002574AC /* SelectItemViewController.m */,
+				CEC92B63231FD45100513081 /* ScrollContainerViewController.h */,
+				CEC92B64231FD45100513081 /* ScrollContainerViewController.m */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -431,7 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5C058122F4760F00763648 /* FFScrollContainerItem */,
-				9E5C058022F46F6800763648 /* FFAutoSizeContainerItem */,
+				9E5C058022F46F6800763648 /* FFAutoHeightContainerItem */,
 				CEB9A1A022F2A6E100C8432E /* SelectItem */,
 				CEB1E19022F0043C005BAEA3 /* FixHeightInputItem */,
 				9EC315A322ED5FDC00CE8234 /* AutoHeightInputItem */,
@@ -626,7 +631,7 @@
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FFColor.m in Sources */,
 				CEA1CAF0231F8672002574AC /* AutoHeightInputViewController.m in Sources */,
 				CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */,
-				CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */,
+				CEA1CAE6231F5A1B002574AC /* ExampleSingleViewController.m in Sources */,
 				CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FFFrame.m in Sources */,
 				CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */,
@@ -650,6 +655,7 @@
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
 				9E06CDE222F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m in Sources */,
 				CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */,
+				CEC92B65231FD45100513081 /* ScrollContainerViewController.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

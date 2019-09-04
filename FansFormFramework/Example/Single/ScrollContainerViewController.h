@@ -1,5 +1,5 @@
 //
-//  FixHeightInputViewController.h
+//  ScrollContainerViewController.h
 //  FansFormFramework
 //
 //  Created by fans on 2019/9/4.
@@ -8,10 +8,6 @@
 
 #import "ExampleSingleViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface FixHeightInputViewController : ExampleSingleViewController
+@interface ScrollContainerViewController : ExampleSingleViewController
 
 @end
-
-NS_ASSUME_NONNULL_END

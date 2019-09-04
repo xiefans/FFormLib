@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.scrollItem ff_addItem:self.showItem];
+    
     // 设置格式校验
     [self.scrollItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMaxLength:20] forKey:@"test"];
 }
@@ -28,7 +30,7 @@
 - (FFView *)getSingleItem {
     return [FFFixHeightInputItem formViewWithKey:@"test"
                                            title:@"地址"
-                                     placeholder:@"请输入"
+                                     placeholder:@"请输入地址"
                                        fixHeight:150.f
                                             must:YES];
 }

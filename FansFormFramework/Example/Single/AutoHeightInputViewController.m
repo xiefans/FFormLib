@@ -19,6 +19,8 @@
 #pragma mark - Overrides
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.scrollItem ff_addItem:self.showItem];
     // 设置格式校验
     [self.scrollItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMaxLength:100] forKey:@"test"];
 }

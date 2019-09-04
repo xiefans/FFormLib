@@ -6,8 +6,8 @@
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "ExampleViewController.h"
+#import "ExampleSingleViewController.h"
 
-@interface SelectItemViewController : ExampleViewController
+@interface SelectItemViewController : ExampleSingleViewController
 
 @end

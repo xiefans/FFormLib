@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self.scrollItem ff_addItem:self.showItem];
     // 设置格式校验
     [self.scrollItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:6 maxLength:11] forKey:@"test"];
 }
