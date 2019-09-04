@@ -1,23 +1,22 @@
 //
-//  ViewBController.m
+//  SingleInputViewController.m
 //  FansFormFramework
 //
-//  Created by fans on 2019/9/3.
+//  Created by fans on 2019/9/4.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "ViewBController.h"
+#import "SingleInputViewController.h"
 
-@interface ViewBController ()
+@interface SingleInputViewController ()
 
 @end
 
-@implementation ViewBController
+@implementation SingleInputViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    // Do any additional setup after loading the view.
 }
 
 /*

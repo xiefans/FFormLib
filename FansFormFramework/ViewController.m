@@ -7,167 +7,87 @@
 //
 
 #import "ViewController.h"
-#import "FFCore.h"
-#import "FFTool.h"
-#import "FFFormatCheck.h"
+#import "SingleModel.h"
+#import <Masonry.h>
 
-#import "ViewBController.h"
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@interface ViewController ()
-
-@property (nonatomic, strong) FFScrollContainerItem *formView;
-
-@property (nonatomic, strong) UIButton *checkBtn;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
 @implementation ViewController
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-
-    CGRect layoutFrame = self.view.safeAreaLayoutGuide.layoutFrame;
-    self.formView.frame = layoutFrame;
-}
-
+#pragma mark - Overrides
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"FFFramework";
+    
+    self.title = @"FFLib";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.checkBtn];
     
-    [self configUI];
-    [self configFormcatCheck];
-    [self configItemCallback];
-    [self configIgnore];
-}
-
-- (void)configItemCallback {
-    //测试输入组件的回调事件
-    FFMagicInputShouldBeginEditing(_formView,
-                                   @"1",
-                                   ^BOOL(__kindof FFInputView *inputView) {
-                                       return YES;
-                                   });
+    [self configData];
     
-    FFMagicInputDidEndEditing(_formView,
-                              @"1",
-                              ^(__kindof FFInputView *inputView) {
-                                  
-                                  FFFormatCheck *formatCheck = [FFFormatLengthCheck formatCheckWithMinLength:3];
-                                  
-                                  if (![formatCheck formatCheckWithString:inputView.manager.value]) {
-                                      NSLog(@"%@", [formatCheck messageWithTitle:inputView.manager.title]);
-                                      
-                                      inputView.manager.content = @"";
-                                  }
-                              });
-}
-
-- (void)configIgnore {
-//    [_formView.manager subManagerForKey:@"select"].ignore = YES;
-//    [_formView.manager subManagerForKey:@"1"].ignore = YES;
-}
-
-- (void)configFormcatCheck {
-    //测试 格式校验
-    [_formView.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3
-                                                                          maxLength:6]
-                               forKey:@"3"];
-}
-
-- (void)configUI {
-    _formView = [FFScrollContainerItem formViewWithKey:@"jsonform" layoutDirection:FFContainerViewLayoutDirectionVertical];
-    [_formView fans_addKeyboradAdapter];
-    //基础表单组件
-    [_formView ff_addItem:[FFSelectItem formViewWithTitle:@"地区"
-                                                 placeholder:@"请选择地区"
-                                               numberOfLines:0
-                                                        must:YES
-                                                         key:@"select"
-                                                   didAction:^(__kindof FFActionView *actionView) {
-
-                                                       actionView.manager.content = @"你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了我你选择了";
-                                                       actionView.manager.value = @"mustSeee";
-                                                   }]];
-    [_formView ff_addItem:[FFInputSingleItem formViewWithKey:@"1"
-                                                          title:@"名称："
-                                                    placeholder:@"请输入名称"
-                                                           must:YES]];
-    [_formView ff_addItem:[FFFixHeightInputItem formViewWithKey:@"3"
-                                                             title:@"名称3："
-                                                       placeholder:@"请输入名称3"
-                                                         fixHeight:100.f
-                                                              must:YES]];
-    
-    [_formView ff_addItem:[FFAutoHeightInputItem formViewWithKey:@"2"
-                                                              title:@"性别："
-                                                        placeholder:@"请输入性别"
-                                                               must:YES]];
-    
-    [_formView ff_addItem:[FFInputSingleItem formViewWithKey:@"4"
-                                                          title:@"名称4："
-                                                    placeholder:@"请输入名称4"
-                                                           must:NO]];
-    
-    //自动size的容器。
-    FFAutoHeightContainerItem *item = [FFAutoHeightContainerItem formViewWithKey:@"sub" layoutDirection:FFContainerViewLayoutDirectionHorizontal];
-    [item ff_addItem:[FFInputSingleItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-                                                     title:@"temp："
-                                               placeholder:@"请输入temp"
-                                                      must:YES]];
-    [_formView ff_addItem:item];
-    
-    //这里测试递归检查
-    FFContainerView *temp = [FFAutoHeightContainerItem formViewWithKey:@"jjj2"];
-    temp.manager.package = YES;
-    [temp ff_addItem:[FFAutoHeightInputItem formViewWithKey:@"jj1"
-                                                         title:@"组中1："
-                                                   placeholder:@"请输入组中1"
-                                                          must:NO]];
-    [temp ff_addItem:[FFInputSingleItem formViewWithKey:@"jj2"
-                                                     title:@"组中2："
-                                               placeholder:@"请输入组中2"
-                                                      must:YES]];
-    [_formView ff_addItem:temp];
-    [self.view addSubview:self.formView];
-}
-
-- (void)eventOfCheck {
-    
-    //检查必填项
-    BOOL res = [self.formView.manager checkMustWithErrorComplete:^(__kindof FFViewManager *obj, NSString *message) {
-        
-        if (message) {
-            NSLog(@"%@", message);
-        } else {
-            NSLog(@"%@为空", obj.title);
-        }
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuide);
+        make.left.right.bottom.equalTo(self.view);
     }];
-    
-    if (res) {
-        NSLog(@"%@",[self.formView.manager makeDictionary]);
-    }
-    
-//    FFAutoHeightContainerItem *item = [self.formView ff_itemForKey:@"sub"];
-//    FFView *tempView = [FFAutoHeightInputItem formViewWithKey:[NSString stringWithFormat:@"temp%ld",item.subviews.count]
-//                                                    title:@"temp："
-//                                              placeholder:@"请输入temp"
-//                                                     must:YES];
-//    tempView.size = CGSizeMake(FFScreenWidth / 3.f, arc4random() % 20 + 30);
-//    [item ff_addItem:tempView];
-    
-//    [self.formView scrollItemForKey:@"sub" toPosition:FFScrollContainerItemScrollPositionBottom animation:YES];
 }
 
-- (UIButton *)checkBtn {
-    if (!_checkBtn) {
-        _checkBtn = [[UIButton alloc] init];
-        [_checkBtn setTitle:@"check" forState:UIControlStateNormal];
-        [_checkBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_checkBtn addTarget:self action:@selector(eventOfCheck) forControlEvents:UIControlEventTouchUpInside];
+#pragma mark - Private Method
+- (void)configData {
+    NSMutableArray *temp = [NSMutableArray new];
+    
+    for (SingleModelType type = SingleModelTypeSignleInput; type <= SingleModelTypeAutoHeightContainer; type ++) {
+        SingleModel *model = [[SingleModel alloc] initWithType:type];
+        [temp addObject:model];
     }
-    return _checkBtn;
+    
+    self.dataSource = [temp copy];
+}
+
+#pragma mark - Protocol
+#pragma mark <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell.detailTextLabel.numberOfLines = 0;
+    }
+    
+    SingleModel *model = self.dataSource[indexPath.row];
+    
+    cell.textLabel.text = model.title;
+    cell.detailTextLabel.text = model.subTitle;
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
+}
+
+#pragma mark <UITableViewDelegate>
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SingleModel *model = self.dataSource[indexPath.row];
+    [self.navigationController pushViewController:model.controller animated:YES];
+}
+
+#pragma mark - Lazy Load
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
 }
 
 @end

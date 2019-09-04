@@ -9,12 +9,15 @@
 #ifndef FFCore_h
 #define FFCore_h
 
-#import "FFMagic.h"
-#import "FFContainerView.h"
-#import "FFSupportItem.h"
-#import "FFTool.h"
+#import "FFConstant.h"
 #import "FFFormat.h"
+#import "FFTool.h"
+#import "FFMagic.h"
+
+#import "FFContainerManager.h"
 #import "FFMultipleParametersManager.h"
+
+#import "FFSupportItem.h"
 
 
 #endif /* FFCore_h */

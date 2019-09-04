@@ -11,8 +11,8 @@
 		9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C057E22F46F6300763648 /* FFAutoHeightContainerItem.m */; };
 		9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C058322F4762D00763648 /* FFScrollContainerItem.m */; };
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
+		B981FA904958404C1F95AB15 /* libPods-FansFormFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */; };
 		CE4EB703231DF5BE003E896F /* UINavigationController+FFPuspPop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */; };
-		CE4EB706231DF618003E896F /* ViewBController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB705231DF618003E896F /* ViewBController.m */; };
 		CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */; };
 		CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */; };
 		CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2BED22E5571A001EDDFD /* AppDelegate.m */; };
@@ -26,6 +26,9 @@
 		CE9C2C2722E5605F001EDDFD /* UIView+FFFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C2622E5605F001EDDFD /* UIView+FFFrame.m */; };
 		CE9C2C3D22E5B08E001EDDFD /* UIColor+FFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3C22E5B08E001EDDFD /* UIColor+FFColor.m */; };
 		CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */; };
+		CEA1CAE2231F4F44002574AC /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE1231F4F44002574AC /* SingleModel.m */; };
+		CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */; };
+		CEA1CAE9231F5B01002574AC /* SingleInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */; };
 		CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */; };
 		CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F22922F944340096D130 /* FFResourceSupport.m */; };
 		CEB6F24222F947AC0096D130 /* FFResourceImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */; };
@@ -60,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		614AB40B5D99D271318646ED /* Pods-FansFormFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FansFormFramework.release.xcconfig"; path = "Target Support Files/Pods-FansFormFramework/Pods-FansFormFramework.release.xcconfig"; sourceTree = "<group>"; };
+		871CC7F9A7101BBA03DD727A /* Pods-FansFormFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FansFormFramework.debug.xcconfig"; path = "Target Support Files/Pods-FansFormFramework/Pods-FansFormFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		9E06CDE022F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFScrollContainerItem+KeyboradAdapter.h"; sourceTree = "<group>"; };
 		9E06CDE122F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FFScrollContainerItem+KeyboradAdapter.m"; sourceTree = "<group>"; };
 		9E5C057D22F46F6300763648 /* FFAutoHeightContainerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoHeightContainerItem.h; sourceTree = "<group>"; };
@@ -69,10 +74,9 @@
 		9EC315A422ED608A00CE8234 /* FFAutoHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAutoHeightInputItem.h; sourceTree = "<group>"; };
 		9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoHeightInputItem.m; sourceTree = "<group>"; };
 		9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFConstant.h; sourceTree = "<group>"; };
+		C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FansFormFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4EB701231DF5BE003E896F /* UINavigationController+FFPuspPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FFPuspPop.h"; sourceTree = "<group>"; };
 		CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FFPuspPop.m"; sourceTree = "<group>"; };
-		CE4EB704231DF618003E896F /* ViewBController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewBController.h; sourceTree = "<group>"; };
-		CE4EB705231DF618003E896F /* ViewBController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewBController.m; sourceTree = "<group>"; };
 		CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFMultipleParametersManager.h; sourceTree = "<group>"; };
 		CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFMultipleParametersManager.m; sourceTree = "<group>"; };
 		CE6F781E22F8176C00A71165 /* FFFormcatSpecificCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFormcatSpecificCheck.h; sourceTree = "<group>"; };
@@ -102,6 +106,12 @@
 		CE9C2C3C22E5B08E001EDDFD /* UIColor+FFColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FFColor.m"; sourceTree = "<group>"; };
 		CE9C2C3E22E5B3F4001EDDFD /* NSString+FansAttributed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FansAttributed.h"; sourceTree = "<group>"; };
 		CE9C2C3F22E5B3F4001EDDFD /* NSString+FansAttributed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FansAttributed.m"; sourceTree = "<group>"; };
+		CEA1CAE0231F4F44002574AC /* SingleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleModel.h; sourceTree = "<group>"; };
+		CEA1CAE1231F4F44002574AC /* SingleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleModel.m; sourceTree = "<group>"; };
+		CEA1CAE4231F5A1B002574AC /* ExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleInputViewController.h; sourceTree = "<group>"; };
+		CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SingleInputViewController.m; sourceTree = "<group>"; };
 		CEB1E19122F00574005BAEA3 /* FFFixHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFixHeightInputItem.h; sourceTree = "<group>"; };
 		CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFixHeightInputItem.m; sourceTree = "<group>"; };
 		CEB6F21E22F922720096D130 /* FFResourceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceName.h; sourceTree = "<group>"; };
@@ -138,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B981FA904958404C1F95AB15 /* libPods-FansFormFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +169,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54F2B6E00E2EAB269755CB70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9E5C058022F46F6800763648 /* FFAutoSizeContainerItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +204,15 @@
 			path = AutoHeightInputItem;
 			sourceTree = "<group>";
 		};
+		B672C3029AFC319D83FDDFC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				871CC7F9A7101BBA03DD727A /* Pods-FansFormFramework.debug.xcconfig */,
+				614AB40B5D99D271318646ED /* Pods-FansFormFramework.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE9C2BE022E5571A001EDDFD = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +220,8 @@
 				CE9C2C0422E5571A001EDDFD /* FansFormFrameworkTests */,
 				CE9C2C0F22E5571A001EDDFD /* FansFormFrameworkUITests */,
 				CE9C2BEA22E5571A001EDDFD /* Products */,
+				B672C3029AFC319D83FDDFC6 /* Pods */,
+				54F2B6E00E2EAB269755CB70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,13 +238,12 @@
 		CE9C2BEB22E5571A001EDDFD /* FansFormFramework */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C1E22E55FC4001EDDFD /* FFFramework */,
+				CEA1CADE231F475D002574AC /* Example */,
+				CE9C2C1E22E55FC4001EDDFD /* FFLib */,
 				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
 				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
 				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
 				CE9C2BF022E5571A001EDDFD /* ViewController.m */,
-				CE4EB704231DF618003E896F /* ViewBController.h */,
-				CE4EB705231DF618003E896F /* ViewBController.m */,
 				CE9C2BF222E5571A001EDDFD /* Main.storyboard */,
 				CE9C2BF522E5571A001EDDFD /* Assets.xcassets */,
 				CE9C2BF722E5571A001EDDFD /* LaunchScreen.storyboard */,
@@ -242,7 +271,7 @@
 			path = FansFormFrameworkUITests;
 			sourceTree = "<group>";
 		};
-		CE9C2C1E22E55FC4001EDDFD /* FFFramework */ = {
+		CE9C2C1E22E55FC4001EDDFD /* FFLib */ = {
 			isa = PBXGroup;
 			children = (
 				CEB6F21B22F922540096D130 /* Resource */,
@@ -252,26 +281,14 @@
 				CE9C2C2122E55FE6001EDDFD /* Tool */,
 				CED91D3B22F3F71E0035DBC4 /* FormatCheck */,
 			);
-			path = FFFramework;
+			path = FFLib;
 			sourceTree = "<group>";
 		};
 		CE9C2C1F22E55FD8001EDDFD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CEC743A322E94D0400C79E6D /* FFView.h */,
-				CEC743A422E94D0400C79E6D /* FFView.m */,
-				CEC743A622E94D1200C79E6D /* FFViewManager.h */,
-				CEC743A722E94D1200C79E6D /* FFViewManager.m */,
-				CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */,
-				CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */,
-				CEC743AC22E97EA600C79E6D /* FFContainerView.h */,
-				CEC743AD22E97EA600C79E6D /* FFContainerView.m */,
-				CEC743AF22E97EBB00C79E6D /* FFContainerManager.h */,
-				CEC743B022E97EBB00C79E6D /* FFContainerManager.m */,
-				CEB9A1A122F2A70200C8432E /* FFActionView.h */,
-				CEB9A1A222F2A70200C8432E /* FFActionView.m */,
-				CED91D4322F41C750035DBC4 /* FFInputView.h */,
-				CED91D4422F41C750035DBC4 /* FFInputView.m */,
+				CEA1CADD231F44F9002574AC /* Manager */,
+				CEA1CADC231F44E8002574AC /* View */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -279,8 +296,8 @@
 		CE9C2C2022E55FDD001EDDFD /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				CE9C2C2322E56039001EDDFD /* FFTool.h */,
 				CE9C2C2422E56047001EDDFD /* FFCore.h */,
+				CE9C2C2322E56039001EDDFD /* FFTool.h */,
 				CE9C2C3922E57FE7001EDDFD /* FFSupportItem.h */,
 				9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */,
 				CED91D4222F40E820035DBC4 /* FFFormat.h */,
@@ -305,6 +322,55 @@
 				9E06CDE122F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		CEA1CADC231F44E8002574AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEC743A322E94D0400C79E6D /* FFView.h */,
+				CEC743A422E94D0400C79E6D /* FFView.m */,
+				CEC743AC22E97EA600C79E6D /* FFContainerView.h */,
+				CEC743AD22E97EA600C79E6D /* FFContainerView.m */,
+				CEB9A1A122F2A70200C8432E /* FFActionView.h */,
+				CEB9A1A222F2A70200C8432E /* FFActionView.m */,
+				CED91D4322F41C750035DBC4 /* FFInputView.h */,
+				CED91D4422F41C750035DBC4 /* FFInputView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEA1CADD231F44F9002574AC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CEC743A622E94D1200C79E6D /* FFViewManager.h */,
+				CEC743A722E94D1200C79E6D /* FFViewManager.m */,
+				CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */,
+				CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */,
+				CEC743AF22E97EBB00C79E6D /* FFContainerManager.h */,
+				CEC743B022E97EBB00C79E6D /* FFContainerManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CEA1CADE231F475D002574AC /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1CADF231F4774002574AC /* Single */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		CEA1CADF231F4774002574AC /* Single */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1CAE0231F4F44002574AC /* SingleModel.h */,
+				CEA1CAE1231F4F44002574AC /* SingleModel.m */,
+				CEA1CAE4231F5A1B002574AC /* ExampleViewController.h */,
+				CEA1CAE5231F5A1B002574AC /* ExampleViewController.m */,
+				CEA1CAE7231F5B01002574AC /* SingleInputViewController.h */,
+				CEA1CAE8231F5B01002574AC /* SingleInputViewController.m */,
+			);
+			path = Single;
 			sourceTree = "<group>";
 		};
 		CEB1E19022F0043C005BAEA3 /* FixHeightInputItem */ = {
@@ -386,6 +452,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9C2C1522E5571A001EDDFD /* Build configuration list for PBXNativeTarget "FansFormFramework" */;
 			buildPhases = (
+				3C61FF4DBA6434DEFD2E7CE2 /* [CP] Check Pods Manifest.lock */,
 				CE9C2BE522E5571A001EDDFD /* Sources */,
 				CE9C2BE622E5571A001EDDFD /* Frameworks */,
 				CE9C2BE722E5571A001EDDFD /* Resources */,
@@ -505,6 +572,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C61FF4DBA6434DEFD2E7CE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FansFormFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE9C2BE522E5571A001EDDFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -515,10 +607,12 @@
 				CEC743AE22E97EA600C79E6D /* FFContainerView.m in Sources */,
 				CE9C2C3D22E5B08E001EDDFD /* UIColor+FFColor.m in Sources */,
 				CED91D4522F41C750035DBC4 /* FFInputView.m in Sources */,
+				CEA1CAE6231F5A1B002574AC /* ExampleViewController.m in Sources */,
 				CEB9A1A322F2A70200C8432E /* FFActionView.m in Sources */,
 				CE9C2C2722E5605F001EDDFD /* UIView+FFFrame.m in Sources */,
 				CEC743AB22E9780700C79E6D /* FFMagic.m in Sources */,
 				CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */,
+				CEA1CAE2231F4F44002574AC /* SingleModel.m in Sources */,
 				CEC743A822E94D1200C79E6D /* FFViewManager.m in Sources */,
 				CE9C2BF122E5571A001EDDFD /* ViewController.m in Sources */,
 				9E5C057F22F46F6300763648 /* FFAutoHeightContainerItem.m in Sources */,
@@ -528,13 +622,13 @@
 				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
 				CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */,
 				9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */,
+				CEA1CAE9231F5B01002574AC /* SingleInputViewController.m in Sources */,
 				CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */,
 				CE9C2BEE22E5571A001EDDFD /* AppDelegate.m in Sources */,
 				CEC743A522E94D0400C79E6D /* FFView.m in Sources */,
 				9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */,
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
 				9E06CDE222F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m in Sources */,
-				CE4EB706231DF618003E896F /* ViewBController.m in Sources */,
 				CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */,
 			);
@@ -705,6 +799,7 @@
 		};
 		CE9C2C1622E5571A001EDDFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 871CC7F9A7101BBA03DD727A /* Pods-FansFormFramework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -723,6 +818,7 @@
 		};
 		CE9C2C1722E5571A001EDDFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 614AB40B5D99D271318646ED /* Pods-FansFormFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
