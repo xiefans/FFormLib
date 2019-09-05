@@ -148,7 +148,7 @@
 }
 
 - (CGSize)size {
-    return CGSizeMake(0.f, self.ff_height);
+    return CGSizeMake([super size].width, self.ff_height);
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {

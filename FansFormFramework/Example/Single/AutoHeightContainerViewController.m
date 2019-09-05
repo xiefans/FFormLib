@@ -66,6 +66,7 @@ static NSString * const RECEIPT_KEY = @"receipt";
                                                           placeholder:@"请输入地址"
                                                             fixHeight:150.f
                                                                  must:YES]];
+    
 }
 
 - (void)configFormat {
@@ -100,10 +101,19 @@ static NSString * const RECEIPT_KEY = @"receipt";
 - (void)eventOfMustClick {
     FFContainerView *view = self.showItem;
     if (view.layoutDirection == FFContainerViewLayoutDirectionVertical) {
+        [view.ff_allItem enumerateObjectsUsingBlock:^(__kindof FFView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.size = CGSizeMake(FFScreenWidth / 2, obj.size.height);
+        }];
         view.layoutDirection = FFContainerViewLayoutDirectionHorizontal;
     } else {
+        
+        [view.ff_allItem enumerateObjectsUsingBlock:^(__kindof FFView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.size = CGSizeMake(FFScreenWidth, obj.size.height);
+        }];
         view.layoutDirection = FFContainerViewLayoutDirectionVertical;
     }
+    
+    [self.scrollItem reloadLayout];
 }
 
 - (void)showJson:(NSString *)json {

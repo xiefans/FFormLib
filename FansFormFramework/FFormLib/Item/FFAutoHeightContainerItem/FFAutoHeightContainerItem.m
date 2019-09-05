@@ -17,6 +17,15 @@
     return self;
 }
 
+- (void)setLayoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    BOOL isChange = layoutDirection != [super layoutDirection];
+    [super setLayoutDirection:layoutDirection];
+    
+    if (isChange) {
+        [self ff_refreshSize];
+    }
+}
+
 - (void)layoutSubviews {
     [self mathHeight];
 }
