@@ -215,7 +215,7 @@
     if (!_tipTitleLb) {
         _tipTitleLb = [[UILabel alloc] init];
         _tipTitleLb.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightMedium];
-        _tipTitleLb.text = ExampleTipTitle;
+        _tipTitleLb.text = SingleDetailExampleTipTitle;
     }
     return _tipTitleLb;
 }
@@ -224,7 +224,7 @@
     if (!_showTitleLb) {
         _showTitleLb = [[UILabel alloc] init];
         _showTitleLb.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightMedium];
-        _showTitleLb.text = ExampleShowTitle;
+        _showTitleLb.text = SingleDetailExampleShowTitle;
     }
     return _showTitleLb;
 }
@@ -233,7 +233,7 @@
     if (!_operationTitleLb) {
         _operationTitleLb = [[UILabel alloc] init];
         _operationTitleLb.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightMedium];
-        _operationTitleLb.text = ExampleOperationTitle;
+        _operationTitleLb.text = SingleDetailExampleOperationTitle;
     }
     return _operationTitleLb;
 }

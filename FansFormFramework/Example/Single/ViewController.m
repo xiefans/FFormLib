@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = FrameworkName;
+    self.title = SingleExampleTitle;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configData];
@@ -80,7 +80,7 @@
         headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"header"];
         headerView.textLabel.numberOfLines = 0;
     }
-    headerView.textLabel.text = @"【tip】所有非容器视图都要添加在容器视图中才可以使用";
+    headerView.textLabel.text = SingleExampleSubTitle;
     
     return headerView;
 }
@@ -90,7 +90,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     SingleModel *model = self.dataSource[indexPath.row];
-    [self.navigationController pushViewController:model.controller animated:YES];
+    UIViewController *vc = model.controller;
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Lazy Load

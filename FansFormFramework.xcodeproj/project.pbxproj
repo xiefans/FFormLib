@@ -12,6 +12,7 @@
 		9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C058322F4762D00763648 /* FFScrollContainerItem.m */; };
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
 		B981FA904958404C1F95AB15 /* libPods-FansFormFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */; };
+		CE15FDE6232114DE001CC5DC /* MainTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15FDE5232114DE001CC5DC /* MainTabbarController.m */; };
 		CE4EB703231DF5BE003E896F /* UINavigationController+FFPuspPop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */; };
 		CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */; };
 		CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F781F22F8176C00A71165 /* FFFormcatSpecificCheck.m */; };
@@ -80,6 +81,8 @@
 		9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoHeightInputItem.m; sourceTree = "<group>"; };
 		9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFConstant.h; sourceTree = "<group>"; };
 		C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FansFormFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE15FDE4232114DE001CC5DC /* MainTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabbarController.h; sourceTree = "<group>"; };
+		CE15FDE5232114DE001CC5DC /* MainTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabbarController.m; sourceTree = "<group>"; };
 		CE4EB701231DF5BE003E896F /* UINavigationController+FFPuspPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FFPuspPop.h"; sourceTree = "<group>"; };
 		CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FFPuspPop.m"; sourceTree = "<group>"; };
 		CE4EB70D231E4321003E896F /* FFMultipleParametersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFMultipleParametersManager.h; sourceTree = "<group>"; };
@@ -258,9 +261,9 @@
 				CE9C2C1E22E55FC4001EDDFD /* FFormLib */,
 				CE9C2BEC22E5571A001EDDFD /* AppDelegate.h */,
 				CE9C2BED22E5571A001EDDFD /* AppDelegate.m */,
+				CE15FDE4232114DE001CC5DC /* MainTabbarController.h */,
+				CE15FDE5232114DE001CC5DC /* MainTabbarController.m */,
 				CEA1CAEA231F5F84002574AC /* FFormLibHeader.h */,
-				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
-				CE9C2BF022E5571A001EDDFD /* ViewController.m */,
 				CE9C2BF222E5571A001EDDFD /* Main.storyboard */,
 				CE9C2BF522E5571A001EDDFD /* Assets.xcassets */,
 				CE9C2BF722E5571A001EDDFD /* LaunchScreen.storyboard */,
@@ -380,6 +383,8 @@
 		CEA1CADF231F4774002574AC /* Single */ = {
 			isa = PBXGroup;
 			children = (
+				CE9C2BEF22E5571A001EDDFD /* ViewController.h */,
+				CE9C2BF022E5571A001EDDFD /* ViewController.m */,
 				CEA1CAE0231F4F44002574AC /* SingleModel.h */,
 				CEA1CAE1231F4F44002574AC /* SingleModel.m */,
 				CEA1CAE4231F5A1B002574AC /* ExampleSingleViewController.h */,
@@ -648,6 +653,7 @@
 				CEA1CAED231F8526002574AC /* FixHeightInputViewController.m in Sources */,
 				CE6F782022F8176C00A71165 /* FFFormcatSpecificCheck.m in Sources */,
 				CED91D3E22F3F7350035DBC4 /* FFFormatCheck.m in Sources */,
+				CE15FDE6232114DE001CC5DC /* MainTabbarController.m in Sources */,
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
 				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
 				CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */,
