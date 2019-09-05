@@ -14,11 +14,6 @@
 @property (nonatomic, strong) UILabel *showTitleLb;
 @property (nonatomic, strong) UILabel *operationTitleLb;
 
-@property (nonatomic, strong) UIButton *showBtn;
-@property (nonatomic, strong) UIButton *editBtn;
-@property (nonatomic, strong) UIButton *mustBtn;
-@property (nonatomic, strong) UIButton *checkBtn;
-
 @end
 
 @implementation ExampleSingleViewController
@@ -72,8 +67,12 @@
     }];
     
     if (res) {
-        [self showTip:@"Success"];
+        [self showJson:self.scrollItem.manager.makeJSONString];
     }
+}
+
+- (void)showJson:(NSString *)json {
+    [self showTip:@"Success"];
 }
 
 - (FFView *)getSingleItem {

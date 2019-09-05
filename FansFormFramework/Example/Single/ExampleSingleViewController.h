@@ -24,11 +24,17 @@
 @property (nonatomic, strong, readonly) UIView *contentView;
 @property (nonatomic, strong, readonly) UIView *bottomView;
 
+@property (nonatomic, strong) UIButton *showBtn;
+@property (nonatomic, strong) UIButton *editBtn;
+@property (nonatomic, strong) UIButton *mustBtn;
+@property (nonatomic, strong) UIButton *checkBtn;
+
 - (void)eventOfShowClick;
 - (void)eventOfEditClick;
 - (void)eventOfMustClick;
 - (void)eventOfCheckClick;
 - (FFView *)getSingleItem;
+- (void)showJson:(NSString *)json;
 
 - (void)showTip:(NSString *)tip;
 

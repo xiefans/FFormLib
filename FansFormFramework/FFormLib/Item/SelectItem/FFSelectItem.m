@@ -130,7 +130,7 @@
     } else {
         self.instructionImageView.frame = CGRectMake(0.f, 0.f, 0.f, 0.f);
     }
-    self.instructionImageView.ff_centerY = self.ff_centerY;
+    self.instructionImageView.ff_centerY = self.ff_halfHeight;
     
     self.contentLb.frame = CGRectMake(
                                      x,

@@ -59,6 +59,11 @@
 }
 
 - (BOOL)checkMustWithErrorComplete:(void(^)(__kindof FFViewManager *obj, NSString *message))errorComplete {
+    
+    if (!self.show) {
+        return YES;
+    }
+    
     __block BOOL ok = YES;
     __weak typeof(self)sself = self;
     [self.subManagers enumerateObjectsUsingBlock:^(__kindof FFViewManager * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

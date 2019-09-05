@@ -23,13 +23,13 @@ typedef struct FFPuspPopDelegateIndicate {
 #pragma mark - Overrides
 + (void)load {
     // 获取系统的对象方法
-    Method setDelegateMethod = class_getInstanceMethod(self, @selector(setDelegate:));
-    
-    // 获取自己定义的对象方法
-    Method ff_setDelegateMethod = class_getInstanceMethod(self, @selector(ff_setDelegate:));
-    
-    // 方法交换
-    method_exchangeImplementations(setDelegateMethod, ff_setDelegateMethod);
+//    Method setDelegateMethod = class_getInstanceMethod(self, @selector(setDelegate:));
+//
+//    // 获取自己定义的对象方法
+//    Method ff_setDelegateMethod = class_getInstanceMethod(self, @selector(ff_setDelegate:));
+//
+//    // 方法交换
+//    method_exchangeImplementations(setDelegateMethod, ff_setDelegateMethod);
 }
 
 #pragma mark - Public Method

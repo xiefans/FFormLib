@@ -168,6 +168,15 @@
     [self.scrollView setContentOffset:offset animated:animation];
 }
 
+- (void)setLayoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    BOOL isChange = layoutDirection != [super layoutDirection];
+    [super setLayoutDirection:layoutDirection];
+    
+    if (isChange) {
+        [self.scrollView setContentOffset:CGPointZero];
+    }
+}
+
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];

@@ -12,6 +12,7 @@
 #import "AutoHeightInputViewController.h"
 #import "SelectItemViewController.h"
 #import "ScrollContainerViewController.h"
+#import "AutoHeightContainerViewController.h"
 
 @implementation SingleModel
 
@@ -110,6 +111,11 @@
             break;
         case SingleModelTypeScrollContainer:{
             ScrollContainerViewController *vc = [ScrollContainerViewController new];
+            exampleController = vc;
+        }
+            break;
+        case SingleModelTypeAutoHeightContainer:{
+            AutoHeightContainerViewController *vc = [AutoHeightContainerViewController new];
             exampleController = vc;
         }
             break;

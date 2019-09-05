@@ -1,23 +1,24 @@
 //
-//  ScrollContainerViewController.m
+//  AutoHeightContainerViewController.m
 //  FansFormFramework
 //
-//  Created by fans on 2019/9/4.
+//  Created by fans on 2019/9/5.
 //  Copyright © 2019 glority-fans. All rights reserved.
 //
 
-#import "ScrollContainerViewController.h"
+#import "AutoHeightContainerViewController.h"
 
 static NSString * const NAME_KEY = @"name";
 static NSString * const PHONE_KEY = @"phone";
 static NSString * const ADDRESS_KEY = @"address";
 static NSString * const RECEIPT_KEY = @"receipt";
 
-@interface ScrollContainerViewController ()
+@interface AutoHeightContainerViewController ()
 
 @end
 
-@implementation ScrollContainerViewController
+@implementation AutoHeightContainerViewController
+
 
 #pragma mark - Overrides
 - (void)viewDidLoad {
@@ -28,12 +29,21 @@ static NSString * const RECEIPT_KEY = @"receipt";
     [self configFormat];
 }
 
+- (FFView *)getSingleItem {
+    return [FFAutoHeightContainerItem formViewWithKey:@"test" layoutDirection:FFContainerViewLayoutDirectionVertical];
+}
+
 #pragma mark - Private Method
 - (void)addUI {
-    [self.scrollItem ff_addItem:[FFInputSingleItem formViewWithKey:NAME_KEY
-                                                             title:@"名称"
-                                                       placeholder:@"请输入名称(3-6)"
-                                                              must:YES]];
+    [self.scrollItem ff_addItem:self.showItem];
+    [self.showItem ff_addItem:[FFAutoHeightInputItem formViewWithKey:NAME_KEY
+                                                               title:@"名称"
+                                                         placeholder:@"请输入名称(3-6)"
+                                                                must:YES]];
+    [self.showItem ff_addItem:[FFAutoHeightInputItem formViewWithKey:@"dz"
+                                                               title:@"对照"
+                                                         placeholder:@"我在autoHeight中"
+                                                                must:NO]];
     
     FFInputSingleItem *phoneItem = [FFInputSingleItem formViewWithKey:PHONE_KEY
                                                                 title:@"手机号"
@@ -61,7 +71,7 @@ static NSString * const RECEIPT_KEY = @"receipt";
 - (void)configFormat {
     [self.scrollItem.manager addFormatCheck:[FFFormcatSpecificCheck formcatCheckWithCheckType:FFFormcatSpecificCheckTypeMobilePhone]
                                      forKey:PHONE_KEY];
-    [self.scrollItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3 maxLength:6]
+    [self.showItem.manager addFormatCheck:[FFFormatLengthCheck formatCheckWithMinLength:3 maxLength:6]
                                      forKey:NAME_KEY];
 }
 
@@ -87,25 +97,18 @@ static NSString * const RECEIPT_KEY = @"receipt";
 }
 
 #pragma mark - Overrides Template Method
-- (void)eventOfShowClick {
-    self.scrollItem.manager.show = !self.scrollItem.manager.isShow;
-}
-
-- (void)eventOfEditClick {
-    self.scrollItem.manager.edit = !self.scrollItem.manager.isEdit;
-}
-
 - (void)eventOfMustClick {
-    
-    if (self.scrollItem.layoutDirection == FFContainerViewLayoutDirectionVertical) {
-        self.scrollItem.layoutDirection = FFContainerViewLayoutDirectionHorizontal;
+    FFContainerView *view = self.showItem;
+    if (view.layoutDirection == FFContainerViewLayoutDirectionVertical) {
+        view.layoutDirection = FFContainerViewLayoutDirectionHorizontal;
     } else {
-        self.scrollItem.layoutDirection = FFContainerViewLayoutDirectionVertical;
+        view.layoutDirection = FFContainerViewLayoutDirectionVertical;
     }
 }
 
 - (void)showJson:(NSString *)json {
     [self showTip:json];
 }
+
 
 @end

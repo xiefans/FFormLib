@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
                 layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
 - (instancetype)initWithKey:(NSString *)key
             layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
-@property (nonatomic, assign, readonly) FFContainerViewLayoutDirection layoutDirection;
+@property (nonatomic, assign) FFContainerViewLayoutDirection layoutDirection;
 
 @property (nonatomic, strong) NSMutableDictionary *map;
 

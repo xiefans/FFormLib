@@ -93,6 +93,13 @@
     return self;
 }
 
+- (void)setLayoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    if (_layoutDirection != layoutDirection) {
+        _layoutDirection = layoutDirection;
+        [self layoutSubviews];
+    }
+}
+
 - (NSArray<FFView *> *)ff_allItem {
     return [self subviews];
 }

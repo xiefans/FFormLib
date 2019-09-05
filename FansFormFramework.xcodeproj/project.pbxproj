@@ -32,6 +32,7 @@
 		CEA1CAED231F8526002574AC /* FixHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEC231F8526002574AC /* FixHeightInputViewController.m */; };
 		CEA1CAF0231F8672002574AC /* AutoHeightInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */; };
 		CEA1CAF3231F895B002574AC /* SelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA1CAF2231F895B002574AC /* SelectItemViewController.m */; };
+		CEAA7F302320E66000B51CFF /* AutoHeightContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAA7F2F2320E66000B51CFF /* AutoHeightContainerViewController.m */; };
 		CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */; };
 		CEB6F22A22F944340096D130 /* FFResourceSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB6F22922F944340096D130 /* FFResourceSupport.m */; };
 		CEB6F24222F947AC0096D130 /* FFResourceImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F24122F947AC0096D130 /* FFResourceImage.bundle */; };
@@ -123,6 +124,8 @@
 		CEA1CAEF231F8672002574AC /* AutoHeightInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoHeightInputViewController.m; sourceTree = "<group>"; };
 		CEA1CAF1231F895B002574AC /* SelectItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectItemViewController.h; sourceTree = "<group>"; };
 		CEA1CAF2231F895B002574AC /* SelectItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectItemViewController.m; sourceTree = "<group>"; };
+		CEAA7F2E2320E66000B51CFF /* AutoHeightContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoHeightContainerViewController.h; sourceTree = "<group>"; };
+		CEAA7F2F2320E66000B51CFF /* AutoHeightContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoHeightContainerViewController.m; sourceTree = "<group>"; };
 		CEB1E19122F00574005BAEA3 /* FFFixHeightInputItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFFixHeightInputItem.h; sourceTree = "<group>"; };
 		CEB1E19222F00574005BAEA3 /* FFFixHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFFixHeightInputItem.m; sourceTree = "<group>"; };
 		CEB6F21E22F922720096D130 /* FFResourceName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFResourceName.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				CEA1CAF2231F895B002574AC /* SelectItemViewController.m */,
 				CEC92B63231FD45100513081 /* ScrollContainerViewController.h */,
 				CEC92B64231FD45100513081 /* ScrollContainerViewController.m */,
+				CEAA7F2E2320E66000B51CFF /* AutoHeightContainerViewController.h */,
+				CEAA7F2F2320E66000B51CFF /* AutoHeightContainerViewController.m */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -654,6 +659,7 @@
 				9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */,
 				CE9C2C4022E5B3F4001EDDFD /* NSString+FansAttributed.m in Sources */,
 				9E06CDE222F0844B002404A2 /* FFScrollContainerItem+KeyboradAdapter.m in Sources */,
+				CEAA7F302320E66000B51CFF /* AutoHeightContainerViewController.m in Sources */,
 				CED91D4122F40B820035DBC4 /* FFFormatLengthCheck.m in Sources */,
 				CEC92B65231FD45100513081 /* ScrollContainerViewController.m in Sources */,
 				CEC743B122E97EBB00C79E6D /* FFContainerManager.m in Sources */,
