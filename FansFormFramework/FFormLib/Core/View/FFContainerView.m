@@ -16,6 +16,18 @@
 
 @implementation FFContainerView
 
++ (instancetype)containerWithKey:(NSString *)key {
+    return [self formViewWithKey:key];
+}
+
++ (instancetype)containerWithManager:(__kindof FFContainerManager *)manager {
+    return [self formViewWithManager:manager];
+}
+
++ (instancetype)containerWithKey:(NSString *)key layoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
+    return [self formViewWithKey:key layoutDirection:layoutDirection];
+}
+
 + (instancetype)formViewWithKey:(NSString *)key layoutDirection:(FFContainerViewLayoutDirection)layoutDirection {
     return [[self alloc] initWithKey:key layoutDirection:layoutDirection];
 }
@@ -31,7 +43,7 @@
     return [self initWithManager:[FFContainerManager managerWithKey:key]];
 }
 
-- (instancetype)initWithManager:(__kindof FFViewManager *)manager {
+- (instancetype)initWithManager:(__kindof FFContainerManager *)manager {
     if (self = [super initWithManager:manager]) {
         manager.viewType = FFViewManagerViewTypeContainer;
         self.paddingInsets = FFContainerViewNormalPadding;

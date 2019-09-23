@@ -12,6 +12,7 @@
 		9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C058322F4762D00763648 /* FFScrollContainerItem.m */; };
 		9EC315A622ED608A00CE8234 /* FFAutoHeightInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */; };
 		B981FA904958404C1F95AB15 /* libPods-FansFormFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */; };
+		CE085D4C2338BF3700DA3E5E /* FFMapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE085D4B2338BF3700DA3E5E /* FFMapItem.m */; };
 		CE15FDE6232114DE001CC5DC /* MainTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE15FDE5232114DE001CC5DC /* MainTabbarController.m */; };
 		CE4EB703231DF5BE003E896F /* UINavigationController+FFPuspPop.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB702231DF5BE003E896F /* UINavigationController+FFPuspPop.m */; };
 		CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4EB70E231E4321003E896F /* FFMultipleParametersManager.m */; };
@@ -81,6 +82,8 @@
 		9EC315A522ED608A00CE8234 /* FFAutoHeightInputItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAutoHeightInputItem.m; sourceTree = "<group>"; };
 		9ECA7C4B22EC7BA300A9B437 /* FFConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFConstant.h; sourceTree = "<group>"; };
 		C015700ECFBA587488672F8E /* libPods-FansFormFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FansFormFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE085D4A2338BF3700DA3E5E /* FFMapItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFMapItem.h; sourceTree = "<group>"; };
+		CE085D4B2338BF3700DA3E5E /* FFMapItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFMapItem.m; sourceTree = "<group>"; };
 		CE15FDE4232114DE001CC5DC /* MainTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabbarController.h; sourceTree = "<group>"; };
 		CE15FDE5232114DE001CC5DC /* MainTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabbarController.m; sourceTree = "<group>"; };
 		CE4EB701231DF5BE003E896F /* UINavigationController+FFPuspPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FFPuspPop.h"; sourceTree = "<group>"; };
@@ -232,6 +235,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CE085D482338BB7600DA3E5E /* CustomItem */ = {
+			isa = PBXGroup;
+			children = (
+				CE085D4A2338BF3700DA3E5E /* FFMapItem.h */,
+				CE085D4B2338BF3700DA3E5E /* FFMapItem.m */,
+			);
+			path = CustomItem;
+			sourceTree = "<group>";
+		};
 		CE9C2BE022E5571A001EDDFD = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +387,7 @@
 		CEA1CADE231F475D002574AC /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				CE085D482338BB7600DA3E5E /* CustomItem */,
 				CEA1CADF231F4774002574AC /* Single */,
 			);
 			path = Example;
@@ -657,6 +670,7 @@
 				CE9C2BFC22E5571A001EDDFD /* main.m in Sources */,
 				CEC743B922E9D05200C79E6D /* FFInputSingleItem.m in Sources */,
 				CE4EB70F231E4321003E896F /* FFMultipleParametersManager.m in Sources */,
+				CE085D4C2338BF3700DA3E5E /* FFMapItem.m in Sources */,
 				9E5C058422F4762D00763648 /* FFScrollContainerItem.m in Sources */,
 				CEA1CAE9231F5B01002574AC /* SingleInputViewController.m in Sources */,
 				CEB1E19322F00574005BAEA3 /* FFFixHeightInputItem.m in Sources */,

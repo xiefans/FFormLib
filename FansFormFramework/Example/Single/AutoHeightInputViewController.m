@@ -27,10 +27,10 @@
 
 #pragma mark - Overrides Template Method
 - (FFView *)getSingleItem {
-    return [FFAutoHeightInputItem formViewWithKey:@"test"
-                                            title:@"备注"
-                                      placeholder:@"请输入备注"
-                                             must:YES];
+    return [FFAutoHeightInputItem inputWithKey:@"test"
+                                         title:@"备注"
+                                   placeholder:@"请输入备注"
+                                          must:YES];
 }
 
 @end

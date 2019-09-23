@@ -30,32 +30,32 @@ static NSString * const RECEIPT_KEY = @"receipt";
 
 #pragma mark - Private Method
 - (void)addUI {
-    [self.scrollItem ff_addItem:[FFInputSingleItem formViewWithKey:NAME_KEY
-                                                             title:@"名称"
-                                                       placeholder:@"请输入名称(3-6)"
-                                                              must:YES]];
+    [self.scrollItem ff_addItem:[FFInputSingleItem inputWithKey:NAME_KEY
+                                                          title:@"名称"
+                                                    placeholder:@"请输入名称(3-6)"
+                                                           must:YES]];
     
-    FFInputSingleItem *phoneItem = [FFInputSingleItem formViewWithKey:PHONE_KEY
-                                                                title:@"手机号"
-                                                          placeholder:@"请输入手机号"
-                                                                 must:YES];
+    FFInputSingleItem *phoneItem = [FFInputSingleItem inputWithKey:PHONE_KEY
+                                                             title:@"手机号"
+                                                       placeholder:@"请输入手机号"
+                                                              must:YES];
     phoneItem.textField.keyboardType = UIKeyboardTypePhonePad;
     [self.scrollItem ff_addItem:phoneItem];
     
     __weak typeof(self)sself = self;
-    [self.scrollItem ff_addItem:[FFSelectItem formViewWithTitle:@"开票"
-                                                    placeholder:@"请选择是否开票"
-                                                           must:NO
-                                                            key:RECEIPT_KEY
-                                                      didAction:^(__kindof FFSelectItem *actionView) {
-                                                          [sself eventOfSelectReceiptWithItem:actionView];
-                                                      }]];
+    [self.scrollItem ff_addItem:[FFSelectItem actionWithTitle:@"开票"
+                                                  placeholder:@"请选择是否开票"
+                                                         must:NO
+                                                          key:RECEIPT_KEY
+                                                    didAction:^(__kindof FFSelectItem *actionView) {
+        [sself eventOfSelectReceiptWithItem:actionView];
+    }]];
     
-    [self.scrollItem ff_addItem:[FFFixHeightInputItem formViewWithKey:ADDRESS_KEY
-                                                                title:@"收货地址"
-                                                          placeholder:@"请输入地址"
-                                                            fixHeight:150.f
-                                                                 must:YES]];
+    [self.scrollItem ff_addItem:[FFFixHeightInputItem inputWithKey:ADDRESS_KEY
+                                                             title:@"收货地址"
+                                                       placeholder:@"请输入地址"
+                                                         fixHeight:150.f
+                                                              must:YES]];
 }
 
 - (void)configFormat {

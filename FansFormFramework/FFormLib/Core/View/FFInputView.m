@@ -10,6 +10,14 @@
 
 @implementation FFInputView
 
++ (instancetype)inputWithKey:(NSString *)key {
+    return [self formViewWithKey:key];
+}
+
++ (instancetype)inputWithManager:(__kindof FFViewManager *)manager {
+    return [self formViewWithManager:manager];
+}
+
 - (instancetype)initWithManager:(__kindof FFViewManager *)manager {
     if (self = [super initWithManager:manager]) {
         manager.viewType = FFViewManagerViewTypeInput;

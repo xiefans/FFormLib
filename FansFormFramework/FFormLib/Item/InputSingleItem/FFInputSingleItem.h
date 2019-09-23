@@ -10,11 +10,11 @@
 
 @interface FFInputSingleItem : FFInputView
 
-+ (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must;
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                           must:(BOOL)must;
++ (instancetype)inputWithKey:(NSString *)key must:(BOOL)must;
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                        must:(BOOL)must;
 
 @property (nonatomic, strong, readonly) UILabel *titleLb;
 @property (nonatomic, strong, readonly) UITextField *textField;

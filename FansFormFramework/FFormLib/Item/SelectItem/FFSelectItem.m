@@ -19,44 +19,44 @@
     [self.contentLb removeObserver:self forKeyPath:@"text"];
 }
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction {
-    return [self formViewWithTitle:title
-                       placeholder:placeholder
-                  instructionImage:[FFResourceSupport blackRightArrowSmallImage]
-                     numberOfLines:0
-                              must:must
-                               key:key
-                         didAction:didAction];
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction {
+    return [self actionWithTitle:title
+                     placeholder:placeholder
+                instructionImage:[FFResourceSupport blackRightArrowSmallImage]
+                   numberOfLines:0
+                            must:must
+                             key:key
+                       didAction:didAction];
 }
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                    numberOfLines:(NSInteger)numberOfLines
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction {
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+                  numberOfLines:(NSInteger)numberOfLines
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction {
     
     
-    return [self formViewWithTitle:title
-                       placeholder:placeholder
-                  instructionImage:[FFResourceSupport blackRightArrowSmallImage]
-                     numberOfLines:numberOfLines
-                              must:must
-                               key:key
-                         didAction:didAction];
+    return [self actionWithTitle:title
+                     placeholder:placeholder
+                instructionImage:[FFResourceSupport blackRightArrowSmallImage]
+                   numberOfLines:numberOfLines
+                            must:must
+                             key:key
+                       didAction:didAction];
 }
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                 instructionImage:(UIImage *)instructionImage
-                    numberOfLines:(NSInteger)numberOfLines
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction {
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+               instructionImage:(UIImage *)instructionImage
+                  numberOfLines:(NSInteger)numberOfLines
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction {
     FFSelectItem *selectView = [[FFSelectItem alloc] initWithKey:key];
     selectView.manager.title = title;
     selectView.placeholderLb.text = placeholder;

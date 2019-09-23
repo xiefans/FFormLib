@@ -10,26 +10,26 @@
 
 @interface FFSelectItem : FFActionView
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                 instructionImage:(UIImage *)instructionImage
-                    numberOfLines:(NSInteger)numberOfLines
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction;
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+               instructionImage:(UIImage *)instructionImage
+                  numberOfLines:(NSInteger)numberOfLines
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction;
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                    numberOfLines:(NSInteger)numberOfLines
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction;
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+                  numberOfLines:(NSInteger)numberOfLines
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction;
 
-+ (instancetype)formViewWithTitle:(NSString *)title
-                      placeholder:(NSString *)placeholder
-                             must:(BOOL)must
-                              key:(NSString *)key
-                        didAction:(FFActionViewDidAction)didAction;
++ (instancetype)actionWithTitle:(NSString *)title
+                    placeholder:(NSString *)placeholder
+                           must:(BOOL)must
+                            key:(NSString *)key
+                      didAction:(FFActionViewDidAction)didAction;
 
 @property (nonatomic, strong) UILabel *titleLb;
 @property (nonatomic, strong) UILabel *placeholderLb;

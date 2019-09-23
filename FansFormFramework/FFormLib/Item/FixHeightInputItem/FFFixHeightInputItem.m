@@ -124,22 +124,22 @@
 
 #pragma mark - Public Method
 
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                           must:(BOOL)must {
-    return [self formViewWithKey:key
-                           title:title
-                     placeholder:placeholder
-                       fixHeight:0.f
-                            must:must];
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                        must:(BOOL)must {
+    return [self inputWithKey:key
+                        title:title
+                  placeholder:placeholder
+                    fixHeight:0.f
+                         must:must];
 }
 
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                      fixHeight:(CGFloat)fixHeight
-                           must:(BOOL)must {
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                   fixHeight:(CGFloat)fixHeight
+                        must:(BOOL)must {
     FFFixHeightInputItem *item = [self formViewWithKey:key];
     item.manager.title = title;
     item.manager.must = must;

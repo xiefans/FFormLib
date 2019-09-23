@@ -9,12 +9,12 @@
 #import "FFFormatCheck.h"
 
 typedef NS_ENUM(NSInteger , FFFormcatSpecificCheckType) {
-    FFFormcatSpecificCheckTypeEmail, /**< 验证邮箱格式 */
-    FFFormcatSpecificCheckTypePhone, /**< 验证电话格式（手机 | 固话） */
-    FFFormcatSpecificCheckTypeMobilePhone, /**< 验证手机号码 */
-    FFFormcatSpecificCheckTypeHomePhone, /**< 验证家庭电话 */
-    FFFormcatSpecificCheckTypeIdentityCard, /**< 验证身份证格式 */
-    FFFormcatSpecificCheckTypeCarNo, /**< 验证车牌号格式 */
+    FFFormcatSpecificCheckTypeEmail,            /**< 验证邮箱格式 */
+    FFFormcatSpecificCheckTypePhone,            /**< 验证电话格式（手机 | 固话） */
+    FFFormcatSpecificCheckTypeMobilePhone,      /**< 验证手机号码 */
+    FFFormcatSpecificCheckTypeHomePhone,        /**< 验证家庭电话 */
+    FFFormcatSpecificCheckTypeIdentityCard,     /**< 验证身份证格式 */
+    FFFormcatSpecificCheckTypeCarNo,            /**< 验证车牌号格式 */
 };
 
 @interface FFFormcatSpecificCheck : FFFormatCheck

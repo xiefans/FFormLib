@@ -34,8 +34,8 @@
     if (item == nil) {
         item = [[FFMultipleParametersManagerItem alloc] init];
         [self.parameters setObject:item forKey:key];
+        item.key = key;
     }
-    item.key = key;
     item.must = must;
 }
 
@@ -86,7 +86,8 @@
     
     BOOL res = YES;
     for (FFMultipleParametersManagerItem *item in self.parameters.allValues) {
-        if (item.must && !item.value) {
+        id value = [self excuteWillGetValue:item.value withKey:item.key];
+        if (item.must && !value) {
             res = NO;
             break;
         }

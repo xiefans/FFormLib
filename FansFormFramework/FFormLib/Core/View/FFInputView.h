@@ -13,6 +13,9 @@ typedef BOOL(^FFInputViewShouldBeginEditingBlock)(__kindof FFInputView *inputVie
 typedef void(^FFInputViewDidEndEditingBlock)(__kindof FFInputView *inputView);
 @interface FFInputView : FFView
 
++ (instancetype)inputWithKey:(NSString *)key;
++ (instancetype)inputWithManager:(__kindof FFViewManager *)manager;
+
 @property (nonatomic, copy) FFInputViewShouldBeginEditingBlock shouldBeginEditing;
 @property (nonatomic, copy) FFInputViewDidEndEditingBlock didEndEditing;
 

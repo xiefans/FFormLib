@@ -28,11 +28,11 @@
 
 #pragma mark - Overrides Template Method
 - (FFView *)getSingleItem {
-    return [FFFixHeightInputItem formViewWithKey:@"test"
-                                           title:@"地址"
-                                     placeholder:@"请输入地址"
-                                       fixHeight:150.f
-                                            must:YES];
+    return [FFFixHeightInputItem inputWithKey:@"test"
+                                        title:@"地址"
+                                  placeholder:@"请输入地址"
+                                    fixHeight:150.f
+                                         must:YES];
 }
 
 @end

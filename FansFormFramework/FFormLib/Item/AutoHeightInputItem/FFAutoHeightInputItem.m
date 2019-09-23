@@ -23,10 +23,10 @@
 @synthesize titleWidth = _titleWidth;
 @synthesize mustLb = _mustLb;
 
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                           must:(BOOL)must {
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                        must:(BOOL)must {
     FFAutoHeightInputItem *item = [self formViewWithKey:key];
     item.manager.title = title;
     item.placeholderLb.text = placeholder;

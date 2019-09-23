@@ -25,10 +25,10 @@
 
 #pragma mark - Overrides Template Method
 - (FFView *)getSingleItem {
-    return [FFInputSingleItem formViewWithKey:@"test"
-                                        title:@"名称"
-                                  placeholder:@"请输入名称"
-                                         must:YES];
+    return [FFInputSingleItem inputWithKey:@"test"
+                                     title:@"名称"
+                               placeholder:@"请输入名称"
+                                      must:YES];
 }
 
 @end

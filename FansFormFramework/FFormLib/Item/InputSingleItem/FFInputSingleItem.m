@@ -18,14 +18,14 @@
 @synthesize titleWidth = _titleWidth;
 @synthesize mustLb = _mustLb;
 
-+ (instancetype)formViewWithKey:(NSString *)key must:(BOOL)must {
-    return [self formViewWithKey:key title:nil placeholder:nil must:must];
++ (instancetype)inputWithKey:(NSString *)key must:(BOOL)must {
+    return [self inputWithKey:key title:nil placeholder:nil must:must];
 }
 
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                           must:(BOOL)must {
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                        must:(BOOL)must {
     FFInputSingleItem *view = [self formViewWithKey:key];
     view.manager.must = must;
     view.manager.title = title;

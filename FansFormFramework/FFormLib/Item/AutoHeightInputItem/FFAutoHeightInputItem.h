@@ -10,10 +10,10 @@
 
 @interface FFAutoHeightInputItem : FFInputView
 
-+ (instancetype)formViewWithKey:(NSString *)key
-                          title:(NSString *)title
-                    placeholder:(NSString *)placeholder
-                           must:(BOOL)must;
++ (instancetype)inputWithKey:(NSString *)key
+                       title:(NSString *)title
+                 placeholder:(NSString *)placeholder
+                        must:(BOOL)must;
 
 @property (nonatomic, strong, readonly) UILabel *titleLb;
 @property (nonatomic, strong, readonly) UITextView *textView;

@@ -10,6 +10,18 @@
 
 @implementation FFActionView
 
++ (instancetype)actionWithKey:(NSString *)key {
+    return [self formViewWithKey:key];
+}
+
++ (instancetype)actionWithManager:(__kindof FFViewManager *)manager {
+    return [self formViewWithManager:manager];
+}
+
++ (instancetype)actionWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction {
+    return [self formViewWithKey:key didAction:didAction];
+}
+
 + (instancetype)formViewWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction {
     return [[self alloc] initWithKey:key didAction:didAction];
 }

@@ -12,6 +12,10 @@
 typedef void(^FFActionViewDidAction)(__kindof FFActionView *actionView);
 @interface FFActionView : FFView
 
++ (instancetype)actionWithKey:(NSString *)key;
++ (instancetype)actionWithManager:(__kindof FFViewManager *)manager;
++ (instancetype)actionWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction;
+
 + (instancetype)formViewWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction;
 - (instancetype)initWithKey:(NSString *)key didAction:(FFActionViewDidAction)didAction;
 

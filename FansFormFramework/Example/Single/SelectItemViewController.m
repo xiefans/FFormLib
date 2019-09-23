@@ -30,14 +30,14 @@
 #pragma mark - Overrides Template Method
 - (FFView *)getSingleItem {
     __weak typeof(self)sself = self;
-    return [FFSelectItem formViewWithTitle:@"性别"
-                               placeholder:@"请选择性别"
-                                      must:YES
-                                       key:@"test"
-                                 didAction:^(__kindof FFActionView *actionView){
-                                     
-                                     [sself eventOfSelectForManager:actionView.manager];
-                                 }];
+    return [FFSelectItem actionWithTitle:@"性别"
+                             placeholder:@"请选择性别"
+                                    must:YES
+                                     key:@"test"
+                               didAction:^(__kindof FFActionView *actionView){
+        
+        [sself eventOfSelectForManager:actionView.manager];
+    }];
 }
 
 #pragma mark - Actions

@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger , FFContainerViewLayoutDirection) {
 /* 默认的容器类 */
 @interface FFContainerView : FFView
 
++ (instancetype)containerWithKey:(NSString *)key;
++ (instancetype)containerWithManager:(__kindof FFContainerManager *)manager;
++ (instancetype)containerWithKey:(NSString *)key
+                     layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
+
 + (instancetype)formViewWithKey:(NSString *)key
                 layoutDirection:(FFContainerViewLayoutDirection)layoutDirection;
 - (instancetype)initWithKey:(NSString *)key
